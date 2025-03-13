@@ -1,0 +1,532 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Value Mints - Mobile NFT Marketplace">
+    <meta name="author" content="Themeland">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#09080D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Value Mints - Mobile NFT Marketplace</title>
+
+    <!-- Favicon-->
+    <link rel="icon" href="../../../public/assets/img/icons/icon-72x72.png">
+
+    <!-- Apple Touch Icon-->
+    <link rel="apple-touch-icon" href="../../../public/assets/img/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../../public/assets/img/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="../../../public/assets/img/icons/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../public/assets/img/icons/icon-180x180.png">
+
+    <!-- ***** All CSS Files ***** --> 
+
+    
+    <!-- ***** All CSS Files ***** --> 
+
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/porto/vendor/bootstrap/css/bootstrap.css') }}">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', path='cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/tab.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/miniinvestdash.css') }}">
+    
+
+
+    
+
+
+
+
+    <!-- Web App Manifest-->
+    <link rel="manifest" href="https://demo8.codesremedy.com.ng/public/assets/frontend/manifest.json">
+</head>
+
+<body>
+
+
+
+ <!--====== Preloader Area Start ======-->
+       <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!--====== Preloader Area End ======-->
+<div class="main">
+    <div id="header" class="header-area">
+            <div class="container d-flex justify-content-between align-items-center h-100">
+                <!-- Logo Wrapper -->
+                <div class="logo-wrapper">
+                    <a href="https://demo8.codesremedy.com.ng/home">
+                        <img src="../../../public/assets/img/logo/logo.png" alt="">
+                    </a>
+                </div>
+                <!-- Search Form -->
+                <div class="search-form">
+                    <form action="#" method="">
+                        <input class="form-control" type="search" placeholder="Enter your keyword">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- Navbar Toggler-->
+                <div class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#netseaOffcanvas" aria-controls="netseaOffcanvas">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+                <!--====== Preloader Area End ======-->
+        <div class="offcanvas offcanvas-start netsea-offcanvas-wrap" tabindex="-1" id="netseaOffcanvas" aria-labelledby="netseaOffcanvasLabel">
+            <!-- Close Button -->
+            <button class="btn-close btn-close-white text-reset" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <!-- Offcanvas Body -->
+            <div class="offcanvas-body">
+                <!-- Sidenav Profile -->
+                <div class="sidenav-profile text-center pt-5 px-3">
+                    <!-- Profile Thumb -->
+                    <div class="profile-thumb d-inline-block"> 
+                        <img class="avatar-lg rounded-circle" src="../../../public/assets/uploads/photos/default.jpg" alt="">
+                    </div>
+                    <!-- Profile Info -->
+                    <div class="profile-info">
+                        <h5 class="mb-1">Login/Register</h5>
+                    </div>
+                </div>
+                <!-- Sidenav Nav -->
+                <ul class="sidenav-nav ps-0">
+                    <!--<li><a href="https://demo8.codesremedy.com.ng/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>-->
+                    
+                    <!--<li><a href="https://demo8.codesremedy.com.ng/nft-trade"><i class="icon-support"></i>NFT Trade</a></li>-->
+                    
+
+                    <li><a href="https://demo8.codesremedy.com.ng/explore"><i class="icon-grid"></i>Explore</a>
+                    </li>
+                    <li><a href="https://demo8.codesremedy.com.ng/terms"><i class="icon-support"></i>Terms of Service</a></li>
+                    <!--<li><a href="https://demo8.codesremedy.com.ng/authors"><i class="icon-support"></i>Collections</a></li>-->
+                    <li><a href="https://demo8.codesremedy.com.ng/login"><i class="icon-login"></i>Login</a></li>
+                    <li><a href="https://demo8.codesremedy.com.ng/register"><i class="icon-user"></i>Signup</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- ***** Header End ***** -->
+</div>
+
+        
+        
+    
+
+
+
+
+
+
+        <!-- ***** Header End ***** -->
+        
+<style>
+    .itemdetailcard .itemdetailcard-img-top {
+        border-radius: 6px;
+        height: 200px !important;
+    }
+    
+    .modal-dialog {
+        max-width: 500px !important;
+        
+    }
+
+@media  only screen and (max-width: 770px ) {
+
+    .itemdetailcard .itemdetailcard-img-top{
+
+        height: 150px !important;
+
+    }
+
+} 
+
+.currency-icon {
+height: 2rem !important;
+width: 2rem !important;
+}   
+
+</style>       <!-- ***** Page Wrapper Start ***** -->
+        <div class="page-wrapper">
+
+            <!-- ***** Item Details Area Start ***** -->
+            <section class="item-details-area">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-lg-5">
+                            <div class="item-info">
+                                <div class="item-thumb text-center">
+                                    
+                                    <img class="itemdetailcard itemdetailcard-img-top" src="http://127.0.0.1:8000/{{nft.image}}" alt="">                                    
+                                </div>
+                                <div class="countdown text-center no-hover my-4">
+                                    <style>
+                                        .countdown {
+                                            /* padding: 5px; */
+                                            background: linear-gradient(130.35deg, #0548a1 17.35%, #0548a1 78.23%);
+                                            border-radius: 5px;
+                                            /* background: #16151A; */
+                                            font-size: 20px;
+                                            font-weight: 600;
+                                            color: #fff;
+                                            margin-right: 40px;
+                                            width: 100%;
+                                        }        
+                                    </style>                                    
+                                                                        <span class="js-countdown" data-timer="591407" data-labels="  :  ,  : ,  : ,  ">
+                                    </span>
+                                     
+                                </div>                                
+                                
+                                <!-- Netsea Tab -->
+                                <ul class="netsea-tab nav nav-tabs" id="nav-tab">
+                                    <li>
+                                        <a class="active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home">
+                                            <h5 class="m-0">Bids</h5>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile">
+                                            <h5 class="m-0">History</h5>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        
+                                    </li>
+                                </ul>
+                                <!-- Tab Content -->
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="nav-home">
+                                        <ul class="list-unstyled">
+                                            <!-- Single Tab List -->
+                                            
+                                            {% for bid in bids %}
+                                            
+                                            <li class="single-tab-list d-flex align-items-center">
+<img class="avatar-sm rounded-circle me-3"
+src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1652466870.jpg"
+alt="1652466870.jpg">                                                  
+<p class="m-0">Bid listed for <strong>{{bid.amount}} ETH</strong> {{bid.timestamp}} by <a href="#">{{bid.user.wallet_profile}}</a></p>
+
+{% endfor %}
+                                                                                        <!-- Single Tab List -->
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-profile">
+                                        <ul class="list-unstyled">
+                                            <!-- Single Tab List -->
+                                           
+                                                                                                                                    
+                                            <li class="single-tab-list d-flex align-items-center">
+                                                <img class="avatar-sm rounded-circle me-3" src="../../../public/assets/uploads/products/1653622993.png" alt="1653622993.png">                                                  
+                                                <p class="m-0">Transfer from <strong>0xe6caa7d247baace</strong> 
+                                                    to <a href="#">0x8b09dc77e09b2e7...</a></p>
+                                            </li>
+                                                                                                                                    
+                                            <li class="single-tab-list d-flex align-items-center">
+                                                <img class="avatar-sm rounded-circle me-3" src="../../../public/assets/uploads/products/1653622993.png" alt="1653622993.png">                                                  
+                                                <p class="m-0">Sale from <strong>0x975869ca56fd801</strong> 
+                                                    to <a href="#">0x9a4b3ecd5928074...</a></p>
+                                            </li>
+                                                                                                                                    
+                                            <li class="single-tab-list d-flex align-items-center">
+                                                <img class="avatar-sm rounded-circle me-3" src="../../../public/assets/uploads/products/1653622993.png" alt="1653622993.png">                                                  
+                                                <p class="m-0">Transfer from <strong>0xc7580a5516ff0d3</strong> 
+                                                    to <a href="#">0xa64405fcf3acab2...</a></p>
+                                            </li>
+                                                                                                                                    
+                                            <li class="single-tab-list d-flex align-items-center">
+                                                <img class="avatar-sm rounded-circle me-3" src="../../../public/assets/uploads/products/1653622993.png" alt="1653622993.png">                                                  
+                                                <p class="m-0">Sale from <strong>0x237f32f38024269</strong> 
+                                                    to <a href="#">0x6dfbaecacd0e36a...</a></p>
+                                            </li>
+                                                                                                                                    
+                                            <li class="single-tab-list d-flex align-items-center">
+                                                <img class="avatar-sm rounded-circle me-3" src="../../../public/assets/uploads/products/1653622993.png" alt="1653622993.png">                                                  
+                                                <p class="m-0">Sale from <strong>0x0f0ce1bf754b3b7</strong> 
+                                                    to <a href="#">0xb111ccc80af29c1...</a></p>
+                                            </li>
+                                            
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <!-- Content -->
+                            <div class="content mt-4 mt-lg-0">
+                                <h3 class="m-0">{{nft.name}} #{{nft.p_number}}</h3>
+                                <p>{{nft.discription}}</p>
+                                <!-- Owner -->
+                                <div class="owner d-flex align-items-center">
+                                    <span>Network</span>
+                                    <a class="owner-meta d-flex align-items-center ms-3" href="#">
+                                        <img class="avatar-sm rounded-circle" src="../../../public/assets/img/icons/Ethereum.png" alt="Ethereum">            
+                                        <h6 class="ms-2">{{nft.network}}</h6>
+                                    </a>
+                                </div>
+                                <!-- Item Info List -->
+                                <div class="item-info-list mt-4">
+                                    <ul class="list-unstyled">
+                                        <li class="price d-flex justify-content-between">
+                                            <h3>Current Price {{nft.current_price}} ETH</h3>
+                                            <span>1 of 1</span>
+                                        </li>
+                                        <li>
+                                            <span>Availability:</span>
+                                          
+                                            <span>{{nft.availability}}</span>
+                                           
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="row items">
+                                    <div class="col-12 col-md-6 item px-lg-2">
+                                        <div class="card no-hover">
+                                            <div class="single-seller d-flex align-items-center">
+                                                <a href="#">
+                                                                                                        <img class="avatar-md rounded-circle" src="../../../public/assets/uploads/photos/dezeeee6789a.jpeg" alt="dezeeee6789a.jpeg">
+                                                                                                         
+                                                    
+                                                </a>
+                                                <!-- Seller Info -->
+                                                <div class="seller-info ms-3">
+                                                    <a class="seller mb-2" href="#">@{{nft.collection.user.username}}</a>
+                                                    <span>Owned by</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="col-12 item px-lg-2">
+                                        <div class="card no-hover">
+                                            <h4 class="mt-0 mb-2">Highest Bid</h4>
+                                            <div class="price d-flex justify-content-between align-items-center">
+                                                <span>{{nft.current_price}} ETH</span>
+                                                <span>1 of 5</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                                     <a class="d-block btn btn-bordered mt-4" href="https://demo8.codesremedy.com.ng/wallet-connect">Place a Bid</a>
+                                    <button class="d-block btn btn-bordered mt-4 col-md-12" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy Now</button>
+                                                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-md modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm Payment</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to proceed with the payment?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <form action="https://demo8.codesremedy.com.ng/user/complete-payment/97" method="POST">
+                                    <input type="hidden" name="_token" value="kRmFw26yItoCAo3t9ClQ7Jt6TDjr7cA6KwY2R9lx">                            <button type="submit" class="btn btn-primary">Yes! Complete Payment</button>
+                                                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                </div>
+            </section>
+            <!-- ***** Item Details Area End ***** -->
+
+            <!-- ***** Live Auctions Area Start ***** -->
+            <section class="live-auctions-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Intro -->
+                            <div class="intro d-flex justify-content-between align-items-end m-0">
+                                <div class="intro-content">
+                                    <span>Auctions</span>
+                                    <h3 class="mt-2 mb-0">Live Auctions</h3>
+                                </div>
+                                <div class="intro-btn">
+                                    <a class="btn content-btn" href="https://demo8.codesremedy.com.ng/explore">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <style>
+                    .homecard .homecard-img-top {
+                        border-radius: 6px;
+                        height: 200px !important;
+                    }
+
+                @media  only screen and (max-width: 770px ) {
+
+                    .homecard .homecard-img-top{
+
+                        height: 150px !important;
+
+                    }
+
+                } 
+
+
+                .homecollectioncard .homecollectioncard-img-top {
+                        border-radius: 6px;
+                        height: 200px !important;
+                    }
+
+                @media  only screen and (max-width: 770px ) {
+
+                    .homecollectioncard .homecollectioncard-img-top{
+
+                        height: 150px !important;
+
+                    }
+
+                }                 
+                
+                .currency-icon {
+                height: 2rem !important;
+                width: 2rem !important;
+                }   
+
+                </style>
+
+                    <div class="auctions-slides">
+                        <div class="swiper-container slider-min items">
+                            <div class="swiper-wrapper">
+                                
+                                {% for nft in nftlive %}
+                                <div class="swiper-slide item">
+                                    <div class="card homecard">
+                                        <div class="image-over">
+                                            <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/119">
+                                                <img class="card-img-top homecard-img-top" src="http://127.0.0.1:8000/{{nft.image}}" alt="http://127.0.0.1/{{nft.image}}">
+                                            </a>
+                                        </div>
+                                        <!-- Card Caption -->
+                                        <div class="card-caption col-12 p-0">
+                                            <!-- Card Body -->
+                                            <div class="card-body">
+                                                <div class="countdown-times mb-3">
+                                                    <div class='countdown d-flex justify-content-center' data-date="2025-12-09"></div>
+                                                </div>
+                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/119">
+                                                    <h5 class="mb-0">{{nft.name}}</h5>
+                                                </a>
+
+                                                                                                <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/119">
+                                                <img class="avatar-sm rounded-circle"
+                                                    src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/dezeeee6789a.jpeg"
+                                                    alt="dezeeee6789a.jpeg">
+                                                                                                
+                                                
+                                                    <span class="ms-2">@{{nft.collection.user.username}}</span>
+                                                </a>
+                                                <div class="card-bottom d-flex justify-content-between">
+                                                    <span>{{nft.current_price}} ETH</span>
+                                                    <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}" ></span>
+                                                </div>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                               
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ***** Live Auctions Area End ***** -->
+            
+        </div>
+        <!-- ***** Page Wrapper End ***** -->
+
+  
+<footer>
+        <!-- ***** Footer Nav Area Start ***** -->
+        <div id="footer" class="footer-nav-area">
+            <div class="container h-100 px-0">
+                <div class="netsea-footer-nav h-100">
+                    <ul class="d-flex justify-content-between align-items-center h-100 ps-0">
+                        <li class="active"><a href="https://demo8.codesremedy.com.ng/home"><i class="icon-home"></i>Home</a></li>
+                        <li><a href="https://demo8.codesremedy.com.ng/support"><i class="icon-support"></i>Support</a></li>
+                        <li><a href="https://demo8.codesremedy.com.ng/login"><i class="icon-wallet"></i>Wallet</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Footer Nav Area End ***** -->
+</footer>        
+        
+    <!-- ***** All jQuery Plugins ***** -->
+
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/jquery.min.js') }}"></script>
+    
+
+    <!-- Bootstrap js -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/popper.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/bootstrap.min.js') }}"></script>
+    
+
+    <!-- Plugins js -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/all.min.js') }}"></script>
+
+    
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/slider.min.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/count-down.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/shuffle.min.js') }}"></script>
+
+     <!-- Active js -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/main.js') }}"></script>
+    <script src=" {{ url_for('static', path='public/assets/frontend/js/pwa.js') }}"></script>
+    {{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}
+    <script src="{{ url_for('static', path='public/assets/frontend/js/tab.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/yieldmodal.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/paycountdown.js') }}"></script>
+    <script src="{{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}"></script> 
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('img').lazyload();
+
+        });
+
+    </script>
+    
+
+
+
+
+
+</body></html>

