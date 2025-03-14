@@ -47,6 +47,7 @@ class User(SQLModel, table=True):
 
     collection: List["Collection"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     bids: List["Bid"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
+    deposits: List["Deposit"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     
     model_config = ConfigDict(arbitrary_types_allowed=True)
     
@@ -110,6 +111,20 @@ class Setting(SQLModel, table=True):
     gas: float = Field(default=0.2)
     wallet_address: str = Field(default="Ox776jhdndjhdndm")
 
+
+
+class Deposit(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    amount: float 
+    proof: FileType = Field(sa_column=Column(FileType(storage=storage)))
+    reference: str = Field(nullable=True)
+    user_id: int = Field(foreign_key="user.id")
+
+
+    user: User = Relationship(back_populates="deposits")
+
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
 
 

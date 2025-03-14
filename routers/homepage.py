@@ -1,10 +1,10 @@
 from fastapi.responses import HTMLResponse
-from fastapi import APIRouter, Request, status, Form, UploadFile, File
+from fastapi import APIRouter, Request, status, Form, UploadFile, File, Depends
 from typing import Annotated, Optional
 from utils import db_dependency
 from fastapi.templating import Jinja2Templates
 from sqlmodel import select
-from models import User, NFT, Bid, Wallet, Collection, Setting
+from models import User, NFT, Bid, Wallet, Collection, Setting, Deposit
 from fastapi.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
 from utils import hash_password, verify_password
@@ -15,6 +15,14 @@ from utils import hash_password, verify_password
 router = APIRouter(prefix='',tags=['Home'])
 
 templates = Jinja2Templates(directory="templates")
+
+
+
+
+
+
+
+
 
 
 @router.get("/cre", response_class=HTMLResponse)
@@ -305,3 +313,100 @@ def register(
 
     return templates.TemplateResponse(
         request=request, name="profile.html",context= {"request": request, "user": user, "nfts": nfts, "nfts_count": nfts_count, "total_price": total_price})
+
+
+
+@router.get("/deposit/amount")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="deposit-amount-view.html",context= {"request": request, "user": user})
+
+
+
+
+@router.post("/deposit/amount/confirm")
+def register(
+    request: Request,
+    db: db_dependency,
+    amount: str = Form(...),
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+    settings = db.exec(select(Setting).where(Setting.id == 1)).first()
+    wallet = settings.wallet_address
+    request.session["amount"] = amount
+
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="deposit-amount-confirm.html",context= {"request": request, "user": user, "wallet": wallet, "amount": amount})
+
+
+
+@router.get("/deposit/submit")
+def register(
+    request: Request,
+    db: db_dependency,
+    
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+    amount = request.session.get("amount")
+
+    settings = db.exec(select(Setting).where(Setting.id == 1)).first()
+    wallet = settings.wallet_address
+
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="deposit-submit.html",context= {"request": request, "user": user, "amount": amount})
+
+
+
+
+@router.post("/deposit/complete")
+def register(
+    request: Request,
+    db: db_dependency,
+    proof: UploadFile =File(...),
+    reference: str = Form(...),
+    
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+    amount = request.session.get("amount")
+
+
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    new_deposit = Deposit(amount=amount, proof=proof, reference=reference, user_id=user_id)
+
+    db.add(new_deposit)
+    db.commit()
+    db.refresh(new_deposit)
+
+
+    return templates.TemplateResponse(
+        request=request, name="deposit-complete.html",context= {"request": request, "user": user, "amount": amount})
+

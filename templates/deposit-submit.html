@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+    
+            
+            
+        
+{% block content %}
+    
+    
+    
+    
+            <!-- ***** Header End ***** -->
+            
+            <!-- ***** Page Wrapper Start ***** -->
+            <div class="page-wrapper">
+    <style>
+        .submit-icon {
+        height: 2rem !important;
+        width: 2rem !important;
+        }
+    </style>
+                <!-- ***** Settings Area Start ***** -->
+                <section class="settings-area ">
+                    <div class="container">
+                        <div class="row justify-content-center items">
+                            <div class="col-12 col-md-8 col-lg-7">
+    
+                                <div class="intro text-center">
+                                    <span>Deposit</span>
+                                    <h3 class="mt-2 mb-0">Submit Payment</h3>
+                                </div>   
+                            </div>                        
+                        </div>
+                        
+                        <form method="POST" enctype="multipart/form-data" action="/deposit/complete">
+                            <input type="hidden" name="_token" value="qC09eMtx1KbcdgbVmSvp3Z68nQLWrxEVcVV0aJbk">                                                    
+                        <div class="row justify-content-center items">
+                            <div class="col-md-6 item">
+                                <!-- Settings Card -->
+                                <div class="card settings-card no-hover">
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                            <!-- Card Info -->
+                                            <div class="card-info">
+                                                <span>Deposit Amount:</span>
+                                            </div>
+                                            <!-- Card Content -->
+                                            <div class="card-content">
+    
+                                            <span>{{amount}} ETH</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+    
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                            <!-- Card Info -->
+                                            <div class="card-info">
+                                                <span>Curreny:</span>
+                                            </div>
+                                            <!-- Card Content -->
+                                            <div class="card-content">
+                                                <img class="submit-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/eth.png" alt="eth.png"> 
+                                            <span>Ethereum</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                            <!-- Card Info -->
+                                            <div class="card-info">
+                                                <span>Equivalent:</span>
+                                            </div>
+                                            <!-- Card Content -->
+                                            <div class="card-content">
+    
+                                            <span>{{amount}} ETH</span>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="text-center">
+                                            <h4 class="mt-2 mb-0">Upload Proof</h4>
+                                        </div> 
+                                    </div>
+    
+                                    
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                            <!-- Card Info -->
+                                            
+                                                <input name="proof" class="form-control" type="file" id="formFile" required="">
+                                                
+                                            
+                                        </div>                                    
+                                    </div> 
+                                    
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                            <!-- Card Info -->
+                                            
+                                                <input name="reference" placeholder="Enter transaction reference (optional)" class="form-control" type="text" id="formFile">
+                                                
+                                            
+                                        </div>                                    
+                                    </div>
+    
+                                    <div class="card settings-card no-hover">
+                                        <!-- Single Card -->
+                                        <div class="text-center">
+                                            <button class="btn btn-bordered w-50" type="submit">Submit</button>
+                                        </div> 
+                                    </div>
+                                    
+            
+                                    <input type="hidden" id="amount" name="converted" value="{{amount}}">
+                                    <input type="hidden" id="amount" name="amount" value="{{amount}}">
+                                    <input type="hidden" id="amount" name="icon" value="eth.png">                                
+    
+                                    </div>
+                                </div>                                    
+                            </div>                                        
+                        </form>
+                        </div>
+                    </section></div>
+                
+                <!-- ***** Settings Area End ***** -->
+    
+     
+     
+     {% endblock %}

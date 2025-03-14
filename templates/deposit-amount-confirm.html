@@ -1,0 +1,113 @@
+
+{% extends "base.html" %}
+
+    
+            
+            
+        
+{% block content %}  
+    
+            
+            
+        
+    
+    
+    
+    
+    
+    
+            <!-- ***** Header End ***** -->
+            
+            <!-- ***** Page Wrapper Start ***** -->
+            <div class="page-wrapper">
+    <style>
+        .confirm-icon {
+        height: 5rem !important;
+        width: 5rem !important;
+        }
+    </style>
+                <!-- ***** Settings Area Start ***** -->
+                <section class="settings-area ">
+                    <div class="container">
+                        <div class="row justify-content-center items">
+                            <div class="col-12 col-md-8 col-lg-7">
+    
+                                <div class="intro text-center">
+                                    <span>Deposit</span>
+                                    <h3 class="mt-2 mb-0">Make Payment</h3>
+                                </div>   
+                            </div>                        
+                        </div>                    
+                        <div class="row justify-content-center items">
+                            <div class="col-md-6 item">
+                                <!-- Settings Card -->
+                                <div class="card settings-card no-hover">
+                                    <!-- Single Card -->
+    
+                                    
+                                    <div class="intro text-center">
+                                        
+                                        <h3 class="mt-2 mb-0">Amount: {{amount}} ETH</h3>
+                                        
+    
+                                        <p>Copy address or scan QRCode to make payment.</p>
+                                        
+    
+                                        
+                                        <a rel="nofollow" href="https://www.qr-code-generator.com" border="0" style="cursor:default"><img src="https://chart.googleapis.com/chart?cht=qr&amp;chl=0x5a7Bd223477F431596b8d23a22cFF18DB614e9cF&amp;chs=200x200&amp;choe=UTF-8&amp;chld=L|2" alt=""></a>                                        
+    
+    
+                                        
+    
+                                    </div>
+                                        <div class="input-group">
+                                            <input id="address" type="text" class="form-control" value="{{wallet}}" readonly="">
+                                            
+                                               <button class="btn btn-bordered" onclick="copyAddress()"><i class="icon-docs"></i></button>
+                                            
+                                        </div>
+                                    
+                                </div>                                    
+                                </div>
+                            </div>                                            
+                        
+    
+                            <form method="get" enctype="multipart/form-data" action="/deposit/submit">
+                                <input type="hidden" name="_token" value="QJaduRQQ3ajb0IY5SpXyiwUG6qCNKQoncZROVr6H">                        <div class="col-12 item">
+                                <input type="hidden" id="method" name="currency_abr" value="ETH">
+                                <input type="hidden" id="method" name="currency_name" value="Ethereum">
+                                <input type="hidden" id="amount" name="converted" value="1">
+                                <input type="hidden" id="amount" name="amount" value="1">
+                                <input type="hidden" id="amount" name="icon" value="eth.png">
+                                
+                                <!-- Settings Card -->
+                                
+                                    <!-- Single Card -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- Card Info -->
+                                        <div class="card-info">
+                                            
+                                            <span><i class="icon-arrow me-1"></i></span>
+                                            
+                                            
+                                            <h1><a href="#">Go Back</a></h1>
+                                        </div>
+                                        
+    
+                                        <!-- Card Content -->
+                                        <div class="card-content">
+                                            <div class="form-check form-switch">
+                                                <button class="btn btn-bordered w-100" type="submit">Confirm Payment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>                                                           
+    
+                        </form></div>
+    
+                        
+                        </section></div>
+                    
+                
+                        {% endblock %}
