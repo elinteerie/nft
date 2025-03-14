@@ -252,12 +252,17 @@ def register(
 
 
 @router.get("/collection-create", response_class=HTMLResponse)
-def regi(request: Request, error_message: str = ""):
+def regi(request: Request, db:db_dependency, error_message: str = ""):
     user_id = request.session.get("user_id")
     email = request.session.get("email")
 
+    if not user_id or not email:
+        raise HTTPException(status_code=401, detail="User not authenticated")
+    
+    user = db.exec(select(User).where(User.email == email)).first()
+
     return templates.TemplateResponse(
-        request=request, name="create-collection.html",context= {"request": request, "error_message": error_message})
+        request=request, name="create-collection.html",context= {"request": request, "error_message": error_message, "user": user})
 
 
 
@@ -284,7 +289,7 @@ def register(
     db.commit()
     db.refresh(new_collection)
 
-    return RedirectResponse(url="/dashboard", status_code=303)
+    return RedirectResponse(url="/cre", status_code=303)
     
 
 
