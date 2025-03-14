@@ -278,3 +278,30 @@ def register(
 
     return RedirectResponse(url="/dashboard", status_code=303)
     
+
+
+
+
+@router.get("/profile/{wallet}")
+def register(
+    request: Request,
+    db: db_dependency,
+    wallet: str,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.wallet_profile == wallet)).first()
+
+    nftstatement = select(NFT).join(Collection).where(Collection.owner_id ==user.id)
+
+    nfts = db.exec(nftstatement).all()
+    nfts_count = len(nfts)
+
+    total_price = sum(nft.current_price for nft in nfts)
+
+
+    return templates.TemplateResponse(
+        request=request, name="profile.html",context= {"request": request, "user": user, "nfts": nfts, "nfts_count": nfts_count, "total_price": total_price})

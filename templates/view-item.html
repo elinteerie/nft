@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/miniinvestdash.css') }}">
     
 
-
+    <base id="base" href="" />
     
 
 
@@ -174,7 +174,7 @@ width: 2rem !important;
                             <div class="item-info">
                                 <div class="item-thumb text-center">
                                     
-                                    <img class="itemdetailcard itemdetailcard-img-top" src="http://127.0.0.1:8000/{{nft.image}}" alt="">                                    
+                                    <img class="itemdetailcard itemdetailcard-img-top" src="/{{nft.image}}" alt="">                                    
                                 </div>
                                 <div class="countdown text-center no-hover my-4">
                                     <style>
@@ -525,7 +525,10 @@ alt="1652466870.jpg">
     </script>
     
 
-
+    <script>
+        // Set the base href to the current domain
+        document.getElementById("base").setAttribute("href", window.location.origin + "/");
+    </script>
 
 
 

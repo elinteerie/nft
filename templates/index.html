@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head; any other head content must come *after* these tags -->
-
+    <base id="base" href="" />
     <!-- Title  -->
     <title>Value Mints - Mobile NFT Marketplace</title>
 
@@ -246,7 +246,7 @@
                                     <div class="card homecard">
                                         <div class="image-over">
                                             <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/119">
-                                                <img class="card-img-top homecard-img-top" src="http://127.0.0.1:8000/{{nft.image}}" alt="http://127.0.0.1/{{nft.image}}">
+                                                <img class="card-img-top homecard-img-top" src="/{{nft.image}}" alt="http://127.0.0.1/{{nft.image}}">
                                             </a>
                                         </div>
                                         <!-- Card Caption -->
@@ -2508,7 +2508,10 @@
 
     </script>
     
-
+    <script>
+        // Set the base href to the current domain
+        document.getElementById("base").setAttribute("href", window.location.origin + "/");
+    </script> 
 
 
 

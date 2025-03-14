@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/porto/vendor/bootstrap/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    
+        <base id="base" href="" />
         <!-- Style CSS -->
         <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/style.css">
         <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/tab.css">
@@ -103,25 +103,25 @@
                     </div>
                     <!-- Sidenav Nav -->
                     <ul class="sidenav-nav ps-0">
-                        <li class="netsea-dropdown-menu"><a href="#"><i class="icon-user"></i>Profile</a>
+                        <li class="netsea-dropdown-menu"><a href="/profile/{{user.wallet_profile}}"><i class="icon-user"></i>Profile</a>
                             <ul>
-                                <li><a href="https://demo8.codesremedy.com.ng/user/profile"><i class="icon-user"></i>My Profile</a></li>
+                                <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-user"></i>My Profile</a></li>
                                <!-- <li><a href="https://demo8.codesremedy.com.ng/user/activity"><i class="icon-graph"></i>Activity</a></li> -->
                                 <li><a href="https://demo8.codesremedy.com.ng/user/settings"><i class="icon-settings"></i>Settings</a></li>
                             </ul>
                         <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>                        
-                        <li><a href="https://demo8.codesremedy.com.ng/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>
+                        <li><a href="/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>
                         <li class="netsea-dropdown-menu"><a href="#"><i class="icon-grid"></i>Manage NFTs</a>
                             <ul>
                                 <li><a href="/cre"><i class="icon-plus"></i>Create</a></li>                            
-                                <li><a href="#"><i class="icon-support"></i>My NFTs</a></li>
+                                <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-support"></i>My NFTs</a></li>
                             </ul>
                         <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>
                         <li class="netsea-dropdown-menu"><a href="#"><i class="icon-grid"></i>Manage Collections</a>
                             <ul>
-                                <li><a href="https://demo8.codesremedy.com.ng/user/new-collection"><i class="icon-plus"></i>Create</a></li>
+                                <li><a href=""><i class="icon-plus"></i>Create</a></li>
                                 
-                                <li><a href="https://demo8.codesremedy.com.ng/user/mycollections" "=""><i class="icon-grid"></i>My Collections</a></li>
+                                <li><a href="/profile/{{user.wallet_profile}}" "=""><i class="icon-grid"></i>My Collections</a></li>
                             </ul>
                         <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>
                         
@@ -3584,7 +3584,7 @@
                                 <div class="single-work">
                                     <i class="icons icon-wallet text-effect"></i>
                                     <h4>Set up your wallet</h4>
-                                    <p>Once you’ve created a wallet your wallet of choice, connect it to Value Mints by clicking the 'connect wallet' in the buttom tab. <a href="https://demo8.codesremedy.com.ng/wallet-connect"> Learn about the wallets we support.</a> </p>
+                                    <p>Once you’ve created a wallet your wallet of choice, connect it to Value Mints by clicking the 'connect wallet' in the buttom tab. <a href="/wallet-connect"> Learn about the wallets we support.</a> </p>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6 col-lg-3 item">
@@ -3808,7 +3808,10 @@
             });
     
         </script>
-        
+  <script>
+    // Set the base href to the current domain
+    document.getElementById("base").setAttribute("href", window.location.origin + "/");
+</script>      
     
     
     

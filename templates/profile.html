@@ -1,0 +1,580 @@
+<html lang="en" style="height: 100%;"><head><style type="text/css">.swal-icon--error{border-color:#f27474;-webkit-animation:animateErrorIcon .5s;animation:animateErrorIcon .5s}.swal-icon--error__x-mark{position:relative;display:block;-webkit-animation:animateXMark .5s;animation:animateXMark .5s}.swal-icon--error__line{position:absolute;height:5px;width:47px;background-color:#f27474;display:block;top:37px;border-radius:2px}.swal-icon--error__line--left{-webkit-transform:rotate(45deg);transform:rotate(45deg);left:17px}.swal-icon--error__line--right{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);right:16px}@-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}.swal-icon--warning{border-color:#f8bb86;-webkit-animation:pulseWarning .75s infinite alternate;animation:pulseWarning .75s infinite alternate}.swal-icon--warning__body{width:5px;height:47px;top:10px;border-radius:2px;margin-left:-2px}.swal-icon--warning__body,.swal-icon--warning__dot{position:absolute;left:50%;background-color:#f8bb86}.swal-icon--warning__dot{width:7px;height:7px;border-radius:50%;margin-left:-4px;bottom:-11px}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success{border-color:#a5dc86}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}.swal-icon--success__ring{width:80px;height:80px;border:4px solid hsla(98,55%,69%,.2);border-radius:50%;box-sizing:content-box;position:absolute;left:-4px;top:-4px;z-index:2}.swal-icon--success__hide-corners{width:5px;height:90px;background-color:#fff;padding:1px;position:absolute;left:28px;top:8px;z-index:1;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal-icon--success__line{height:5px;background-color:#a5dc86;display:block;border-radius:2px;position:absolute;z-index:2}.swal-icon--success__line--tip{width:25px;left:14px;top:46px;-webkit-transform:rotate(45deg);transform:rotate(45deg);-webkit-animation:animateSuccessTip .75s;animation:animateSuccessTip .75s}.swal-icon--success__line--long{width:47px;right:8px;top:38px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-animation:animateSuccessLong .75s;animation:animateSuccessLong .75s}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info{border-color:#c9dae1}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-icon{width:80px;height:80px;border-width:4px;border-style:solid;border-radius:50%;padding:0;position:relative;box-sizing:content-box;margin:20px auto}.swal-icon:first-child{margin-top:32px}.swal-icon--custom{width:auto;height:auto;max-width:100%;border:none;border-radius:0}.swal-icon img{max-width:100%;max-height:100%}.swal-title{color:rgba(0,0,0,.65);font-weight:600;text-transform:none;position:relative;display:block;padding:13px 16px;font-size:27px;line-height:normal;text-align:center;margin-bottom:0}.swal-title:first-child{margin-top:26px}.swal-title:not(:first-child){padding-bottom:0}.swal-title:not(:last-child){margin-bottom:13px}.swal-text{font-size:16px;position:relative;float:none;line-height:normal;vertical-align:top;text-align:left;display:inline-block;margin:0;padding:0 10px;font-weight:400;color:rgba(0,0,0,.64);max-width:calc(100% - 20px);overflow-wrap:break-word;box-sizing:border-box}.swal-text:first-child{margin-top:45px}.swal-text:last-child{margin-bottom:45px}.swal-footer{text-align:right;padding-top:13px;margin-top:13px;padding:13px 16px;border-radius:inherit;border-top-left-radius:0;border-top-right-radius:0}.swal-button-container{margin:5px;display:inline-block;position:relative}.swal-button{background-color:#7cd1f9;color:#fff;border:none;box-shadow:none;border-radius:5px;font-weight:600;font-size:14px;padding:10px 24px;margin:0;cursor:pointer}.swal-button[not:disabled]:hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button[disabled]{opacity:.5;cursor:default}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel{color:#555;background-color:#efefef}.swal-button--cancel[not:disabled]:hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger{background-color:#e64942}.swal-button--danger[not:disabled]:hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content{padding:0 20px;margin-top:20px;font-size:medium}.swal-content:last-child{margin-bottom:20px}.swal-content__input,.swal-content__textarea{-webkit-appearance:none;background-color:#fff;border:none;font-size:14px;display:block;box-sizing:border-box;width:100%;border:1px solid rgba(0,0,0,.14);padding:10px 13px;border-radius:2px;transition:border-color .2s}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}.swal-content__textarea{resize:vertical}.swal-button--loading{color:transparent}.swal-button--loading~.swal-button__loader{opacity:1}.swal-button__loader{position:absolute;height:auto;width:43px;z-index:2;left:50%;top:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%);text-align:center;pointer-events:none;opacity:0}.swal-button__loader div{display:inline-block;float:none;vertical-align:baseline;width:9px;height:9px;padding:0;border:none;margin:2px;opacity:.4;border-radius:7px;background-color:hsla(0,0%,100%,.9);transition:background .2s;-webkit-animation:swal-loading-anim 1s infinite;animation:swal-loading-anim 1s infinite}.swal-button__loader div:nth-child(3n+2){-webkit-animation-delay:.15s;animation-delay:.15s}.swal-button__loader div:nth-child(3n+3){-webkit-animation-delay:.3s;animation-delay:.3s}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay{position:fixed;top:0;bottom:0;left:0;right:0;text-align:center;font-size:0;overflow-y:auto;background-color:rgba(0,0,0,.4);z-index:10000;pointer-events:none;opacity:0;transition:opacity .3s}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}.swal-overlay--show-modal{opacity:1;pointer-events:auto}.swal-overlay--show-modal .swal-modal{opacity:1;pointer-events:auto;box-sizing:border-box;-webkit-animation:showSweetAlert .3s;animation:showSweetAlert .3s;will-change:transform}.swal-modal{width:478px;opacity:0;pointer-events:none;background-color:#fff;text-align:center;border-radius:5px;position:static;margin:20px auto;display:inline-block;vertical-align:middle;-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;z-index:10001;transition:opacity .2s,-webkit-transform .3s;transition:transform .3s,opacity .2s;transition:transform .3s,opacity .2s,-webkit-transform .3s}@media (max-width:500px){.swal-modal{width:calc(100% - 20px)}}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}</style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="Sortnio">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <meta name="description" content="Artonhive - NFT Marketplace">
+    <meta name="keywords" content="nft, trading">
+    <title>Artonhive - Homepage</title>
+    <meta name="description" content="Artonhive is a marketplace of world-class NFTs">
+    <link rel="icon" href="https://artonhive.com/images/favicon.png" type="image/png">
+
+    <base id="base" href="" />
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://artonhive.com/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <meta property="og:image" content="https://artonhive.com/images/favicon.png">
+    <meta property="og:title" content="Artonhive - Home of Quality NFTs">
+    <!-- Favicon -->
+    <link rel="icon" sizes="16x16" href="images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://artonhive.com/assets/css/vendor.bundle.css?ver=100">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Nunito+Sans:opsz,wght@6..12,900;6..12,1000&family=Outfit:wght@900&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="assets/css/app.css"> -->
+    <link rel="stylesheet" href="https://artonhive.com/assets/assets/vendors/mdi/css/materialdesignicons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&amp;display=swap" rel="stylesheet">
+
+
+
+    <script type="text/javascript" charset="utf-8" async="" src="https://www.smartsuppchat.com/loader.js?"></script><script src="assets/js/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="https://artonhive.com/assets/css/owl.carousel.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://artonhive.com/assets/css/bootstrap.min.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="https://artonhive.com/assets/css/login-style.css">
+    <link rel="stylesheet" href="https://artonhive.com/assets/css/style.css?ver=100">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+
+    <!-- Smartsupp Live Chat script -->
+    <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'bed2a247de43131230e3a5b22b82a231fc65f7b3';
+        window.smartsupp || (function(d) {
+            var s, c, o = smartsupp = function() {
+                o._.push(arguments)
+            };
+            o._ = [];
+            s = d.getElementsByTagName('script')[0];
+            c = d.createElement('script');
+            c.type = 'text/javascript';
+            c.charset = 'utf-8';
+            c.async = true;
+            c.src = 'https://www.smartsuppchat.com/loader.js?';
+            s.parentNode.insertBefore(c, s);
+        })(document);
+    </script>
+    <noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+<style>
+    * {
+        font-family: "Onest", sans-serif;
+    }
+
+    body {
+        top: 0 !important;
+    }
+
+    .goog-logo-link,
+    .goog-te-gadget span {
+        display: none !important;
+    }
+
+    .goog-te-gadget {
+        color: transparent !important;
+        font-size: 0;
+        height: 40px;
+    }
+
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+
+    body>.skiptranslate {
+        display: none;
+    }
+
+    #goog-gt-tt,
+    .goog-te-balloon-frame {
+        display: none !important;
+    }
+
+    .goog-text-highlight {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    #google_translate_element select {
+        background: #fff;
+        /* border: 1px solid #777e90; */
+        border-radius: 5px;
+        font-family: "Rubik", sans-serif;
+        padding: 7px;
+        width: fit-content;
+    }
+</style><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.NJgGN_yGIWM.L.W.O/am=AAY/d=0/rs=AN8SPfrTSMIvWAFISYN4u74dPJrX0HgUsw/m=el_main_css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_GB.Y0JA-ySX7JQ.O/am=ACA/d=1/exm=el_conf/ed=1/rs=AN8SPfp2gNTS4_zBfF056XTOQuAe2Ht7pQ/m=el_main"></script></head>
+
+
+
+
+
+<body style="top: 0px; position: relative; min-height: 100%;" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+        <div class="page-wrap">
+        <header class="header-section has-header-main">
+            <div class="header-main is-sticky">
+                <div class="container">
+                    <div class="header-wrap">
+                        <div class="header-logo">
+                            <a href="./" class="logo-link">
+                                <img class="logo-dark logo-img" src="images/logo__dark.png" alt="logo" style="width: 200px; height: 100%">
+                                <img class="logo-light logo-img" src="images/logo.png" alt=" logo" style="width:200px; height: 100%">
+                            </a>
+                        </div>
+                        <!-- .header-logo -->
+                        <div class="header-mobile-action">
+
+                            <!-- end header-search-mobile -->
+
+                            <!-- end hheader-mobile-wallet -->
+                            <div class="header-toggle">
+                                <button class="menu-toggler">
+                                    <em class="menu-on menu-icon ni ni-menu"></em>
+                                    <em class="menu-off menu-icon ni ni-cross"></em>
+                                </button>
+                            </div>
+                            <!-- .header-toggle -->
+                        </div>
+                        <!-- end header-mobile-action -->
+
+                        <nav class="header-menu menu nav">
+                            <ul class="menu-list ms-lg-auto">
+                                <li class="menu-item has-sub">
+                                    <a href="./" class="menu-link">Home</a>
+                                </li>
+                                <li class="menu-item has-sub">
+                                    <a href="explore" class="menu-link">Explore</a>
+                                </li>
+                                <li class="menu-item has-sub">
+                                    <a href="about-us" class="menu-link">About Us</a>
+                                </li>
+                                <!-- <li class="menu-item has-sub">
+                                    <a href="portal/eMessage/" class="menu-link">Community</a>
+                                </li> -->
+                            </ul>
+                            <ul class="menu-btns">
+                                <li>
+                                    <a href="login" class="btn btn-lg btn-primary">Sign In</a>
+                                </li>
+                                <li>
+                                    <a href="/register" class="btn btn_other">Sign Up</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="theme-toggler" id="theme-toggle" title="Toggle Dark/Light mode">
+                                        <span>
+                                            <em class="ni ni-moon icon theme-toggler-show"></em>
+                                            <em class="ni ni-sun icon theme-toggler-hide"></em>
+                                        </span>
+                                        <span class="theme-toggler-text">Light/Dark Mode</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- .header-menu -->
+                        <div class="header-overlay"></div>
+                    </div>
+                    <!-- .header-warp-->
+                </div>
+                <!-- .container-->
+            </div>
+<div class="card py-4 px-2" style="  min-height: 100%;">
+    <div class="content-body px-md-5 mb-5 mt-4">
+        <div class="container">
+            <div class="page-title d-inline">
+                <div class="d-flex align-items-center gap-3">
+                    <span>
+                        <img src="https://artonhive.com/uploads/dp/1039.jpg" alt="user-photo" class="img-thumbnail" width="60">
+                    </span>
+
+                    <div class="page-title-content">
+                        <h4>
+                            {{user.first_name}} {{user.last_name}}                      </h4>
+                        <p>{{user.username}} <span><i class="mdi mdi-check-circle"></i> </span></p>
+                    </div>
+                </div>
+                <hr class="my-4">
+
+                <div class="user_info d-flex my-4" style="gap: 50px;">
+                    <span>
+                        <h3>{{total_price}} ETH</h3>
+                        <p>Total Volume</p>
+                    </span>
+                    <span>
+                        <h3>0 ETH</h3>
+                        <p>Floor Price</p>
+                    </span>
+
+                    <span class="text-center">
+                        <h3>{{nfts_count}}</h3>
+                        <p>Total Items</p>
+                    </span>
+                </div>
+                <p class="mt-4 p-3" style="border: 1px dashed #56328b;">
+                    Teacher. Dog lover. Nature freak                </p>
+
+                <div class="profile-setting-panel-wrap pt-2 mt-5">
+                    <ul class="nav nav-tabs-s3 mb-2" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#items" type="button" role="tab" aria-controls="items" aria-selected="true">
+                                Items
+                            </button>
+                        </li>
+    
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="bidding-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab" aria-controls="activity" aria-selected="false">
+                                Activity
+                            </button>
+                        </li>
+                    </ul>
+                    <!-- ADMIN DEPOSIT -->{% for nft in nfts %}
+                    <div class="tab-content mt-4" id="myTabContent">
+                        <div class="tab-pane fade show active" id="items" role="tabpanel" aria-labelledby="all-tab">
+                            
+                            <div class="row mt-4">
+                                
+                                                                    <div class="col-md-4 my-3 overview__item">
+                                                                       
+                                        <div class="card card-full card-s3">
+                                            <div class="card-author d-flex align-items-center justify-content-between pb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <a class="avatar me-1">
+                                                        <img src="https://artonhive.com//uploads/dp/1039.jpg">
+                                                    </a>
+                                                    <div class="custom-tooltip-wrap card-author-by-wrap">
+                                                        <span class="card-author-by card-author-by-2">Owned by</span>
+                                                        <a class="custom-tooltip author-link" href="https://artonhive.com/<br />
+<b>Warning</b>:  Undefined property: stdClass::$first_name in <b>/home/u254739106/domains/artonhive.com/public_html/user-profile.php</b> on line <b>108</b><br />
+/<br />
+<b>Warning</b>:  Undefined property: stdClass::$address in <b>/home/u254739106/domains/artonhive.com/public_html/user-profile.php</b> on line <b>108</b><br />
+                                                        ">@athunell<span><i class="mdi mdi-check-circle"></i> </span></a>
+                                                        <!-- end dropdown-menu -->
+                                                    </div>
+                                                    <!-- end custom-tootltip-wrap -->
+                                                </div>
+                                            </div>
+                                            <!-- end card-author -->
+                                            
+
+                                           
+                                
+
+                                            <div class="card-image">
+                                                <img src="/{{nft.image}}" class="card-img" alt="art image">
+                                            </div>
+                                            <!-- end card-image -->
+                                            <div class="card-body px-0 pb-0">
+                                                <h5 class="card-title text-truncate">
+                                                    <a>{{ nft.name}}
+                                                    </a>
+                                                </h5>
+                                                <div class="card-price-wrap d-flex align-items-center justify-content-between pb-3">
+                                                    <div class="me-5 me-sm-2">
+                                                        <span class="card-price-title">Price</span>
+                                                        <span class="card-price-number">{{nft.current_price}} ETH</span>
+                                                    </div>
+                                                    <div class="text-sm-end">
+                                                        <span class="card-price-title">Current bid</span>
+                                                        <span class="card-price-number d-block">
+                                                            {{nft.current_price}}ETH                                                        </span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <!-- end card-price-wrap -->
+                                                <form class="d-flex justify-content-center mt-3" method="GET" action="/login">
+                                                    <input type="hidden" name="nftqrs" value="557">
+                                                    <button class="btn btn-primary" type="submit">Place a Bid</button>
+                                                </form>
+                                               
+                                            </div>
+                                            
+                                            
+                                            <!-- end card-body -->
+                                        </div>
+                                        
+
+                                        
+                                    
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                                                <!-- end card -->
+
+                            </div>
+                            
+                            <!-- end activity-tab-wrap -->
+                        </div>
+                        {% endfor %}
+                        <!-- end tab-pane -->
+                        <div class="tab-pane fade" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+                            <ul class="list-group">
+                                                            </ul>
+                            <!-- end activity-tab-wrap -->
+                        </div>
+                        <!-- end tab-pane -->
+                        <div class="tab-pane fade" id="activity" role="tabpanel" aria-labelledby="activity-tab">
+                            <ul class="list-group">
+
+                                
+                                        <li class="list-group-item d-flex align-items-center gap-3 py-4 bg-transparent">
+                                            <span>
+                                                
+                                    <span class="mdi mdi-inbox-arrow-down" style="text-align: center;font-size: 30px;color: white;background: #c81e1e;padding: 5px 10px;border-radius: 10%;"></span>
+                                
+                                            </span>
+                                            <span>
+                                                    <h6>Purchased A Bridge Between Earth And Sky NFT for 3.5ETH</h6>
+                                                <p class="my-0">#CZIon8IirtWEBWR</p>
+                                            </span>
+
+                                        </li>
+                                        <hr>
+                                        
+                                        <li class="list-group-item d-flex align-items-center gap-3 py-4 bg-transparent">
+                                            <span>
+                                                
+                                    <span class="mdi mdi-inbox-arrow-down" style="text-align: center;font-size: 30px;color: white;background: #c81e1e;padding: 5px 10px;border-radius: 10%;"></span>
+                                
+                                            </span>
+                                            <span>
+                                                    <h6>Purchased Cyclops NFT for 1.5ETH</h6>
+                                                <p class="my-0">#nHCbUAcMhqTxRb6</p>
+                                            </span>
+
+                                        </li>
+                                        <hr>
+                                        
+                                        <li class="list-group-item d-flex align-items-center gap-3 py-4 bg-transparent">
+                                            <span>
+                                                
+                                    <span class="mdi mdi-inbox-arrow-down" style="text-align: center;font-size: 30px;color: white;background: #c81e1e;padding: 5px 10px;border-radius: 10%;"></span>
+                                
+                                            </span>
+                                            <span>
+                                                    <h6>Purchased Underground City NFT for 1.5ETH</h6>
+                                                <p class="my-0">#sQx58v3L3JjgV16</p>
+                                            </span>
+
+                                        </li>
+                                        <hr>
+                                        
+
+
+
+                            </ul>
+
+                            <!-- end activity-tab-wrap -->
+                        </div>
+                        <!-- end tab-pane -->
+
+                        <!-- end tab-pane -->
+                    </div>
+                    <!-- end tab-content -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer-section on-dark" style="background: #1c2b46">
+    <div class="container">
+        <div class="section-space-sm">
+            <div class="row">
+                <div class="col-lg-3 col-md-9 me-auto">
+                    <div class="footer-item mb-5 mb-lg-0">
+                        <a href="./" class="footer-logo-link logo-link">
+
+                            <img class="logo-light logo-img" src="images/logo.png" style="  height: 70px">
+                        </a>
+                        <p class="my-4 footer-para">
+                            Artonhive - The Home of World class Artworks
+                        </p>
+                        <div class="header__link" id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage"><select class="goog-te-combo" aria-label="Language Translate Widget"><option value="">Select Language</option><option value="ab">Abkhaz</option><option value="ace">Acehnese</option><option value="ach">Acholi</option><option value="aa">Afar</option><option value="af">Afrikaans</option><option value="sq">Albanian</option><option value="alz">Alur</option><option value="am">Amharic</option><option value="ar">Arabic</option><option value="hy">Armenian</option><option value="as">Assamese</option><option value="av">Avar</option><option value="awa">Awadhi</option><option value="ay">Aymara</option><option value="az">Azerbaijani</option><option value="ban">Balinese</option><option value="bal">Baluchi</option><option value="bm">Bambara</option><option value="bci">Baoulé</option><option value="ba">Bashkir</option><option value="eu">Basque</option><option value="btx">Batak Karo</option><option value="bts">Batak Simalungun</option><option value="bbc">Batak Toba</option><option value="be">Belarusian</option><option value="bem">Bemba</option><option value="bn">Bengali</option><option value="bew">Betawi</option><option value="bho">Bhojpuri</option><option value="bik">Bikol</option><option value="bs">Bosnian</option><option value="br">Breton</option><option value="bg">Bulgarian</option><option value="bua">Buryat</option><option value="yue">Cantonese</option><option value="ca">Catalan</option><option value="ceb">Cebuano</option><option value="ch">Chamorro</option><option value="ce">Chechen</option><option value="ny">Chichewa</option><option value="zh-CN">Chinese (Simplified)</option><option value="zh-TW">Chinese (Traditional)</option><option value="chk">Chuukese</option><option value="cv">Chuvash</option><option value="co">Corsican</option><option value="crh">Crimean Tatar (Cyrillic)</option><option value="crh-Latn">Crimean Tatar (Latin)</option><option value="hr">Croatian</option><option value="cs">Czech</option><option value="da">Danish</option><option value="fa-AF">Dari</option><option value="dv">Dhivehi</option><option value="din">Dinka</option><option value="doi">Dogri</option><option value="dov">Dombe</option><option value="nl">Dutch</option><option value="dyu">Dyula</option><option value="dz">Dzongkha</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="ee">Ewe</option><option value="fo">Faroese</option><option value="fj">Fijian</option><option value="tl">Filipino</option><option value="fi">Finnish</option><option value="fon">Fon</option><option value="fr">French</option><option value="fr-CA">French (Canada)</option><option value="fy">Frisian</option><option value="fur">Friulian</option><option value="ff">Fulani</option><option value="gaa">Ga</option><option value="gl">Galician</option><option value="ka">Georgian</option><option value="de">German</option><option value="el">Greek</option><option value="gn">Guarani</option><option value="gu">Gujarati</option><option value="ht">Haitian Creole</option><option value="cnh">Hakha Chin</option><option value="ha">Hausa</option><option value="haw">Hawaiian</option><option value="iw">Hebrew</option><option value="hil">Hiligaynon</option><option value="hi">Hindi</option><option value="hmn">Hmong</option><option value="hu">Hungarian</option><option value="hrx">Hunsrik</option><option value="iba">Iban</option><option value="is">Icelandic</option><option value="ig">Igbo</option><option value="ilo">Ilocano</option><option value="id">Indonesian</option><option value="iu-Latn">Inuktut (Latin)</option><option value="iu">Inuktut (Syllabics)</option><option value="ga">Irish Gaelic</option><option value="it">Italian</option><option value="jam">Jamaican Patois</option><option value="ja">Japanese</option><option value="jw">Javanese</option><option value="kac">Jingpo</option><option value="kl">Kalaallisut</option><option value="kn">Kannada</option><option value="kr">Kanuri</option><option value="pam">Kapampangan</option><option value="kk">Kazakh</option><option value="kha">Khasi</option><option value="km">Khmer</option><option value="cgg">Kiga</option><option value="kg">Kikongo</option><option value="rw">Kinyarwanda</option><option value="ktu">Kituba</option><option value="trp">Kokborok</option><option value="kv">Komi</option><option value="gom">Konkani</option><option value="ko">Korean</option><option value="kri">Krio</option><option value="ku">Kurdish (Kurmanji)</option><option value="ckb">Kurdish (Sorani)</option><option value="ky">Kyrgyz</option><option value="lo">Lao</option><option value="ltg">Latgalian</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="lij">Ligurian</option><option value="li">Limburgish</option><option value="ln">Lingala</option><option value="lt">Lithuanian</option><option value="lmo">Lombard</option><option value="lg">Luganda</option><option value="luo">Luo</option><option value="lb">Luxembourgish</option><option value="mk">Macedonian</option><option value="mad">Madurese</option><option value="mai">Maithili</option><option value="mak">Makassar</option><option value="mg">Malagasy</option><option value="ms">Malay</option><option value="ms-Arab">Malay (Jawi)</option><option value="ml">Malayalam</option><option value="mt">Maltese</option><option value="mam">Mam</option><option value="gv">Manx</option><option value="mi">Maori</option><option value="mr">Marathi</option><option value="mh">Marshallese</option><option value="mwr">Marwadi</option><option value="mfe">Mauritian Creole</option><option value="chm">Meadow Mari</option><option value="mni-Mtei">Meiteilon (Manipuri)</option><option value="min">Minang</option><option value="lus">Mizo</option><option value="mn">Mongolian</option><option value="my">Myanmar (Burmese)</option><option value="bm-Nkoo">N'Ko</option><option value="nhe">Nahuatl (Eastern Huasteca)</option><option value="ndc-ZW">Ndau</option><option value="nr">Ndebele (South)</option><option value="new">Nepal Bhasa (Newari)</option><option value="ne">Nepali</option><option value="no">Norwegian</option><option value="nus">Nuer</option><option value="oc">Occitan</option><option value="or">Odia (Oriya)</option><option value="om">Oromo</option><option value="os">Ossetian</option><option value="pag">Pangasinan</option><option value="pap">Papiamento</option><option value="ps">Pashto</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese (Brazil)</option><option value="pt-PT">Portuguese (Portugal)</option><option value="pa">Punjabi (Gurmukhi)</option><option value="pa-Arab">Punjabi (Shahmukhi)</option><option value="qu">Quechua</option><option value="kek">Qʼeqchiʼ</option><option value="rom">Romani</option><option value="ro">Romanian</option><option value="rn">Rundi</option><option value="ru">Russian</option><option value="se">Sami (North)</option><option value="sm">Samoan</option><option value="sg">Sango</option><option value="sa">Sanskrit</option><option value="sat-Latn">Santali (Latin)</option><option value="sat">Santali (Ol Chiki)</option><option value="gd">Scots Gaelic</option><option value="nso">Sepedi</option><option value="sr">Serbian</option><option value="st">Sesotho</option><option value="crs">Seychellois Creole</option><option value="shn">Shan</option><option value="sn">Shona</option><option value="scn">Sicilian</option><option value="szl">Silesian</option><option value="sd">Sindhi</option><option value="si">Sinhala</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="so">Somali</option><option value="es">Spanish</option><option value="su">Sundanese</option><option value="sus">Susu</option><option value="sw">Swahili</option><option value="ss">Swati</option><option value="sv">Swedish</option><option value="ty">Tahitian</option><option value="tg">Tajik</option><option value="ber-Latn">Tamazight</option><option value="ber">Tamazight (Tifinagh)</option><option value="ta">Tamil</option><option value="tt">Tatar</option><option value="te">Telugu</option><option value="tet">Tetum</option><option value="th">Thai</option><option value="bo">Tibetan</option><option value="ti">Tigrinya</option><option value="tiv">Tiv</option><option value="tpi">Tok Pisin</option><option value="to">Tongan</option><option value="lua">Tshiluba</option><option value="ts">Tsonga</option><option value="tn">Tswana</option><option value="tcy">Tulu</option><option value="tum">Tumbuka</option><option value="tr">Turkish</option><option value="tk">Turkmen</option><option value="tyv">Tuvan</option><option value="ak">Twi</option><option value="udm">Udmurt</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="ug">Uyghur</option><option value="uz">Uzbek</option><option value="ve">Venda</option><option value="vec">Venetian</option><option value="vi">Vietnamese</option><option value="war">Waray</option><option value="cy">Welsh</option><option value="wo">Wolof</option><option value="xh">Xhosa</option><option value="sah">Yakut</option><option value="yi">Yiddish</option><option value="yo">Yoruba</option><option value="yua">Yucatec Maya</option><option value="zap">Zapotec</option><option value="zu">Zulu</option></select></div>Powered by <span style="white-space:nowrap"><a class="VIpgJd-ZVi9od-l4eHX-hSRGPd" href="https://translate.google.com" target="_blank"><img src="https://www.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_42x16dp.png" width="37px" height="14px" style="padding-right: 3px" alt="Google Translate">Translate</a></span></div></div>
+                        <!-- <ul class="styled-icon">
+                            <li>
+                                <a href="#"><em class="icon ni ni-twitter"></em></a>
+                            </li>
+                            <li>
+                                <a href="#"><em class="icon ni ni-facebook-f"></em></a>
+                            </li>
+                            <li>
+                                <a href="#"><em class="icon ni ni-instagram"></em></a>
+                            </li>
+                            <li>
+                                <a href="#"><em class="icon ni ni-pinterest"></em></a>
+                            </li>
+                        </ul> -->
+                    </div>
+                    <!-- end footer-item -->
+                </div>
+                <!-- end col-lg-3 -->
+                <div class="col-lg-8">
+                    <div class="row g-gs">
+
+                        <!-- end col -->
+                        <div class="col-md-3 ">
+                            <div class="footer-item">
+                                <h5 class="mb-4">Quick Links</h5>
+                                <ul class="list-item list-item-s1">
+                                    <li><a href="explore">Explore</a></li>
+                                    <li><a href="#faq">FAQ</a></li>
+                                </ul>
+                            </div>
+                            <!-- end footer-item -->
+                        </div>
+                        <!-- end col-lg-3 -->
+                        <div class="col-md-4 ">
+                            <div class="footer-item">
+                                <h5 class="mb-4">More Info</h5>
+                                <ul class="list-item list-item-s1">
+
+                                    <li><a href="about-us">About Us</a></li>
+                                    <li><a href="privacy_policy">Privacy Policy</a></li>
+                                    <li><a href="term_of_service">Terms of Service</a></li>
+                                    <!-- <li><a href="sign-in">Join our Community</a></li> -->
+
+                                </ul>
+                            </div>
+                            <!-- end footer-item -->
+                        </div>
+                        <div class="col-md-5">
+                            <div class="footer-item">
+                                <h5 class="mb-4">Our News Letter</h5>
+                                <ul class="list-item list-item-s1">
+                                    <div class="footer__text" style="color: rgba(255, 255, 255, 0.8);">
+                                        Subscribe our newsletter to get more updates on our services and other important information
+                                    </div>
+                                    <form method="POST" class="subscription mt-3">
+                                        <input class="subscription__input" type="email" name="email" placeholder="Enter your email" required="/">
+                                        <button class="subscription__btn" name="newsletter_sub">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" "="" class=" w-6 h-6">
+                                                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" clip-rule="evenodd"></path>
+                                            </svg>
+
+                                        </button>
+                                    </form>
+
+                                </ul>
+                            </div>
+                            <!-- end footer-item -->
+                        </div>
+                        <!-- end col-lg-3 -->
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end section-space-sm -->
+        <hr class="bg-white-slim my-0">
+        <div class="copyright-wrap d-flex flex-wrap py-3 align-items-center justify-content-between">
+            <p class="footer-copy-text py-2">
+                Copyright © 2020 - 2025 Artonhive.
+            </p>
+
+        </div>
+        <!-- end d-flex -->
+    </div>
+    <!-- .container -->
+</footer>
+<!-- end footer-section -->
+</header></div>
+<!-- Scripts -->
+<script>
+    AOS.init();
+</script>
+<script>
+    function copyText() {
+        var text = document.getElementById("nft_link");
+        text.select();
+        document.execCommand("copy");
+        alert("Text has been copied!");
+    }
+
+    // function themeSwitcher(selector) {
+    //     let themeToggler = document.querySelectorAll(selector);
+    //     if (themeToggler.length > 0) {
+    //         themeToggler.forEach((item) => {
+    //             item.addEventListener("click", function(e) {
+    //                 e.preventDefault();
+    //                 document.body.classList.toggle("dark-mode");
+    //                 if (document.body.classList.contains("dark-mode")) {
+    //                     localStorage.setItem("website_theme", "dark-mode");
+    //                 } else {
+    //                     localStorage.setItem("website_theme", "default");
+    //                 }
+    //             });
+    //         });
+    //     }
+
+    //     function retrieveTheme() {
+    //         var theme = localStorage.getItem("website_theme");
+    //         if (theme != null) {
+    //             document.body.classList.remove("default", "dark-mode");
+    //             document.body.classList.add(theme);
+    //         }
+    //     }
+
+    //     retrieveTheme();
+
+    //     if (window) {
+    //         window.addEventListener(
+    //             "storage",
+    //             function() {
+    //                 retrieveTheme();
+    //             },
+    //             false
+    //         );
+    //     }
+    // }
+
+    // themeSwitcher(".theme-toggler");
+
+
+    var eyeIconButton = document.querySelector('.field__view');
+    var eyeIcon = document.querySelector('#eye__icon');
+    var passwordInput = document.querySelector('#password__field');
+
+    if (eyeIconButton) {
+        eyeIconButton.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIconButton.innerHTML = '';
+                eyeIconButton.innerHTML = '<i class="fa-regular fa-eye-slash" id="eye__icon"></i>';
+            } else if (passwordInput.type === 'text') {
+                passwordInput.type = 'password';
+                eyeIconButton.innerHTML = '';
+                eyeIconButton.innerHTML = '<i class="fa-regular fa-eye" id="eye__icon"></i>';
+            }
+        })
+    }
+</script>
+
+
+<script>
+    // Set the base href to the current domain
+    document.getElementById("base").setAttribute("href", window.location.origin + "/");
+</script>
+
+<script src="https://artonhive.com/assets/js/utilities.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"> </script>
+<script src="https://artonhive.com/assets/js/bundle.js"></script>
+<script src="https://artonhive.com/assets/js/scripts.js"></script>
+<div id="goog-gt-tt" class="VIpgJd-yAWNEb-L7lbkb skiptranslate" style="border-radius: 12px; margin: 0 0 0 -23px; padding: 0; font-family: 'Google Sans', Arial, sans-serif;" data-id=""><div id="goog-gt-vt" class="VIpgJd-yAWNEb-hvhgNd"><div class=" VIpgJd-yAWNEb-hvhgNd-l4eHX-i3jM8c"><img src="https://fonts.gstatic.com/s/i/productlogos/translate/v14/24px.svg" width="24" height="24" alt=""></div><div class=" VIpgJd-yAWNEb-hvhgNd-k77Iif-i3jM8c"><div class="VIpgJd-yAWNEb-hvhgNd-IuizWc" dir="ltr">Original text</div><div id="goog-gt-original-text" class="VIpgJd-yAWNEb-nVMfcd-fmcmS VIpgJd-yAWNEb-hvhgNd-axAV1"></div></div><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid ltr"><div class="VIpgJd-yAWNEb-hvhgNd-N7Eqid-B7I4Od ltr" dir="ltr"><div class="VIpgJd-yAWNEb-hvhgNd-UTujCb">Rate this translation</div><div class="VIpgJd-yAWNEb-hvhgNd-eO9mKe">Your feedback will be used to help improve Google Translate</div></div><div class="VIpgJd-yAWNEb-hvhgNd-xgov5 ltr"><button id="goog-gt-thumbUpButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Good translation" aria-label="Good translation" aria-pressed="false"><span id="goog-gt-thumbUpIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7H2v13h16c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM7 18H4V9h3v9zm14-7l-3 7H9V8l4.34-4.34L12 9h9v2z"></path></svg></span><span id="goog-gt-thumbUpIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M21 7h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 0S7.08 6.85 7 7v13h11c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73V9c0-1.1-.9-2-2-2zM5 7H1v13h4V7z"></path></svg></span></button><button id="goog-gt-thumbDownButton" type="button" class="VIpgJd-yAWNEb-hvhgNd-bgm6sf" title="Poor translation" aria-label="Poor translation" aria-pressed="false"><span id="goog-gt-thumbDownIcon"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7h5V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zM17 6h3v9h-3V6zM3 13l3-7h9v10l-4.34 4.34L12 15H3v-2z"></path></svg></span><span id="goog-gt-thumbDownIconFilled"><svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="VIpgJd-yAWNEb-hvhgNd-THI6Vb NMm5M"><path d="M3 17h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 24s7.09-6.85 7.17-7V4H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2zm16 0h4V4h-4v13z"></path></svg></span></button></div></div><div id="goog-gt-votingHiddenPane" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><form id="goog-gt-votingForm" action="//translate.googleapis.com/translate_voting?client=te" method="post" target="votingFrame" class="VIpgJd-yAWNEb-hvhgNd-aXYTce"><input type="text" name="sl" id="goog-gt-votingInputSrcLang"><input type="text" name="tl" id="goog-gt-votingInputTrgLang"><input type="text" name="query" id="goog-gt-votingInputSrcText"><input type="text" name="gtrans" id="goog-gt-votingInputTrgText"><input type="text" name="vote" id="goog-gt-votingInputVote"></form><iframe name="votingFrame" frameborder="0"></iframe></div></div></div><script src="assets/assets/vendors/js/vendor.bundle.base.js"></script><div class="VIpgJd-ZVi9od-aZ2wEe-wOHMyf"><div class="VIpgJd-ZVi9od-aZ2wEe-OiiCO"><svg xmlns="http://www.w3.org/2000/svg" class="VIpgJd-ZVi9od-aZ2wEe" width="96px" height="96px" viewBox="0 0 66 66"><circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div>
+<script src="https://artonhive.com/assets/assets/js/dashboard.js"></script>
+
+
+
+
+<iframe id="chat-application-iframe" title="Smartsupp" aria-hidden="true" style="display: block; position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; opacity: 0; border: none; z-index: -1; pointer-events: none;"></iframe><div id="smartsupp-widget-container"><!----><!----><!----> <!----><!----> <!----><div style="border-radius: 9999px; box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 2px 32px; color-scheme: normal; height: 56px; position: fixed; bottom: 24px; left: initial; right: 12px; z-index: 10000000; width: 109px;" data-testid="widgetButtonFrame"><iframe allowfullscreen="" scrolling="no" id="widgetButtonFrame" title="Smartsupp widget button" style="position: absolute; width: 100%; height: 100%; border: none; display: block; text-align: left; margin: 0px; padding: 0px; top: 0px; left: 0px; opacity: 1;"></iframe><!----></div><!----> <!----><!----> <!----><!----><!----></div></body></html>
