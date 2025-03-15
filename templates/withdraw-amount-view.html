@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+    
+            
+            
+        
+{% block content %}
+    
+    
+            
+            
+        
+    
+    
+    
+    
+    
+    
+            <!-- ***** Header End ***** -->
+            
+            <!-- ***** Page Wrapper Start ***** -->
+            <div class="page-wrapper">
+    <style>
+        .method-icon {
+        height: 3rem !important;
+        width: 3rem !important;
+        }
+    </style>
+                <!-- ***** Settings Area Start ***** -->
+                <section class="settings-area">
+                    <div class="container">
+                        <div class="row justify-content-center items">
+                            <div class="col-12 col-md-8 col-lg-7">
+    
+                                <div class="intro text-center">
+                                    <span>Withdraw - Minimum of 3 ETH</span>
+                                    <h3 class="mt-2 mb-0">Enter Amount</h3>
+                                                                    
+                                    
+                                                                </div>   
+                            </div>                        
+                        </div>                    
+                        <form method="POST" enctype="multipart/form-data" action="/withdraw/submit">
+                            <input type="hidden" name="_token" value="u3uxxcEGluFUgvQWF674ZPMvqOZlPcHX1QWgbSjW">                    <div class="row justify-content-center">
+    
+                            <div class="card col-12 col-md-6 item">
+                                <!-- Settings Card -->
+                                
+                                    <!-- Single Card -->
+                                     <p>{{error_message}}</p>
+                                    <div class="form-group single-card d-flex justify-content-between align-items-center">
+                                        <select name="currency" id="currency">
+                                            <option value="ETH">Ethereum (ETH)</option>
+                                            <!--<option value="">---Select a Currency---</option>-->
+                                            <!--<option value="BTC">Bitcoin (BTC)</option>-->
+                                            
+                                            <!--<option value="BNB">Binance Coin (BNB)</option>-->
+                                            </select>
+                                    </div>
+                                
+                            
+    
+                            
+                                <!-- Settings Card -->
+                                
+                                    <!-- Single Card -->
+                                    <div class="form-group single-card d-flex justify-content-between align-items-center">
+                                        <input type="text" class="form-control" name="wallet_address" placeholder="Enter wallet address">
+                                    </div>
+                                
+                            
+    
+    
+                            
+                                <!-- Settings Card -->
+                                
+                                    <!-- Single Card -->
+                                    <div class="form-group single-card d-flex justify-content-between align-items-center">
+                                        <input type="number" class="form-control" name="amount" step="0.0001" placeholder="Amount">
+                                    </div>
+                                
+                            
+                            
+                            <input type="hidden" id="custId" name="method" value="Trustwallet">
+                            <input type="hidden" id="custId" name="icon" value="trustwallet.png">
+    
+    
+    
+                            <div class="col-12 item">
+                                <!-- Settings Card -->
+                                
+                                    <!-- Single Card -->
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- Card Info -->
+                                        <div class="card-info">
+                                            
+                                            <span><i class="icon-arrow me-1"></i></span>
+                                            
+                                            
+                                            
+                                        </div>
+                                        <!-- Card Content -->
+                                        <div class="card-content">
+                                            <div class="form-check form-switch">
+                                                <button class="btn btn-bordered w-100" type="submit">Continue</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+    
+    
+                        </div>
+    
+                        </form>
+                        </div>
+                    </section></div>
+                
+                <!-- ***** Settings Area End ***** -->
+    
+            
+            <!-- ***** Page Wrapper End ***** -->
+    
+            
+            <!-- ***** Page Wrapper End ***** -->
+            {% endblock %}

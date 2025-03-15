@@ -4,7 +4,7 @@ from typing import Annotated, Optional
 from utils import db_dependency
 from fastapi.templating import Jinja2Templates
 from sqlmodel import select
-from models import User, NFT, Bid, Wallet, Collection, Setting, Deposit
+from models import User, NFT, Bid, Wallet, Collection, Setting, Deposit, Withdraw
 from fastapi.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
 from utils import hash_password, verify_password
@@ -415,3 +415,127 @@ def register(
     return templates.TemplateResponse(
         request=request, name="deposit-complete.html",context= {"request": request, "user": user, "amount": amount})
 
+
+
+
+
+@router.get("/withdraw/amount")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="withdraw-amount-view.html",context= {"request": request, "user": user})
+
+
+
+
+@router.post("/withdraw/submit")
+def register(
+    request: Request,
+    db: db_dependency,
+    amount: float = Form(...),
+    wallet_address: str = Form(...),
+    error_message: str = ""
+
+    
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+
+    error_message = ""
+
+    
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+    if amount < 3.0:
+        error_message = "The Minimal Withdraw is 3 ETH"
+        return templates.TemplateResponse(
+        request=request, name="withdraw-amount-view.html",context= {"request": request, "user": user, "error_message": error_message})
+
+    if user.eth_balance < amount or amount > user.eth_balance:
+        error_message = f"Your Current Balance is {user.eth_balance}"
+        return templates.TemplateResponse(
+        request=request, name="withdraw-amount-view.html",context= {"request": request, "user": user, "error_message": error_message})
+    
+    
+
+    user.eth_balance -= amount
+
+    new_with = Withdraw(user_id=user.id, amount=amount, wallet=wallet_address)
+    db.add(new_with)
+    db.commit()
+    db.refresh(new_with)
+
+
+
+    return templates.TemplateResponse(
+        request=request, name="withdraw-complete.html",context= {"request": request, "user": user, "amount": amount})
+
+
+
+
+
+@router.get("/nft-trade")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="nft-trade.html",context= {"request": request, "user": user})
+
+
+
+@router.get("/swap-nft")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="swap-nft.html",context= {"request": request, "user": user})
+
+
+
+
+@router.get("/terms")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="terms.html",context= {"request": request, "user": user})

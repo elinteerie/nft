@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+    
+            
+            
+        
+{% block content %}
+        
+    
+    
+    
+    
+    
+    
+            <!-- ***** Header End ***** -->
+            
+    <style>
+        .lastcontainer {
+            padding: 0;
+            /* max-width: 1170px; */
+            margin-bottom: 100px !important;
+        }                
+    </style>
+            <!-- ***** Page Wrapper Start ***** -->
+            <div class="page-wrapper">
+    
+                <!-- ***** Profile Area Start ***** -->
+                <section>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-8 col-lg-7">
+                                <!-- Intro -->
+                                <div class="intro text-center" style="padding-bottom: 0px">
+                                    <span>Swap NFT</span>
+                                    <h3 class="mt-2 mb-0">Select your assets</h3>
+                                    
+                                </div>
+                            </div>
+                        </div>                                                       
+                            <!-- ***** Invest modal Start ***** -->                            
+                            <style>
+                                .modal-maxwithd {
+                                  max-width: unset !important;
+                              }
+                              </style>
+                                    
+                                      <div class="modal fade" id="counterpartyModal" aria-hidden="true">                      
+                                          <div class="modal-dialog modal-maxwithd">
+                                            <div id="ymodal" class="modal-content" style="background-color: #0000004f">
+    
+                <section class="author-area">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-7">
+                                <!-- Intro -->
+                             
+    
+                                
+    
+                                    <button type="button" class="btn-close btn-close-white closemodal" onclick="setcounterparty()" data-bs-dismiss="modal" aria-label="Close"></button>
+                              
+    
+                    
+                                                <div class="text-center">
+                                                    
+                                                    <h3 class="mt-2 mb-0">Set your Counterparty</h3>
+                                                    
+                                                </div>   
+                                            
+                                    
+                                                                        
+                                        <div class="row justify-content-center items">
+                                            <div class="col-md-12 item">
+                                        
+                                                <!-- Settings Card -->
+                                                <div class="card settings-card no-hover">
+                                                    <div class="text-center rounded-circle">
+                                                        
+                                                    </div>                                
+                                                    <div class="card settings-card no-hover">
+                                                        <!-- Single Card -->
+                                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                                            <!-- Card Info -->
+                                                            <div class="card-info">
+                                                                <span>Ethereum Address</span>
+                                                            </div>
+    
+                                                        </div>
+                                                    </div>
+                                                    
+        
+                                                    
+                                                    <div class="card settings-card no-hover">
+                                                        <!-- Single Card -->
+                                                        <div class="single-card d-flex justify-content-between align-items-center">
+                                                            <!-- Card Info -->
+                                                            
+                                                                <input name="ethaddress" onkeyup="counterparty()" type="text" class="form-control" id="ethaddress" required="">
+    
+                                                        </div>                                    
+                                                    </div>
+                    
+                                                    <div class="card settings-card no-hover">
+                                                        <!-- Single Card -->
+                                                        <div class="text-center">
+                                                            
+                                                            <button class="btn btn-bordered w-50" type="button">Set</button>
+                                                            
+                                                        </div> 
+                                                    </div>
+                    
+                                                    </div>
+                                                </div>                                    
+                                            </div>                                        
+                                        
+                                        </div>
+                                    </div>
+                        </div>
+                    </section></div>
+    
+                </div></div></div></section>
+            </div>
+    
+                <!-- ***** Create Area End ***** -->
+       
+            <!-- ***** Page Wrapper End ***** -->
+    
+    
+    
+                                            
+                                    
+                                    
+    
+                            <!-- ***** Invest modal end ***** -->              
+    
+                        <div class="container lastcontainer">   
+                        <div class="row">                    
+                        <div class="col-xl-6 style=" padding-top:10px""="">
+                            <section class="card">
+                                <header class="card-header card-header-transparent">
+                                    <h3 class="card-title">My Wallet Assets</h3>
+                                    <a class="btn btn-bordered" href="/wallet-connect">OUT</a>
+                                </header>
+                                <div style="overflow-x:auto;" class="card-body">
+                                    <p>Your wallet is not connected.</p><table class="table table-responsive-md table-striped mb-0">
+                                        
+                                        <thead>
+                                            <tr>
+                                                <th>PREVIEW</th>
+                                                <th>TYPE</th>
+                                                <th>ID</th>
+                                                <th>ADDRESS</th>
+                                                <th>AMOUNT</th>
+                                                <th>ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>                    
+                        
+    
+                        <div class="col-xl-6" style="padding-left:10px; padding-top:10px">
+                            <section class="card">
+                                <header class="card-header card-header-transparent">
+                                    <h3 class="card-title">Counterparty Assets</h3>
+                                    <a class="btn btn-bordered" data-bs-toggle="modal" data-bs-target="#counterpartyModal">IN</a>
+                                </header>
+                                <div style="overflow-x:auto;" class="card-body">
+                                    <div id="counterparty" class="card-content">
+                                        <p>Counterparty address is not selected.</p>
+                                        </div><table class="table table-responsive-md table-striped mb-0">
+                                        
+                                        <thead>
+                                            <tr>
+                                                <th>PREVIEW</th>
+                                                <th>TYPE</th>
+                                                <th>ID</th>
+                                                <th>ADDRESS</th>
+                                                <th>AMOUNT</th>
+                                                <th>ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+     
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div> 
+    
+                        
+    
+    
+                        </div>
+                    </div>   
+    
+    
+                
+                    
+                
+                <!-- ***** Profile Area End ***** -->
+            <!-- ***** Page Wrapper End ***** -->
+    
+    
+    <script>
+            function counterparty() {
+            // $( document ).ready(function() {
+        
+                var real = 'Counterparty address is not selected.'
+        
+                // $('#investamount').change(function () {
+                    var ethaddress = ($("#ethaddress").val() != "") ? ($("#ethaddress").val()) : real;
+        
+    
+                    // $('#total').val(profit);
+                    document.getElementById("counterparty").innerHTML = ethaddress
+    
+            
+            }
+        
+    </script>
+    
+    <script>
+        function setcounterparty() {
+        // $( document ).ready(function() {
+    
+                var real = 'Counterparty address is not selected.'
+    
+            // $('#investamount').change(function () {
+    
+                // $('#total').val(profit);
+                document.getElementById("counterparty").innerHTML = ""
+    
+                document.getElementById("counterparty").innerHTML = real
+    
+    
+        
+        }
+    
+    </script> 
+     
+   
+     {% endblock %}

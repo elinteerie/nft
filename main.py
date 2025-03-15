@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from database import engine, get_db
 from contextlib import asynccontextmanager
-from models import User, Collection, NFT, Bid, Wallet, Setting, Deposit
+from models import User, Collection, NFT, Bid, Wallet, Setting, Deposit, Withdraw
 from models import create_db_and_tables
 from fastapi import Depends, HTTPException, status, Request
 from fastapi.responses import JSONResponse, RedirectResponse
@@ -119,6 +119,10 @@ class DepositAdmin(ModelView, model=Deposit):
     column_list = "__all__"
 
 
+class WithdrawAdmin(ModelView, model=Withdraw):
+    column_list = "__all__"
+
+
 
 
 admin.add_view(UserAdmin)
@@ -128,3 +132,4 @@ admin.add_view(BidAdmin)
 admin.add_view(WalletAdmin)
 admin.add_view(DepositAdmin)
 admin.add_view(SettingAdmin)
+admin.add_view(WithdrawAdmin)
