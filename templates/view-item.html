@@ -67,7 +67,7 @@
             <div class="container d-flex justify-content-between align-items-center h-100">
                 <!-- Logo Wrapper -->
                 <div class="logo-wrapper">
-                    <a href="https://demo8.codesremedy.com.ng/home">
+                    <a href="/">
                         <img src="../../../public/assets/img/logo/logo.png" alt="">
                     </a>
                 </div>
@@ -113,12 +113,12 @@
                     <!--<li><a href="https://demo8.codesremedy.com.ng/nft-trade"><i class="icon-support"></i>NFT Trade</a></li>-->
                     
 
-                    <li><a href="https://demo8.codesremedy.com.ng/explore"><i class="icon-grid"></i>Explore</a>
+                    <li><a href="/#"><i class="icon-grid"></i>Explore</a>
                     </li>
-                    <li><a href="https://demo8.codesremedy.com.ng/terms"><i class="icon-support"></i>Terms of Service</a></li>
+                    <li><a href="/terms"><i class="icon-support"></i>Terms of Service</a></li>
                     <!--<li><a href="https://demo8.codesremedy.com.ng/authors"><i class="icon-support"></i>Collections</a></li>-->
-                    <li><a href="https://demo8.codesremedy.com.ng/login"><i class="icon-login"></i>Login</a></li>
-                    <li><a href="https://demo8.codesremedy.com.ng/register"><i class="icon-user"></i>Signup</a></li>
+                    <li><a href="/login"><i class="icon-login"></i>Login</a></li>
+                    <li><a href="/register"><i class="icon-user"></i>Signup</a></li>
                     
                 </ul>
             </div>
@@ -169,6 +169,7 @@ width: 2rem !important;
             <!-- ***** Item Details Area Start ***** -->
             <section class="item-details-area">
                 <div class="container">
+                    
                     <div class="row justify-content-between">
                         <div class="col-12 col-lg-5">
                             <div class="item-info">
@@ -320,14 +321,16 @@ alt="1652466870.jpg">
                                     <div class="col-12 item px-lg-2">
                                         <div class="card no-hover">
                                             <h4 class="mt-0 mb-2">Highest Bid</h4>
+                                            
                                             <div class="price d-flex justify-content-between align-items-center">
                                                 <span>{{nft.current_price}} ETH</span>
                                                 <span>1 of 5</span>
                                             </div>
+                                            <p>{{error_message}}</p>
                                         </div>
                                     </div>
                                 </div>
-                                                                                                     <a class="d-block btn btn-bordered mt-4" href="https://demo8.codesremedy.com.ng/wallet-connect">Place a Bid</a>
+                                                                                                     <a class="d-block btn btn-bordered mt-4" href="/wallet-connect">Place a Bid</a>
                                     <button class="d-block btn btn-bordered mt-4 col-md-12" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy Now</button>
                                                              </div>
                         </div>
@@ -346,8 +349,8 @@ alt="1652466870.jpg">
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <form action="https://demo8.codesremedy.com.ng/user/complete-payment/97" method="POST">
-                                    <input type="hidden" name="_token" value="kRmFw26yItoCAo3t9ClQ7Jt6TDjr7cA6KwY2R9lx">                            <button type="submit" class="btn btn-primary">Yes! Complete Payment</button>
+                            <form action="/buy-nft/{{nft.eth_address}}" method="POST">
+                                        <button type="submit" class="btn btn-primary">Yes! Complete Payment</button>
                                                             </form>
                           </div>
                         </div>
@@ -371,7 +374,7 @@ alt="1652466870.jpg">
                                     <h3 class="mt-2 mb-0">Live Auctions</h3>
                                 </div>
                                 <div class="intro-btn">
-                                    <a class="btn content-btn" href="https://demo8.codesremedy.com.ng/explore">View All</a>
+                                    <a class="btn content-btn" href="/#">View All</a>
                                 </div>
                             </div>
                         </div>
@@ -508,11 +511,11 @@ alt="1652466870.jpg">
      <!-- Active js -->
     <script src="{{ url_for('static', path='public/assets/frontend/js/main.js') }}"></script>
     <script src=" {{ url_for('static', path='public/assets/frontend/js/pwa.js') }}"></script>
-    {{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}
+  
     <script src="{{ url_for('static', path='public/assets/frontend/js/tab.js') }}"></script>
     <script src="{{ url_for('static', path='public/assets/frontend/js/yieldmodal.js') }}"></script>
     <script src="{{ url_for('static', path='public/assets/frontend/js/paycountdown.js') }}"></script>
-    <script src="{{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script> 
 
     <script>
 

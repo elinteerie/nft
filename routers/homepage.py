@@ -4,7 +4,7 @@ from typing import Annotated, Optional
 from utils import db_dependency
 from fastapi.templating import Jinja2Templates
 from sqlmodel import select
-from models import User, NFT, Bid, Wallet, Collection, Setting, Deposit, Withdraw
+from models import User, NFT, Bid, Wallet, Collection, Setting, Deposit, Withdraw, Transaction
 from fastapi.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
 from utils import hash_password, verify_password
@@ -241,6 +241,13 @@ def register(
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+
+    new_collection = Collection(
+        name=f"{new_user.username} Collection",
+        owner_id=new_user.id
+    )
+    db.add(new_collection)
+    db.commit()
 
     request.session["user_id"] = new_user.id
     request.session["email"] = new_user.email
@@ -539,3 +546,60 @@ def register(
 
     return templates.TemplateResponse(
         request=request, name="terms.html",context= {"request": request, "user": user})
+
+
+
+
+
+@router.post("/buy-nft/{address}", response_class=HTMLResponse)
+async def view_nftj_item(request: Request, address:str,  db: db_dependency, error_message: str = "" ):
+
+    statement = select(NFT).where(NFT.eth_address==address)
+    nft = db.exec(statement).first()
+
+    error_message = ""
+
+
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+    print("user:", user)
+
+
+    if not user_id:
+        return RedirectResponse(url="/login", status_code=303)
+    
+
+
+    if  user.eth_balance < nft.current_price:
+        error_message = "Insuficient ETH Balance"
+        return templates.TemplateResponse(
+        request=request, name="view-item.html",context= {"request": request, "user": user, "error_message": error_message, "nft": nft})
+
+    user.eth_balance -= nft.current_price
+    db.commit()
+
+    owner = nft.collection.owner_id
+
+    userpay = db.exec(select(User).where(User.id == owner)).first()
+    userpay.eth_balance += nft.current_price
+    db.commit()
+
+    #Transfer Ownership
+    new_user_collection = db.exec(select(Collection).where(Collection.owner_id == user.id)).first()
+    nft.collection_id = new_user_collection.id
+    db.commit()
+
+    
+    new_transbuy = Transaction(amount=nft.current_price, type="Buy", user_id=user.id)
+    new_transsell = Transaction(amount=nft.current_price, type="Buy", user_id=userpay.id)
+    db.add(new_transbuy)
+    db.add(new_transsell)
+    db.commit()
+
+
+    
+    return templates.TemplateResponse(
+        request=request, name="view-item.html", context={"request": request,"nft": nft, "user": user})

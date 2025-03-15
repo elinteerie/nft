@@ -49,6 +49,7 @@ class User(SQLModel, table=True):
     bids: List["Bid"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     deposits: List["Deposit"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     withdraws: List["Withdraw"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
+    transactions: List["Transaction"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     
     model_config = ConfigDict(arbitrary_types_allowed=True)
     
@@ -137,6 +138,16 @@ class Withdraw(SQLModel, table=True):
 
 
     user: User = Relationship(back_populates="withdraws")
+
+class Transaction(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    amount: float 
+    type: str
+    user_id: int = Field(foreign_key="user.id")
+
+    user: User = Relationship(back_populates="transactions")
+
+    
 
 
 def create_db_and_tables():
