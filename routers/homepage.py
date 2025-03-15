@@ -310,6 +310,7 @@ def register(
 ):
     user_id = request.session.get("user_id")
     email = request.session.get("email")
+    base_url = str(request.base_url)  # Get the base URL dynamically
 
 
     # Fetch user details from the database using session data
@@ -322,9 +323,11 @@ def register(
 
     total_price = sum(nft.current_price for nft in nfts)
 
+    transactions = db.exec(select(Transaction).where(Transaction.user_id==user.id)).all()
+
 
     return templates.TemplateResponse(
-        request=request, name="profile.html",context= {"request": request, "user": user, "nfts": nfts, "nfts_count": nfts_count, "total_price": total_price})
+        request=request, name="profilee.html",context= {"request": request, "user": user, "nfts": nfts, "nfts_count": nfts_count, "total_price": total_price, "base_url": base_url, "transactions": transactions})
 
 
 
@@ -594,7 +597,7 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
 
     
     new_transbuy = Transaction(amount=nft.current_price, type="Buy", user_id=user.id)
-    new_transsell = Transaction(amount=nft.current_price, type="Buy", user_id=userpay.id)
+    new_transsell = Transaction(amount=nft.current_price, type="Sell", user_id=userpay.id)
     db.add(new_transbuy)
     db.add(new_transsell)
     db.commit()
