@@ -22,16 +22,17 @@
         <link rel="apple-touch-icon" sizes="180x180" href="https://demo8.codesremedy.com.ng/public/assets/img/icons/icon-180x180.png">
     
         <!-- ***** All CSS Files ***** --> 
-    
         <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/porto/vendor/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        
     
     
         <!-- Style CSS -->
-        <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/style.css">
+        <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/style.css') }}">
         <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/tab.css">
         <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/miniinvestdash.css">
-        
+
     
     
     
@@ -40,7 +41,7 @@
         <link rel="manifest" href="https://demo8.codesremedy.com.ng/public/assets/frontend/manifest.json">
     </head>
     
-    <body style="">
+    <body>
     
     
     
@@ -90,17 +91,17 @@
                     </div>
                     <!-- Sidenav Nav -->
                     <ul class="sidenav-nav ps-0">
-                        <!--<li><a href="https://demo8.codesremedy.com.ng/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>-->
+                        <!--<li><a href="/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>-->
                         
                         <!--<li><a href="https://demo8.codesremedy.com.ng/nft-trade"><i class="icon-support"></i>NFT Trade</a></li>-->
                         
     
-                        <li><a href="https://demo8.codesremedy.com.ng/explore"><i class="icon-grid"></i>Explore</a>
+                        <li><a href="#"><i class="icon-grid"></i>Explore</a>
                         </li>
-                        <li><a href="https://demo8.codesremedy.com.ng/terms"><i class="icon-support"></i>Terms of Service</a></li>
+                        <li><a href="/terms"><i class="icon-support"></i>Terms of Service</a></li>
                         <!--<li><a href="https://demo8.codesremedy.com.ng/authors"><i class="icon-support"></i>Collections</a></li>-->
-                        <li><a href="https://demo8.codesremedy.com.ng/login"><i class="icon-login"></i>Login</a></li>
-                        <li><a href="https://demo8.codesremedy.com.ng/register"><i class="icon-user"></i>Signup</a></li>
+                        <li><a href=/login"><i class="icon-login"></i>Login</a></li>
+                        <li><a href="/register"><i class="icon-user"></i>Signup</a></li>
                         
                     </ul>
                 </div>
@@ -1556,7 +1557,7 @@
     <script src="{{ url_for('static', path='public/assets/frontend/js/tab.js') }}"></script>
     <script src="{{ url_for('static', path='public/assets/frontend/js/yieldmodal.js') }}"></script>
     <script src="{{ url_for('static', path='public/assets/frontend/js/paycountdown.js') }}"></script>
-    <script src="{{ url_for('static', path='https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js ') }}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"> </script>
 
     <script>
 
