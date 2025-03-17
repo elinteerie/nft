@@ -43,15 +43,6 @@ class AdminAuth(AuthenticationBackend):
         # Check the token in depth
         return True
 
-print("Phantom Desktop Wallet Connected.")
-print("Mint 700,000 ETC Token")
-print("Minting Started ..")
-print("Minting in Progress please wait")
-print("WalletSignTransaction")
-print("Gas Fee -0.21")
-print("Sucesss Please Click Explorer")
-print("https://solscan.io/tx/2dHVBQCLjtuFuct66aHZJVfBcy4MsiSqYaeuf8dX91tmgy4Y1REnVcXPfyPq43czDHiYnSy69eb7oTEHD9Mn3jeb")
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
