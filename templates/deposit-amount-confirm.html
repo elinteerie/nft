@@ -1,0 +1,52 @@
+{% extends "base-dash.html" %}
+
+
+{% block content %}
+
+<style>
+    .wallet-container { margin: 20px 0; }
+    .center-container { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center; }
+</style>
+
+
+<div class="center-container">
+    <h4>Confirm Deposit of {{amount}} ETH</h4>
+
+<img src="{{ url_for('static', path='img/qr_code.png') }}" alt="QR Code for Deposit">
+
+<div class="wallet-container">
+    
+    <p>Send funds to this wallet address:</p>
+
+    <div class="form-group mb-4">
+        <input type="text" id="walletAddress" value="{{wallet}}" readonly>
+      </div>
+    
+    <button class="copy-btn btn btn-bordered w-20 h-30" onclick="copyWalletAddress()">Copy Address</button>
+    <form action="/deposit/submit" method="get">
+        <input type="hidden" name="_token" value="QJaduRQQ3ajb0IY5SpXyiwUG6qCNKQoncZROVr6H">                        <div class="col-12 item">
+            <input type="hidden" id="method" name="currency_abr" value="ETH">
+            <input type="hidden" id="method" name="currency_name" value="Ethereum">
+            <input type="hidden" id="amount" name="converted" value="1">
+           
+            <input type="hidden" id="amount" name="icon" value="eth.png">
+        <button class="btn btn-primary w-100" type="submit">Submit</button>
+
+    </form>
+
+</div>
+
+
+</div>
+
+<script>
+    function copyWalletAddress() {
+        const walletInput = document.getElementById("walletAddress");
+        walletInput.select();
+        document.execCommand("copy");
+        alert("Wallet address copied!");
+    }
+</script>
+
+
+{% endblock %}

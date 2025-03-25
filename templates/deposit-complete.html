@@ -1,0 +1,23 @@
+{% extends "base-dash.html" %}
+
+
+{% block content %}
+
+<style>
+    .center-container { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center; }
+</style>
+    
+<div class="center-container">
+    <h2>Notification</h2>
+    <div class="text-center">
+                                                
+        <h6 class="mt-2 mb-0">Deposit of {{amount}} ETH</h6>
+        <p>Will be credited to your account upon confirmation</p>
+        <span><i class="complete-icon icon-check me-1"></i></span>
+    </div>
+
+    
+</div>
+
+
+      {% endblock %}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Funto - HTML NFT Marketplace">
+    <!-- Title-->
+    <title>Funto - HTML NFT Marketplace</title>
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/core-img/favicon.ico" type="image/x-icon">
+    <!-- All CSS Stylesheet-->
+    <link rel="stylesheet" href="css/all-css-libraries.css">
+    <!-- Core Stylesheet-->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- Preloader-->
+    <div class="preloader" id="preloader">
+      <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+    </div>
+    <!-- Header Wrapper -->
+    <header class="header-area dashboard-header px-0 px-sm-0">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center">
+            <!-- Brand Logo -->
+            <div class="admin-logo me-1 me-sm-3"><img src="img/core-img/dashboard-logo.png" alt=""></div>
+            <!-- Search Form -->
+            <div class="search-form position-relative d-flex align-items-center">
+              <input class="form-control" type="text" placeholder="Search">
+              <button class="position-absolute" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+          </div>
+          <!-- Header Meta -->
+          <div class="header-meta d-flex align-items-center">
+            <!-- Notification -->
+            <div class="user-dropdown dropdown mx-2 mx-sm-3">
+              <button class="btn dropdown-toggle user-btn" id="dd10" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="img/core-img/notification.png" alt=""></button>
+              <ul class="dropdown-menu noti-dd-menu dropdown-menu-end mt-3" aria-labelledby="dd10">
+                <li><a class="dropdown-item" href="#"><i class="me-2 bi bi-percent"></i>You have an offer!</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bg-info me-2 bi bi-tags"></i>Congratulations! You sale an item.</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bg-danger me-2 bi bi-gift"></i>January freebies have arrived.</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bg-warning me-2 bi bi-star"></i>A new rating has been received.</a></li>
+                <li><a class="dropdown-item justify-content-center" href="notifications.html">View all notifications</a></li>
+              </ul>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown dropdown">
+              <button class="btn dropdown-toggle user-btn" id="dd20" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="img/core-img/user.png" alt=""></button>
+              <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dd20">
+                <li><a class="dropdown-item" href="dashboard.html"><i class="me-2 bi bi-person-circle"></i>Dashboard</a></li>
+                <li><a class="dropdown-item" href="live-bids.html"><i class="me-2 bi bi-hammer"></i>My bids</a></li>
+                <li><a class="dropdown-item" href="my-collection.html"><i class="me-2 bi bi-collection"></i>Collection</a></li>
+                <li><a class="dropdown-item" href="settings.html"><i class="me-2 bi bi-gear"></i>Settings</a></li>
+              </ul>
+            </div>
+            <!-- Menu Toggler -->
+            <div class="menu-toggler ms-2 ms-sm-3" id="dashboardMenuTrigger"><i class="bi bi-list"></i></div>
+            <!-- Button --><a class="btn btn-sm btn-danger rounded-pill ms-2 ms-sm-3 d-none d-sm-block" href="home-1.html"><i class="bi bi-eye me-1"></i>Frontend</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Admin Sidebar Wrap -->
+    <div class="admin-sidebar-wrap">
+      <div class="overflowY-scroll">
+        <!-- User Profile -->
+        <div class="user-profile">
+          <!-- User Name -->
+          <div class="user-name mb-5">
+            <div class="d-flex align-items-center"><img src="img/bg-img/u2.jpg" alt="">
+              <div class="ms-3">
+                <h6 class="lh-1 text-dark fz-18">Designing W.</h6><span class="badge bg-primary fz-12">Premium User</span>
+              </div>
+            </div>
+          </div>
+          <!-- Balance -->
+          <div class="card shadow mb-5">
+            <div class="card-body text-center p-4">
+              <h6 class="mb-1">Your current balance</h6>
+              <h5 class="mb-0 text-dark d-flex align-items-center justify-content-center"><img class="me-1" src="img/core-img/ethereum.png" alt=""><span class="counter">4.09685</span><span class="ms-2">ETH</span></h5><a class="btn btn-warning rounded-pill btn-sm w-100 mt-3" href="#">Recharge</a>
+            </div>
+          </div>
+        </div>
+        <!-- Sidenav -->
+        <div class="sidenav">
+          <ul>
+            <li>Menu</li>
+            <li><a href="dashboard.html"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+            <li><a href="live-bids.html"><i class="bi bi-hammer"></i>Live Bids</a></li>
+            <li><a href="my-collection.html"><i class="bi bi-columns-gap"></i>My Collections</a></li>
+            <li><a class="active" href="my-wallet.html"><i class="bi bi-wallet2"></i>My Wallet</a></li>
+            <li><a href="notifications.html"><i class="bi bi-bell"></i>Notification</a></li>
+            <li><a href="settings.html"><i class="bi bi-gear"></i>Settings</a></li>
+          </ul>
+        </div>
+        <div class="mt-auto">
+          <div class="mt-5"></div>
+          <!-- Mode Switching -->
+          <div class="dark-light-mode">
+            <input id="darkLightSwitch" type="checkbox">
+            <label class="shadow" for="darkLightSwitch">Toggle</label>
+          </div>
+          <div class="copywrite-text mt-4">
+            <p class="mb-0 fz-14">2022 &copy; All rights reserved by <a class="fz-14" href="#" target="_blank">Designing World</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Create New Button -->
+    <div class="create-new-button"><a class="shadow-lg btn btn-warning" href="create-new.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New NFT"><i class="fz-18 bi bi-plus-lg"></i></a></div>
+    <div class="admin-wrapper">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h4 class="mb-3">Your current wallet</h4>
+          </div>
+          <div class="col-12 col-xl-7 col-xxl-6">
+            <div class="card wallet-card shadow-sm">
+              <div class="card-body px-4 text-center">
+                <div class="d-flex align-items-center">
+                  <div class="img-wrap"><img src="img/bg-img/metamask.png" alt=""></div>
+                  <h4 class="mb-0 me-3">Metamask</h4><a class="btn btn-sm btn-danger rounded-pill ms-auto" href="#">Change</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-12">
+            <div class="text-center">
+              <h4 class="mb-4 mt-5">Connect with one of our other available wallet providers.</h4>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="card wallet-card shadow-sm">
+              <div class="card-body px-4">
+                <div class="d-flex align-items-center">
+                  <div class="img-wrap"><img src="img/bg-img/metamask.png" alt=""></div>
+                  <h4 class="mb-0 me-3">Metamask<span class="badge bg-danger rounded-pill align-top fz-12 ms-1">Hot</span></h4><a class="btn btn-sm btn-warning rounded-pill ms-auto" href="#">Connect<i class="ms-1 bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="card wallet-card shadow-sm">
+              <div class="card-body px-4">
+                <div class="d-flex align-items-center">
+                  <div class="img-wrap"><img src="img/bg-img/coinbase.png" alt=""></div>
+                  <h4 class="mb-0 me-3">Coinbase Wallet</h4><a class="btn btn-sm btn-warning rounded-pill ms-auto" href="#">Connect<i class="ms-1 bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="card wallet-card shadow-sm">
+              <div class="card-body px-4">
+                <div class="d-flex align-items-center">
+                  <div class="img-wrap"><img src="img/bg-img/kaikas.png" alt=""></div>
+                  <h4 class="mb-0 me-3">Kaikas</h4><a class="btn btn-sm btn-warning rounded-pill ms-auto" href="#">Connect<i class="ms-1 bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-6">
+            <div class="card wallet-card shadow-sm">
+              <div class="card-body px-4">
+                <div class="d-flex align-items-center">
+                  <div class="img-wrap"><img src="img/bg-img/venly.png" alt=""></div>
+                  <h4 class="mb-0 me-3">Venly</h4><a class="btn btn-sm btn-warning rounded-pill ms-auto" href="#">Connect<i class="ms-1 bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- All JavaScript Files-->
+    <script src="js/all-js-libraries.js"></script>
+    <script src="js/active.js"></script>
+    <script src="js/charts.js"></script>
+  </body>
+</html>

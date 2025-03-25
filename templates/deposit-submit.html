@@ -1,0 +1,27 @@
+{% extends "base-dash.html" %}
+
+
+{% block content %}
+
+<style>
+    .center-container { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center; }
+</style>
+    
+<div class="center-container">
+    <h2>Proof Of Payment</h2>
+
+    <form action="/deposit/complete"  enctype="multipart/form-data" method="POST">
+
+        <div class="form-group mb-4">
+            <input name="proof" class="form-control" type="file" id="formFile" required="">
+          </div>
+
+          <div class="form-group mb-4">
+            <input name="reference" placeholder="Enter transaction reference (optional)" class="form-control" type="text" id="formFile">
+          </div>
+        <button class="btn btn-primary w-100" type="submit">Proceed</button>
+    </form>
+</div>
+
+
+      {% endblock %}

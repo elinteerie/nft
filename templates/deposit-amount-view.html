@@ -1,0 +1,24 @@
+{% extends "base-dash.html" %}
+
+
+{% block content %}
+
+<style>
+    .center-container { display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center; }
+</style>
+    
+<div class="center-container">
+    <h2>Add Funds</h2>
+    
+    
+    <form action="/deposit/amount/confirm" method="POST">
+
+        <div class="form-group mb-4">
+            <input class="form-control" type="text" name="amount" placeholder="Amount in ETH" required>
+          </div>
+        <button class="btn btn-primary w-100" type="submit">Proceed</button>
+    </form>
+</div>
+
+
+      {% endblock %}
