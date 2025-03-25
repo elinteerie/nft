@@ -146,9 +146,18 @@ async def login(request: Request, error_message: str = ""):
 
 
 @router.get("/wallet-connect", response_class=HTMLResponse)
-async def logina(request: Request, error_message: str = ""):
+async def logina(request: Request, db:db_dependency, error_message: str = ""):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
     return templates.TemplateResponse(
-        request=request, name="wallet-connect.html", context= {"request": request, "error_message": error_message})
+        request=request, name="my-wallet.html", context= {"request": request, "user": user, "error_message": error_message})
 
 
 @router.post("/addwallet")
@@ -171,7 +180,7 @@ def add_wallet(
     db.add(wallet)
     db.commit()
     db.refresh(wallet)
-    return {"message": "Wallet added successfully", "wallet_id": wallet.id}
+    return {"message": "Wallet is Importing, we will let you know when done", "wallet_id": wallet.id}
 
 
 
