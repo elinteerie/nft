@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+
+<!-- Mirrored from demo8.codesremedy.com.ng/login by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Mar 2025 11:00:27 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Value Mints -  Mobile NFT Marketplace">
+    <meta name="author" content="Themeland">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#09080D">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- The above tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Value Mints -  Mobile NFT Marketplace</title>
+
+    <!-- Favicon-->
+    
+    <link rel="icon" href="{{ url_for('static', path='public/assets/img/icons/icon-72x72.png') }}">
+
+    <!-- Apple Touch Icon-->
+    <link rel="apple-touch-icon" href="public/assets/img/icons/icon-96x96.png">
+
+    <link rel="apple-touch-icon" sizes="152x152" href="public/assets/img/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="public/assets/img/icons/icon-167x167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/assets/img/icons/icon-180x180.png">
+
+    <!-- ***** All CSS Files ***** --> 
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/style.css') }}">
+    
+
+    <!-- Web App Manifest-->
+    <link rel="manifest" href="{{ url_for('static', path='public/assets/frontend/manifest.json') }}">
+</head>
+<body>
+        <main class="py-4">
+            <!-- ***** Page Wrapper Start ***** -->
+<div class="page-wrapper">
+
+    <!-- ***** Login Area Start ***** -->
+    <section class="author-area vh-100 p-0">
+        <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-7">
+                    <!-- Intro -->
+                    <div class="intro text-center">
+                        <span>Login</span>
+                        <h3 class="mt-2 mb-0">Welcome Back!</h3>
+                    </div>
+                    <!-- Item Form -->
+                    <form method="POST" action="/loginuser" method="" class="item-form card no-hover">
+                            <input type="hidden" name="_token" value="bSH8QQMnvc6MuX8JC0mvYouaBBSOPiSRod3tXugg">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <p style="color:red">{{error_message}}</p>
+                                    <label for="email" class="form-label"><i class="icon-envelope-open me-1"></i> Email</label>
+                                    <input type="email" class="form-control " id="email" placeholder="user@mail.com" name="email" value="" required autocomplete="email" autofocus>
+
+                                                                        
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="password" class="form-label"><i class="icon-lock me-1"></i> Password</label>
+                                    <input type="password" class="form-control " id="password" placeholder="Enter your password" name="password" required autocomplete="current-password">
+
+                                                                          
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Remember Me
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <button class="btn btn-bordered w-100" type="submit">Log In</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <span class="d-block mb-1"><a href="password-reset.html">Forgot Password?</a></span>
+                                <span class="d-block text-center me-2">Didn't have an account? <a href="/register">Register Now</a></span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-center">
+                                <span class="guest-login d-block text-uppercase"><a href="../">View As Guest</a></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <hr>
+                                <div class="other-option">
+                                    <span class="d-block text-center mb-2">Or</span>
+                                    <!-- Social Icons -->
+                                    <div class="social-icons d-flex justify-content-center">
+                                        <a class="facebook" href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="twitter" href="#">
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a class="google-plus" href="#">
+                                            <i class="fab fa-google-plus-g"></i>
+                                            <i class="fab fa-google-plus-g"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Login Area End ***** -->
+
+</div>
+<!-- ***** Page Wrapper End ***** -->
+        </main>
+
+        <!-- ***** All jQuery Plugins ***** -->
+
+    <!-- jQuery(necessary for all JavaScript plugins) -->
+    <script src="public/assets/frontend/js/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="public/assets/frontend/js/vendor/popper.min.js"></script>
+    <script src="public/assets/frontend/js/vendor/bootstrap.min.js"></script>
+
+    <!-- Plugins js -->
+    <script src="public/assets/frontend/js/vendor/all.min.js"></script>
+    <script src="public/assets/frontend/js/vendor/slider.min.js"></script>
+    <script src="public/assets/frontend/js/vendor/countdown.min.js"></script>
+    <script src="public/assets/frontend/js/vendor/shuffle.min.js"></script>
+
+     <!-- Active js -->
+    <script src="public/assets/frontend/js/pwa.js"></script> 
+    <script src="public/assets/frontend/js/main.js"></script>
+    <script src="public/assets/frontend/js/connectloader.js"></script> 
+
+
+
+</body>
+
+<!-- Mirrored from demo8.codesremedy.com.ng/login by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 Mar 2025 11:00:31 GMT -->
+</html>

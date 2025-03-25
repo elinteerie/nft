@@ -1,1564 +1,726 @@
-{% extends "base.html" %}
+{% extends "base-dash.html" %}
 
-    
-            
-            
-        
+
 {% block content %}
-    
-    
-            
-            
-        
-    
-    
-    
-    
-    
-    
-            <!-- ***** Header End ***** -->
-            
-    
-    
-               <!-- ***** PWA Install Alert Start ***** -->
-               
-            <!-- ***** PWA Install Alert End ***** -->    
-        
-    
-             <!-- ***** Page Wrapper Start ***** -->
-            <div class="page-wrapper">
-                <!-- ***** Hero Area Start ***** -->
-                <section class="hero-section">
-        <div class="container">
-            <div class="row">
-                <!-- Column for the GIF image (order 1 on mobile) -->
-                <div class="col-12 col-md-6 col-lg-5 order-md-2" style="margin-top: 20px; margin-bottom: 20px;">
-                    <img src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/friends.gif" alt="Invisible" class="img-fluid">
-                </div>
-                <!-- Column for the text (order 2 on mobile) -->
-                <div class="col-12 col-md-6 col-lg-7 order-md-1">
-                    <span>Artiflex Gateway</span>
-                    <h1 class="mt-3" style="font-size:35px">Discover, collect, and sell extraordinary NFTs</h1>
-                    <p>Explore on the world's first investment-based NFT Marketplace</p>
-                    <!-- Buttons -->
-                    <div class="button-group">
-                        <a class="btn btn-primary" href="/dashboard"><i class="icon-rocket me-2"></i>Explore</a>
-                        
-                        <a class="btn btn-bordered" href="/cre"><i class="icon-note me-2"></i>Create</a>
-                        
-                    </div>
-                </div>
-                
+
+
+
+
+    <!-- Admin Sidebar Wrap -->
+    <div class="admin-sidebar-wrap">
+      <div class="overflowY-scroll">
+        <!-- User Profile -->
+        <div class="user-profile">
+          <!-- User Name -->
+          <div class="user-name mb-5">
+           
+            <div class="d-flex align-items-center"><img src=" {{ url_for('static', path='img/bg-img/u2.jpg') }}" alt="">
+              <div class="ms-3">
+                <h6 class="lh-1 text-dark fz-18">{{user.first_name}}.</h6><span class="badge bg-primary fz-12">Premium User</span>
+              </div>
             </div>
+          </div>
+          <!-- Balance -->
+          <div class="card shadow mb-5">
+            <div class="card-body text-center p-4">
+              <h6 class="mb-1">Current balance</h6>
+              <h5 class="mb-0 text-dark d-flex align-items-center justify-content-center"><img class="me-1" src="{{ url_for('static', path='img/core-img/ethereum.png') }}" alt=""><span class="counter">{{user.eth_balance}}</span><span class="ms-2">ETH</span></h5><a class="btn btn-warning rounded-pill btn-sm w-100 mt-3" href="#">Recharge</a>
+            </div>
+          </div>
         </div>
-                    <!-- Shape -->
-                    <!--<div class="shape">-->
-                    <!--    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 465" version="1.1">-->
-                    <!--        <defs>-->
-                    <!--            <linearGradient x1="49.7965246%" y1="28.2355058%" x2="49.7778147%" y2="98.4657689%" id="linearGradient-1">-->
-                    <!--                <stop stop-color="rgb(0,123,255)" offset="0%" />-->
-                    <!--                <stop stop-color="rgb(4,58,117)" offset="100%" />-->
-                    <!--            </linearGradient>-->
-                    <!--        </defs>-->
-                    <!--        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">-->
-                    <!--            <polygon points="" fill="url(#linearGradient-1)">-->
-                    <!--                <animate id="graph-animation" xmlns="http://www.w3.org/2000/svg" dur="2s" repeatCount="" attributeName="points" values="0,464 0,464 111.6,464 282.5,464 457.4,464 613.4,464 762.3,464 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,323.3 282.5,373 457.4,423.8 613.4,464 762.3,464 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,336.6 457.4,363.5 613.4,414.4 762.3,464 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,323.3 613.4,340 762.3,425.6 912.3,464 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,290.4 762.3,368 912.3,446.4 1068.2,464 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,329.6 912.3,420 1068.2,427.6 1191.2,464 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,402.4 1068.2,373 1191.2,412 1328.1,464 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,336.6 1191.2,334 1328.1,404 1440.1,464 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,282 1328.1,314 1440.1,372.8 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,204 1328.1,254 1440.1,236 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,204 1328.1,164 1440.1,144.79999999999998 1440.1,464 0,464; 0,464 0,367 111.6,263 282.5,282 457.4,263 613.4,216 762.3,272 912.3,376 1068.2,282 1191.2,204 1328.1,164 1440.1,8 1440.1,464 0,464;" fill="freeze" />-->
-                    <!--            </polygon>-->
-                    <!--        </g>-->
-                    <!--    </svg>-->
-                    <!--</div>-->
-                </section>
-                <!-- ***** Hero Area End ***** -->
-                <!-- ***** Live Auctions Area Start ***** -->
-                <section class="live-auctions-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Intro -->
-                                <div class="intro d-flex justify-content-between align-items-end m-0">
-                                    <div class="intro-content">
-                                        <span>Auctions</span>
-                                        <h3 class="mt-2 mb-0">Live Auctions</h3>
-                                    </div>
-                                    <div class="intro-btn">
-                                        <a class="btn content-btn" href="/dashboard">Explore</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    <style>
-                        .homecard .homecard-img-top {
-                            border-radius: 6px;
-                            height: 200px !important;
-                        }
-    
-                    @media  only screen and (max-width: 770px ) {
-    
-                        .homecard .homecard-img-top{
-    
-                            height: 150px !important;
-    
-                        }
-    
-                    } 
-    
-    
-                    .homecollectioncard .homecollectioncard-img-top {
-                            border-radius: 6px;
-                            height: 200px !important;
-                        }
-    
-                    @media  only screen and (max-width: 770px ) {
-    
-                        .homecollectioncard .homecollectioncard-img-top{
-    
-                            height: 150px !important;
-    
-                        }
-    
-                    }                 
-                    
-                    .currency-icon {
-                    height: 2rem !important;
-                    width: 2rem !important;
-                    }   
-    
-                    </style>
-    
-                        <div class="auctions-slides">
-                            <div class="swiper-container slider-min items swiper-container-initialized swiper-container-horizontal">
-                                
-                                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-2844px, 0px, 0px);"><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="15" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="#">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653409246.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="#">
-                                                        <h5 class="mb-0">Doodle #2733</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x8a90cab2b38dba80c64b7734e58ee1db38b8992e/1">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/doodlesphoto.jpg" alt="doodlesphoto.jpg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@Dood...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>14.50 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="16" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/64">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653370542.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/64">
-                                                        <h5 class="mb-0">Retro Mutant Ape #22</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/64">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/gmoney.jpg" alt="gmoney.jpg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@gmon...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>8.00 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="17" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/74">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1652466661.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/74">
-                                                        <h5 class="mb-0">Gutter Juice</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/74">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/user9photo.gif" alt="user9photo.gif">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@admi...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>0.17 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="18" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/56">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653370319.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/56">
-                                                        <h5 class="mb-0">Rainbow Mutant Ape #665</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/56">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/gmoney.jpg" alt="gmoney.jpg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@gmon...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>0.57 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="19" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/71">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1651913244.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/71">
-                                                        <h5 class="mb-0">Bored Ape #1278</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/71">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/user9photo.gif" alt="user9photo.gif">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@admi...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>2.10 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Single Slide -->
-                                    {% for nft in nftlive %}
-                                    <div class="swiper-slide item" data-swiper-slide-index="0" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="/view-nft/{{nft.eth_address}}"">
-                                                    <img class="card-img-top homecard-img-top" src="/{{nft.image}}" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="/view-nft/{{nft.eth_address}}"">
-                                                        <h5 class="mb-0">{{nft.name}}</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="/view-nft/{{nft.eth_address}}"">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/gmoney.jpg" alt="gmoney.jpg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@{{nft.collection.user.username}}</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>0.34 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                    
-                                                                <div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="0" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/67">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653370806.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/67">
-                                                        <h5 class="mb-0">Bansky Mutant Ape</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/67">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/gmoney.jpg" alt="gmoney.jpg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@gmon...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>0.34 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="1" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/125">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653825087.png" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/125">
-                                                        <h5 class="mb-0">Desperate ApeWife#516</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/125">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/dezeeee6789a.jpeg" alt="dezeeee6789a.jpeg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@tima...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>4.00 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="2" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/127">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653828936.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/127">
-                                                        <h5 class="mb-0">Azuki #5888</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/127">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/dezeeee6789a.jpeg" alt="dezeeee6789a.jpeg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@tima...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>9.00 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/105">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653628811.webp" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/105">
-                                                        <h5 class="mb-0">Bored Ape Yacht Club#7183</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/105">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/dezeeee6789a.jpeg" alt="dezeeee6789a.jpeg">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@tima...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>100.40 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><div class="swiper-slide item swiper-slide-duplicate" data-swiper-slide-index="4" style="width: 222px; margin-right: 15px;">
-                                        <div class="card homecard">
-                                            <div class="image-over">
-                                                <a href="https://demo8.codesremedy.com.ng/item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/72">
-                                                    <img class="card-img-top homecard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1652462761.jpg" alt="">
-                                                </a>
-                                            </div>
-                                            <!-- Card Caption -->
-                                            <div class="card-caption col-12 p-0">
-                                                <!-- Card Body -->
-                                                <div class="card-body">
-                                                    <div class="countdown-times mb-3">
-                                                        <div class="countdown d-flex justify-content-center" data-date="2021-12-09" style="display: none;"></div>
-                                                    </div>
-                                                    <a href="https://demo8.codesremedy.com.ng/item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/72">
-                                                        <h5 class="mb-0">Flux #336</h5>
-                                                    </a>
-    
-                                                                                                    <a class="seller d-flex align-items-center my-3" href="https://demo8.codesremedy.com.ng/item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/72">
-                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/user9photo.gif" alt="user9photo.gif">
-                                                                                                    
-                                                    
-                                                        <span class="ms-2">@admi...</span>
-                                                    </a>
-                                                    <div class="card-bottom d-flex justify-content-between">
-                                                        <span>1.20 ETH</span>
-                                                        <span><img class="currency-icon rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/img/icons/ETH.png" alt="ETH}}"></span>
-                                                    </div>  
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></div>
-                                <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 7"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 8"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 10"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 11"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 12"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 13"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 14"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 15"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 16"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 17"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 18"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 19"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 20"></span></div>
-                            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
-                        </div>
-                    </div>
-                </section>
-                <!-- ***** Live Auctions Area End ***** -->
-    
-                <!-- ***** Top Sellers Area Start ***** -->
-                <section class="top-seller-area p-0">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Intro -->
-                                <div class="intro m-0">
-                                    <div class="intro-content">
-                                        <span>Trending Sales</span>
-                                        <h3 class="mt-2">Top Sellers</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-3 items">
-                                                    <div class="col-12 col-sm-6 col-lg-4 item">
-                                <!-- Single Seller -->
-                                <div class="card no-hover">
-                                    <div class="single-seller d-flex align-items-center">
-                                        <a href="#">
-                                                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/1653598544.jpg" alt="1653598544.jpg">
-                                                                    
-                                            </a>
-                                        <!-- Seller Info -->
-                                        <div class="seller-info ms-3">
-                                            <a class="seller mb-2" href="#">@VoidRougue</a>
-                                                                                    <span>142,687 USD</span>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-12 col-sm-6 col-lg-4 item">
-                                <!-- Single Seller -->
-                                <div class="card no-hover">
-                                    <div class="single-seller d-flex align-items-center">
-                                        <a href="#">
-                                                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/doodlesphoto.jpg" alt="doodlesphoto.jpg">
-                                                                    
-                                            </a>
-                                        <!-- Seller Info -->
-                                        <div class="seller-info ms-3">
-                                            <a class="seller mb-2" href="#">@Doodles_LLC</a>
-                                                                                    <span>275,748 USD</span>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-12 col-sm-6 col-lg-4 item">
-                                <!-- Single Seller -->
-                                <div class="card no-hover">
-                                    <div class="single-seller d-flex align-items-center">
-                                        <a href="#">
-                                                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/gmoney.jpg" alt="gmoney.jpg">
-                                                                    
-                                            </a>
-                                        <!-- Seller Info -->
-                                        <div class="seller-info ms-3">
-                                            <a class="seller mb-2" href="#">@gmoney</a>
-                                                                                    <span>237,752 USD</span>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-12 col-sm-6 col-lg-4 item">
-                                <!-- Single Seller -->
-                                <div class="card no-hover">
-                                    <div class="single-seller d-flex align-items-center">
-                                        <a href="#">
-                                                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/fooziebear.jpg" alt="fooziebear.jpg">
-                                                                    
-                                            </a>
-                                        <!-- Seller Info -->
-                                        <div class="seller-info ms-3">
-                                            <a class="seller mb-2" href="#">@Fozziebear</a>
-                                                                                    <span>224,739 USD</span>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-12 col-sm-6 col-lg-4 item">
-                                <!-- Single Seller -->
-                                <div class="card no-hover">
-                                    <div class="single-seller d-flex align-items-center">
-                                        <a href="#">
-                                                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/user9photo.gif" alt="user9photo.gif">
-                                                                    
-                                            </a>
-                                        <!-- Seller Info -->
-                                        <div class="seller-info ms-3">
-                                            <a class="seller mb-2" href="#">@admin</a>
-                                                                                    <span>304,007 USD</span>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-12 col-sm-6 col-lg-4 item">
-                                <!-- Single Seller -->
-                                <div class="card no-hover">
-                                    <div class="single-seller d-flex align-items-center">
-                                        <a href="#">
-                                                                                    <img class="avatar-sm rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/remevaultphoto.jpg" alt="remevaultphoto.jpg">
-                                                                    
-                                            </a>
-                                        <!-- Seller Info -->
-                                        <div class="seller-info ms-3">
-                                            <a class="seller mb-2" href="#">@REMEvault</a>
-                                                                                    <span>297,064 USD</span>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                                                </div>
-                    </div>
-                </section>
-                <!-- ***** Top Sellers Area End ***** -->
-    
-    
-    
-    
-              
-    
-    
-             <!-- ***** Investment Work Area Start ***** -->
-             <section class="work-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <!-- Intro -->
-                            <div class="intro mb-4">
-                                <div class="intro-content">
-                                    <span>How To Invest</span>
-                                    <h3 class="mt-2 mb-0">Invest in top NFT collections</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row items">
-                        <div class="col-12 col-sm-6 col-lg-3 item">
-                            <!-- Single Work -->
-                            <div class="single-work">
-                                <i class="icons icon-user text-effect"></i>
-                                <h4>Create an account</h4>
-                                <p>Click on signup and fill in all the data in the registration form to open an account. Verify email and Login account after verification</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3 item">
-                            <!-- Single Work -->
-                            <div class="single-work">
-                                <i class="icons icon-wallet text-effect"></i>
-                                <h4>Fund your account</h4>
-                                <p>Click deposit to fund your account. Fund your wallet with your desired payment method &amp; choose your desired plan.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3 item">
-                            <!-- Single Work -->
-                            <div class="single-work">
-                                <i class="icons icon-grid text-effect"></i>
-                                <h4>Select collection to invest</h4>
-                                <p>Select your investment scheme from list of available schemes. Enter amount to invest, calculate profit return based on yield and submit.</p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-3 item">
-                            <!-- Single Work -->
-                            <div class="single-work">
-                                <i class="icons icon-wallet text-effect"></i>
-                                <h4>Get up to 50x profit</h4>
-                                <p>All investment schemes are verified and profit is rewarded after maturity. Withdraw maximum profit after investment maturity!</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Sidenav -->
+        <div class="sidenav">
+          <ul>
+            <li>Menu</li>
+            <li><a class="active" href="dashboard.html"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+            <li><a href="live-bids.html"><i class="bi bi-hammer"></i>Live Bids</a></li>
+            <li><a href="my-collection.html"><i class="bi bi-columns-gap"></i>My Collections</a></li>
+            <li><a href="my-wallet.html"><i class="bi bi-wallet2"></i>My Wallet</a></li>
+            <li><a href="notifications.html"><i class="bi bi-bell"></i>Notifications</a></li>
+            <li><a href="settings.html"><i class="bi bi-gear"></i>Settings</a></li>
+          </ul>
+        </div>
+        <div class="mt-auto">
+          <div class="mt-5"></div>
+          <!-- Mode Switching -->
+          <div class="dark-light-mode">
+            <input id="darkLightSwitch" type="checkbox">
+            <label class="shadow" for="darkLightSwitch">Toggle</label>
+          </div>
+          <div class="copywrite-text mt-4">
+            <p class="mb-0 fz-14">2022 &copy; All rights reserved by <a class="fz-14" href="#" target="_blank">Designing World</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Create New Button -->
+    <div class="create-new-button"><a class="shadow-lg btn btn-warning" href="create-new.html" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New NFT"><i class="fz-18 bi bi-plus-lg"></i></a></div>
+    <div class="admin-wrapper">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-xxl-6">
+            <div class="row g-4">
+              <!-- Welcome Card -->
+              <div class="col-12">
+                <div class="card dashboard-hero-card p-2 border-0 bg-img shadow-sm" style="background-image: url('img/bg-img/44.jpg')">
+                  <div class="card-body p-4">
+                    <h3 class="mb-3 text-white">Explore, buy, and sell exceptional NFTs.</h3>
+                    <p class="mb-4 text-white">It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
+                    <div class="button-groups"><a class="btn btn-sm btn-warning rounded-pill me-3" href="#">Discover</a><a class="btn btn-sm btn-dark rounded-pill" href="#">Create</a></div>
+                  </div>
                 </div>
-            </section>
-            <!-- ***** Investment Area End ***** -->
-    
-                
-    
-                <style>
-                    .homeallcard .homeallcard-img-top {
-                        border-radius: 6px;
-                        height: 250px !important;
-                    }
-    
-                @media  only screen and (max-width: 770px ) {
-    
-                    .homeallcard .homeallcard-img-top{
-    
-                        height: 150px !important;
-    
-                    }
-    
-                } 
-    
-                </style>
-    
-                <!-- ***** Explore Area Start ***** -->
-                <section class="explore-area load-more p-0">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Intro -->
-                                <div class="intro d-flex justify-content-between align-items-end">
-                                    <div class="intro-content">
-                                        <span>Exclusive Assets</span>
-                                        <h3 class="mt-2 mb-0">Explore</h3>
-                                    </div>
-                                    <div class="intro-btn">
-                                        <a class="btn content-btn" href="#">View all</a>
-                                    </div>
-                                </div>
-                            </div>
+              </div>
+              <!-- Statistic Card -->
+              <div class="col-12 col-sm-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h5 class="mb-2">Sales</h5><span>Last 10 days</span>
+                      </div>
+                      <div class="ms-auto" id="chart-1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Statistic Card -->
+              <div class="col-12 col-sm-6">
+                <div class="card border-0 shadow-sm">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                      <div>
+                        <h5 class="mb-2">Revenue</h5><span>Last 10 days</span>
+                      </div>
+                      <div class="ms-auto" id="chart-2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xxl-6">
+            <!-- Monthly Visitor -->
+            <div class="col-12">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 pb-0">
+                  <h5 class="ms-3">Monthly Visitors</h5>
+                  <div id="chart-timeline"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xxl-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+                  <h5>Activity</h5>
+                  <ul class="nav nav-tabs border-0 mb-2" id="funtoTab" role="tablist">
+                    <li class="nav-item"><a class="rounded-pill btn btn-sm btn-primary me-1 active" id="tab--1" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Today</a></li>
+                    <li class="nav-item"><a class="rounded-pill btn btn-sm btn-primary me-1" id="tab--2" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">7 days</a></li>
+                    <li class="nav-item"><a class="rounded-pill btn btn-sm btn-primary" id="tab--3" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">30 days</a></li>
+                  </ul>
+                </div>
+                <div class="tab-content">
+                  <!-- Tab Pane-->
+                  <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                    <div class="table-responsive border shadow-sm dashboard-table activity-table">
+                      <table class="table mb-0">
+                        <tbody>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/5.jpg" alt="">NFT Logo</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.235 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>29 min ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">Pixel Art</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.706 ETH</span></td>
+                            <td><i class="bi bi-percent"></i>Offer</td>
+                            <td><i class="bi bi-clock"></i>1h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/7.jpg" alt="">Funny Pigs</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.105 ETH</span></td>
+                            <td><i class="bi bi-patch-exclamation"></i>Alert</td>
+                            <td><i class="bi bi-clock"></i>2h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/8.jpg" alt="">Fancy Car 2</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.95 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>3h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/5.jpg" alt="">NFT Logo</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.235 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>12h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">Pixel Art</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.706 ETH</span></td>
+                            <td><i class="bi bi-percent"></i>Offer</td>
+                            <td><i class="bi bi-clock"></i>17h ago</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- Tab Pane-->
+                  <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                    <div class="table-responsive border shadow-sm activity-table">
+                      <table class="table mb-0">
+                        <tbody>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/5.jpg" alt="">NFT Logo</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.235 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>29 min ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">Pixel Art</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.706 ETH</span></td>
+                            <td><i class="bi bi-percent"></i>Offer</td>
+                            <td><i class="bi bi-clock"></i>1h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/7.jpg" alt="">Funny Pigs</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.105 ETH</span></td>
+                            <td><i class="bi bi-patch-exclamation"></i>Alert</td>
+                            <td><i class="bi bi-clock"></i>2h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/8.jpg" alt="">Fancy Car 2</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.95 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>3h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/5.jpg" alt="">NFT Logo</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.235 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>12h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">Pixel Art</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.706 ETH</span></td>
+                            <td><i class="bi bi-percent"></i>Offer</td>
+                            <td><i class="bi bi-clock"></i>17h ago</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!-- Tab Pane-->
+                  <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                    <div class="table-responsive border shadow-sm activity-table">
+                      <table class="table mb-0">
+                        <tbody>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/5.jpg" alt="">NFT Logo</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.235 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>29 min ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">Pixel Art</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.706 ETH</span></td>
+                            <td><i class="bi bi-percent"></i>Offer</td>
+                            <td><i class="bi bi-clock"></i>1h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/7.jpg" alt="">Funny Pigs</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.105 ETH</span></td>
+                            <td><i class="bi bi-patch-exclamation"></i>Alert</td>
+                            <td><i class="bi bi-clock"></i>2h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/8.jpg" alt="">Fancy Car 2</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.95 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>3h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/5.jpg" alt="">NFT Logo</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.235 ETH</span></td>
+                            <td><i class="bi bi-cart"></i>Sales</td>
+                            <td><i class="bi bi-clock"></i>12h ago</td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="#"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">Pixel Art</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">0.706 ETH</span></td>
+                            <td><i class="bi bi-percent"></i>Offer</td>
+                            <td><i class="bi bi-clock"></i>17h ago</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Treading Auctions -->
+          <div class="col-12 col-xxl-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3"><img class="me-1" src="img/core-img/fire2.png" alt="">
+                  <h5 class="mb-0">Trending Auctions</h5>
+                </div>
+                <div class="trending-auction-slide">
+                  <div>
+                    <div class="nft-card card border-0 bg-gray">
+                      <div class="card-body">
+                        <div class="img-wrap"><img src="img/bg-img/9.jpg" alt="">
+                          <!-- Badge -->
+                          <div class="badge bg-dark position-absolute"><img src="img/core-img/fire.png" alt="">New Bid</div>
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownqc22" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                            <!-- Dropdown Menu -->
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownqc22">
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                            </ul>
+                          </div>
+                          <!-- Bid End -->
+                          <div class="bid-ends" data-date="March 31, 2023 14:19:54">
+                            <div><span class="days"></span><span>Days</span></div>
+                            <div><span class="hours"></span><span>Hours</span></div>
+                            <div><span class="minutes"></span><span>Min</span></div>
+                            <div><span class="seconds"></span><span>Sec</span></div>
+                          </div>
                         </div>
-                        <div class="row g-3 items">
-                                                    <div class="col-6 col-lg-3 item" style="display: block;">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="/login">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653411959.jpg" alt="1653411959.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="/login">
-                                                <h5 class="mb-0">MutantApeYachtClub #6453</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="/login">
-                                                    <h6 class="ms-2 mb-0">@Mutant...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>15.70 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="/login"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>3 stock available</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u4.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Fancy Car">Fancy Car</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@fancy_car</a></div>
                             </div>
-                                                    <div class="col-6 col-lg-3 item" style="display: block;">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="/login">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653412696.jpg" alt="1653412696.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="/login">
-                                                <h5 class="mb-0">MutantApeYachtClub #9695</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="/login">
-                                                    <h6 class="ms-2 mb-0">@Mutant...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>17.80 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="/login"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">0.784 ETH</h6>
                             </div>
-                                                    <div class="col-6 col-lg-3 item" style="display: block;">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="/login">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653366984.gif" alt="1653366984.gif">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="/login">
-                                                <h5 class="mb-0">LIT Rider</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="/login">
-                                                    <h6 class="ms-2 mb-0">@Fozzie...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.60 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="/login"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100" href="#">Place Bid</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="nft-card card border-0 bg-gray">
+                      <div class="card-body">
+                        <div class="img-wrap"><img src="img/bg-img/10.jpg" alt="">
+                          <!-- Badge -->
+                          <div class="badge bg-dark position-absolute"><img src="img/core-img/fire.png" alt="">New Bid</div>
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownvb22" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                            <!-- Dropdown Menu -->
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownvb22">
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                            </ul>
+                          </div>
+                          <!-- Bid End -->
+                          <div class="bid-ends" data-date="April 4, 2023 00:00:00">
+                            <div><span class="days"></span><span>Days</span></div>
+                            <div><span class="hours"></span><span>Hours</span></div>
+                            <div><span class="minutes"></span><span>Min</span></div>
+                            <div><span class="seconds"></span><span>Sec</span></div>
+                          </div>
+                        </div>
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>11 stock available</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn active" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u1.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Animal Playing with Guiter">Animal Playing with Guiter</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@creative_world</a></div>
                             </div>
-                                                    <div class="col-6 col-lg-3 item" style="display: block;">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="/login">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653366537.jpg" alt="1653366537.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="/login">
-                                                <h5 class="mb-0">Wealthy Ape Social Club #296</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="/login">
-                                                    <h6 class="ms-2 mb-0">@Fozzie...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.30 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="/login"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">0.784 ETH</h6>
                             </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="/login">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653367053.jpg" alt="1653367053.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="/login">
-                                                <h5 class="mb-0">Chimpers #150</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="/login">
-                                                    <h6 class="ms-2 mb-0">@Fozzie...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>15.00 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="/login"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100" href="#">Place Bid</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="nft-card card border-0 bg-gray">
+                      <div class="card-body">
+                        <div class="img-wrap"><img src="img/bg-img/11.jpg" alt="">
+                          <!-- Badge -->
+                          <div class="badge bg-danger position-absolute"><img src="img/core-img/fire.png" alt="">Bid Done</div>
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdown282" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                            <!-- Dropdown Menu -->
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown282">
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                            </ul>
+                          </div>
+                          <!-- Bid End -->
+                          <div class="bid-ends" data-date="Feb 28, 2023 12:34:00">
+                            <div><span class="days"></span><span>Days</span></div>
+                            <div><span class="hours"></span><span>Hours</span></div>
+                            <div><span class="minutes"></span><span>Min</span></div>
+                            <div><span class="seconds"></span><span>Sec</span></div>
+                          </div>
+                        </div>
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>Not available</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u2.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Halloween #471">Halloween #471</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@fancy_car</a></div>
                             </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="/login">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653823846.png" alt="1653823846.png">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="/login">
-                                                <h5 class="mb-0">Toxic Skulls Club#837</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="/login">
-                                                    <h6 class="ms-2 mb-0">@timart...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>2.00 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/123"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">0.784 ETH</h6>
                             </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/45">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653412793.jpg" alt="1653412793.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/45">
-                                                <h5 class="mb-0">MutantApeYachtClub #2890</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="author.html">
-                                                    <h6 class="ms-2 mb-0">@Mutant...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>18.20 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/45"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100 disabled" href="#">Place Bid</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="nft-card card border-0 bg-gray">
+                      <div class="card-body">
+                        <div class="img-wrap"><img src="img/bg-img/12.jpg" alt="">
+                          <!-- Badge -->
+                          <div class="badge bg-danger position-absolute"><img src="img/core-img/fire.png" alt="">Hot Bid</div>
+                          <!-- Dropdown -->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdown42r2" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                            <!-- Dropdown Menu -->
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown42r2">
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                            </ul>
+                          </div>
+                          <!-- Bid End -->
+                          <div class="bid-ends" data-date="December 31, 2022 14:19:39">
+                            <div><span class="days"></span><span>Days</span></div>
+                            <div><span class="hours"></span><span>Hours</span></div>
+                            <div><span class="minutes"></span><span>Min</span></div>
+                            <div><span class="seconds"></span><span>Sec</span></div>
+                          </div>
+                        </div>
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>29 stock available</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u3.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Vigor Dance">Vigor Dance</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@fancy_nft</a></div>
                             </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/28">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653412069.jpg" alt="1653412069.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/28">
-                                                <h5 class="mb-0">MutantApeYachtClub #7654</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="author.html">
-                                                    <h6 class="ms-2 mb-0">@Mutant...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>18.40 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/28"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">0.784 ETH</h6>
                             </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/36">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653412473.jpg" alt="1653412473.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/36">
-                                                <h5 class="mb-0">MutantApeYachtClub #24302</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="author.html">
-                                                    <h6 class="ms-2 mb-0">@Mutant...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>21.30 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="https://demo8.codesremedy.com.ng/item-details/0x60e4d786628fea6478f785a6d7e704777c86a7c6/36"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
+                          </div>
+                          <div class="col-12"><a class="btn btn-warning rounded-pill btn-sm mt-3 w-100" href="#">Place Bid</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <h5>Top NFTs</h5><a class="btn btn-primary btn-minimal" href="#">View all NFTs</a>
+                </div>
+                <div class="row g-4 justify-content-center">
+                  <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="nft-card card featured-card border-0 bg-gray">
+                      <div class="img-wrap"><img src="img/bg-img/40.jpg" alt="">
+                        <!-- Badge -->
+                        <div class="badge bg-primary position-absolute"><img src="img/core-img/fire.png" alt="">Featured</div>
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                          <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdowns1" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                          <!-- Dropdown Menu -->
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdowns1">
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-arrow-up"></i>Hightest bid 0.061 ETH</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn active" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u1.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Cowboy Riding Bull Nature">Cowboy Riding Bull Nature</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@designing_world</a></div>
                             </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/97">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653622993.png" alt="1653622993.png">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/97">
-                                                <h5 class="mb-0">goblintown#327</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="author.html">
-                                                    <h6 class="ms-2 mb-0">@timart...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>2.36 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" href="https://demo8.codesremedy.com.ng/item-details/0x3961a71416c750ec83a55262397b55e37f3cce12/97"><i class="icon-handbag me-1"></i>Place Bid</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-    
-    
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85/79">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653364322.svg" alt="1653364322.svg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85/79">
-                                                <h5 class="mb-0">remevault.eth</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@REMEva...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.50 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/55">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653370188.jpg" alt="1653370188.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/55">
-                                                <h5 class="mb-0">Dark Soul Ape #1</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@gmoney</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>2.00 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/70">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1651900789.jpg" alt="1651900789.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/70">
-                                                <h5 class="mb-0">Beanz #222</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@admin</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>2.00 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x1792a96e5668ad7c167ab804a100ce42395ce54d/76">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653363829.gif" alt="1653363829.gif">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x1792a96e5668ad7c167ab804a100ce42395ce54d/76">
-                                                <h5 class="mb-0">Moonbirds Oddities #4846</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@REMEva...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>3.20 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/64">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653370542.jpg" alt="1653370542.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/64">
-                                                <h5 class="mb-0">Retro Mutant Ape #22</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@gmoney</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>8.00 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/91">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653369274.jpg" alt="1653369274.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/91">
-                                                <h5 class="mb-0">Pixel Ape #6</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@gmoney</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.50 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x0c9153d9abb5e0489c89b38837f248816f151f42/83">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653366424.jpg" alt="1653366424.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x0c9153d9abb5e0489c89b38837f248816f151f42/83">
-                                                <h5 class="mb-0">Broskees #872</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@VoidRo...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.30 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/72">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1652462761.jpg" alt="1652462761.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x495f947276749ce646f68ac8c248420045cb7b5e/72">
-                                                <h5 class="mb-0">Flux #336</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@admin</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>1.20 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x05844e9aE606f9867ae2047c93cAc370d54Ab2E1/85">
-    
-                                                                                    <img class="homeallcard-img-top card-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/products/1653366673.jpg" alt="1653366673.jpg">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x05844e9aE606f9867ae2047c93cAc370d54Ab2E1/85">
-                                                <h5 class="mb-0">AO Art Ball #3253</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@VoidRo...</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.30 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <div class="col-6 col-lg-3 item">
-                                <div class="card homeallcard">
-                                    <div class="image-over">
-                                        <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/67">
-    
-                                                                                    <img class="card-img-top homeallcard-img-top" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/default.jpg" alt="...">
-                                                                                     
-                                        </a>
-                                    </div>
-                                    <!-- Card Caption -->
-                                    <div class="card-caption col-12 p-0">
-                                        <!-- Card Body -->
-                                        <div class="card-body">
-                                            <a href="https://demo8.codesremedy.com.ng/collection-item-details/0x2953399124f0cbb46d2cbacd8a89cf0599974963/67">
-                                                <h5 class="mb-0">Bansky Mutant Ape</h5>
-                                            </a>
-                                            <div class="seller d-flex align-items-center my-3">
-                                                <span>Owned By</span>
-                                                <a href="#">
-                                                    <h6 class="ms-2 mb-0">@gmoney</h6>
-                                                </a>
-                                            </div>
-                                            <div class="card-bottom d-flex justify-content-between">
-                                                <span>0.34 ETH</span>
-                                                <span>1 of 1</span>
-                                            </div>
-                                            <a class="btn btn-bordered btn-smaller mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon-handbag me-1"></i>Buy Now</a>
-                                        </div>
-                                         
-                                    </div>
-                                </div>
-                            </div>
-                                                    <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-md modal-dialog-centered">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Confirm Payment</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                Are you sure you want to proceed with the payment?
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <form action="https://demo8.codesremedy.com.ng/user/complete-payment/67" method="POST">
-                                        <input type="hidden" name="_token" value="SdPhIuaJ1ozW1IMqM3RffRDuK5P8YX7MaFfwQLDR">                            <button type="submit" class="btn btn-primary">Yes! Complete Payment</button>
-                                                                </form>
-                              </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">0.061 ETH</h6>
                             </div>
                           </div>
                         </div>
-    
-    
+                        <!-- Button -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-6"><a class="btn btn-primary rounded-pill btn-sm" href="#">Place Bid</a></div>
+                          <div class="col-6 text-end"><a class="btn btn-minimal btn-sm hover-primary" href="activity.html"> <i class="bi bi-activity me-1"></i>Activity</a></div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 text-center">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- ***** Explore Area End ***** -->
-                <style>
-                    .lastcontainer {
-                        padding: 0;
-                        /* max-width: 1170px; */
-                        margin-bottom: 100px !important;
-                    }                
-                </style>
-                <!-- ***** Work Area Start ***** -->
-                <section class="work-area">
-                    <div class="container lastcontainer">
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Intro -->
-                                <div class="intro mb-4">
-                                    <div class="intro-content">
-                                        <span>How It Works</span>
-                                        <h3 class="mt-2 mb-0">Create and sell your NFTs</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row items">
-                            <div class="col-12 col-sm-6 col-lg-3 item">
-                                <!-- Single Work -->
-                                <div class="single-work">
-                                    <i class="icons icon-wallet text-effect"></i>
-                                    <h4>Set up your wallet</h4>
-                                    <p>Once you’ve created a wallet your wallet of choice, connect it to Artiflex Gateway by clicking the 'connect wallet' in the buttom tab. <a href="/wallet-connect"> Learn about the wallets we support.</a> </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3 item">
-                                <!-- Single Work -->
-                                <div class="single-work">
-                                    <i class="icons icon-grid text-effect"></i>
-                                    <h4>Create your collection</h4>
-                                    <p>Click Create and set up your collection. Add social links, a description, profile &amp; banner images, and set a secondary sales fee.</p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3 item">
-                                <!-- Single Work -->
-                                <div class="single-work">
-                                    <i class="icons icon-drawer text-effect"></i>
-                                    <h4>Add your NFTs</h4>
-                                    <p>Upload your work (image, video, audio, or 3D art), add a title and description, and customize your NFTs with properties, stats, and unlockable content.</p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-3 item">
-                                <!-- Single Work -->
-                                <div class="single-work">
-                                    <i class="icons icon-bag text-effect"></i>
-                                    <h4>List them for sale</h4>
-                                    <p>Choose between auctions, fixed-price listings, and declining-price listings. You choose how you want to sell your NFTs!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- ***** Work Area End ***** -->
-    
-            </div>
-            <!-- ***** Page Wrapper End ***** -->
-            <!-- From our customers -->
-    <section id="mining-calculator-contracts" class="section-padding">
-      <!-- Calculator -->
-      <div class="token-sale">
-        <div class="container">
-          <div class="heading text-center">
-            <h1 class="sub-title">REVIEWS</h1>
-            <h2 class="title">HEAR FROM OUR CLIENTS</h2>
-          </div>
-          <section class="contract-section pt-5">
-            <div class="container">
-              <div class="heading text-center" style="margin-bottom: 3rem !important;">
-    
-                <div class="row">
-                  <div class="col-md-6 col-12 col-sm-12 mt-2">
-                    <div class="contract-item card1 p-4">
-                      <div class="contract-details  mr-4">
-                        <h5 class="contract-title"></h5>
-                        <img src="https://demo8.codesremedy.com.ng/images/pic30.jpg" alt="" style="border-radius: 100px;" height="200" width="200">
-                      </div>
-    
-                      <div>
-                        <!-- <div class="contract-specs"> -->
-                        <p class="text-light">
-                          Impressed by the diverse and creative collection of NFTs available.This marketplace offers a broad range of unique and fascinating digital assets for every taste.
-    
-                        </p>
-                        <p style="font-size: 15px; color:#007bff;">
-                          <strong>
-                            James Pennyworth,
-                          </strong>
-                          <span style="font-size: 15px; color:#007bff;">
-                            Real Estate Agent, <strong>UK</strong>
-                          </span>
-    
-                        </p>
-    
                       </div>
                     </div>
                   </div>
-    
-                  <div class="col-md-6 col-12 col-sm-12 mt-2">
-                    <div class="contract-item card1 p-4">
-                      <div class="contract-details  mr-4">
-                        <h5 class="contract-title"></h5>
-                        <img src="https://demo8.codesremedy.com.ng/images/pic20.jpg" alt="" style="border-radius: 100px;" height="200" width="200">
+                  <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="nft-card card featured-card border-0 bg-gray">
+                      <div class="img-wrap"><img src="img/bg-img/41.jpg" alt="">
+                        <!-- Badge -->
+                        <div class="badge bg-danger position-absolute"><img src="img/core-img/fire.png" alt="">New</div>
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                          <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownxs2" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                          <!-- Dropdown Menu -->
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownxs2">
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                          </ul>
+                        </div>
                       </div>
-    
-                      <div>
-                        <!-- <div class="contract-specs"> -->
-                        <p class="text-light">
-                          The transaction process on this NFT marketplace is seamless. Purchasing and selling NFTs is straightforward, and the platform provides a secure environment for smooth transactions. A reliable choice for buying and selling digital collectibles.
-    
-    
-                        </p>
-                        <p style="font-size: 15px; color:#007bff;">
-                          <strong>
-                            Paul Willis,
-                          </strong>
-                          <span style="font-size: 15px; color:#007bff;">
-                            Pro Trader, <strong>USA</strong>
-                          </span>
-    
-                        </p>
-    
-                      </div>
-                    </div>
-                  </div>
-    
-                  <div class="col-md-6 col-12 col-sm-12 mt-2">
-                    <div class="contract-item card1 p-4">
-                      <div class="contract-details  mr-4">
-                        <h5 class="contract-title"></h5>
-                        <img src="https://demo8.codesremedy.com.ng/images/pic50.jpg" alt="" style="border-radius: 100px;" height="200" width="200">
-                      </div>
-    
-                      <div>
-                        <!-- <div class="contract-specs"> -->
-                        <p class="text-light">
-                          Your company is exactly what I was looking for – clear, clean, continuous, with a
-                          focus on clients. Thank you so much for your work.
-    
-    
-                        </p>
-                        <p style="font-size: 15px; color:#007bff;">
-                          <strong>
-                            Rose Powell,
-                          </strong>
-                          <span style="font-size: 15px; color:#007bff;">
-                            Bitcoin Analyst, <strong>Canada</strong>
-                          </span>
-    
-                        </p>
-    
+                      <div class="card-body">
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-arrow-up"></i>Hightest bid 0.78 ETH</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u2.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Chicken Wearing Santa Hats">Chicken Wearing Santa Hats</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@style_wear</a></div>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">0.96 ETH</h6>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-6"><a class="btn btn-primary rounded-pill btn-sm" href="#">Place Bid</a></div>
+                          <div class="col-6 text-end"><a class="btn btn-minimal btn-sm hover-primary" href="activity.html"> <i class="bi bi-activity me-1"></i>Activity</a></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-    
-                  <div class="col-md-6 col-12 col-sm-12 mt-2">
-                    <div class="contract-item card1 p-4">
-                      <div class="contract-details  mr-4">
-                        <h5 class="contract-title"></h5>
-                        <img src="https://demo8.codesremedy.com.ng/images/pic40.jpg" alt="" style="border-radius: 100px;" height="200" width="200">
+                  <div class="col-12 col-sm-6 col-xl-4">
+                    <div class="nft-card card featured-card border-0 bg-gray">
+                      <div class="img-wrap"><img src="img/bg-img/42.jpg" alt="">
+                        <!-- Dropdown -->
+                        <div class="dropdown">
+                          <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownqw3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                          <!-- Dropdown Menu -->
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownqw3">
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                          </ul>
+                        </div>
                       </div>
-    
-                      <div>
-                        <!-- <div class="contract-specs"> -->
-                        <p class="text-light">
-                          Encountered a minor issue, but the customer support team was quick to respond and resolve it. Their dedication to customer satisfaction adds an extra layer of trust. A reliable NFT marketplace with excellent support.
-                        </p>
-                        <p style="font-size: 15px; color:#007bff;">
-                          <strong>
-                            James Kirk,
-                          </strong>
-                          <span style="font-size: 15px; color:#007bff;">
-                            Model, <strong>South Africa</strong>
-                          </span>
-    
-                        </p>
-    
+                      <div class="card-body">
+                        <!-- Others Info -->
+                        <div class="row gx-2 align-items-center">
+                          <div class="col-8"><span class="d-block fz-12"><i class="bi bi-arrow-up"></i>Hightest bid 1.065 ETH</span></div>
+                          <div class="col-4 text-end">
+                            <button class="wishlist-btn" type="button"><i class="bi"></i></button>
+                          </div>
+                        </div>
+                        <!-- Meta Info -->
+                        <div class="row gx-2 align-items-center mt-2">
+                          <div class="col-8">
+                            <div class="name-info d-flex align-items-center">
+                              <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u3.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                              <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Diamond Animals">Diamond Animals</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@affan</a></div>
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                              <h6 class="mb-0">1.065 ETH</h6>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="row gx-2 align-items-center mt-3">
+                          <div class="col-6"><a class="btn btn-primary rounded-pill btn-sm" href="#">Place Bid</a></div>
+                          <div class="col-6 text-end"><a class="btn btn-minimal btn-sm hover-primary" href="activity.html"> <i class="bi bi-activity me-1"></i>Activity</a></div>
+                        </div>
                       </div>
                     </div>
                   </div>
-    
                 </div>
               </div>
-          </div></section>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination-mining text-center"></div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-8">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4 pb-3">
+                <div class="d-flex align-items-center"><img class="me-1" src="img/core-img/ethereum.png" alt="">
+                  <h5 class="mb-0">Price History</h5>
+                </div>
+                <div id="chart-price"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-xl-4">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <h5>Top Seller</h5><a class="btn btn-primary btn-minimal" href="#">View all</a>
+                </div>
+                <!-- Single Card -->
+                <div class="nft-card card seller-card shadow-sm mb-4">
+                  <div class="card-body">
+                    <div class="row align-items-center g-3">
+                      <div class="col-4">
+                        <div class="img-wrap"><img src="img/bg-img/u1.jpg" alt="">
+                          <div class="badge bg-danger position-absolute px-2 py-1">#1</div>
+                        </div>
+                      </div>
+                      <div class="col-8">
+                        <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="#">Designing World<i class="bi bi-patch-check-fill ms-2 text-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Verified"></i></a><a class="author d-block fz-14 hover-primary text-truncate" href="#">@designing_world</a>
+                          <div class="price-bid d-flex align-items-center mt-3">
+                            <p class="mb-0 lh-1 d-flex align-items-center fz-14"><i class="me-1 bi bi-gem"></i>3,057 Items</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single Card -->
+                <div class="nft-card card seller-card shadow-sm">
+                  <div class="card-body">
+                    <div class="row align-items-center g-3">
+                      <div class="col-4">
+                        <div class="img-wrap"><img src="img/bg-img/u2.jpg" alt="">
+                          <div class="badge bg-danger position-absolute px-2 py-1">#2</div>
+                        </div>
+                      </div>
+                      <div class="col-8">
+                        <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="#">Art World<i class="bi bi-patch-check-fill ms-2 text-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Verified"></i></a><a class="author d-block fz-14 hover-primary text-truncate" href="#">@art_world</a>
+                          <div class="price-bid d-flex align-items-center mt-3">
+                            <p class="mb-0 lh-1 d-flex align-items-center fz-14"><i class="me-1 bi bi-gem"></i>671 Items</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h5 class="mb-3">Top Authors</h5>
+                <div class="top-author-slide-wrap">
+                  <div class="top-authors-slide">
+                    <div><a href="#"><img src="img/bg-img/u1.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u2.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u3.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u4.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u1.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u2.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u3.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u4.jpg" alt=""></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h5 class="mb-3">Top Buyers</h5>
+                <div class="top-buyer-slide-wrap">
+                  <div class="top-buyer-slide">
+                    <div><a href="#"><img src="img/bg-img/u1.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u2.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u3.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u4.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u1.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u2.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u3.jpg" alt=""></a></div>
+                    <div><a href="#"><img src="img/bg-img/u4.jpg" alt=""></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      
-      
-      <!--/ Calculator -->
-    </section>
-    <!--/ From our customers -->
+    </div>
+    <!-- All JavaScript Files-->
     
-     
-    {% endblock %}
+    <script src="{{ url_for('static', path='js/all-js-libraries.js') }}"></script>
+    <script src="{{ url_for('static', path='js/active.js') }}"></script>
+    <script src="{{ url_for('static', path='js/charts.js') }}"></script>
+  </body>
+</html>
+
+
+
+{% endblock %}

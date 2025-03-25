@@ -1,341 +1,223 @@
-!DOCTYPE html><html class="no-js" lang="en"><head>
-    <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="ArtiflexGateway - Mobile NFT Marketplace">
-        <meta name="author" content="Themeland">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="theme-color" content="#09080D">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <!-- The above tags *must* come first in the head; any other head content must come *after* these tags -->
-        <base id="base" href="" />
-        <!-- Title  -->
-        <title>ArtiflexGateway - Mobile NFT Marketplace</title>
-    
-        <!-- Favicon-->
-        <link rel="icon" href="../public/assets/img/icons/icon-72x72.png">
-    
-        <!-- Apple Touch Icon-->
-        <link rel="apple-touch-icon" href="../public/assets/img/icons/icon-96x96.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="../public/assets/img/icons/icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="167x167" href="../public/assets/img/icons/icon-167x167.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="../public/assets/img/icons/icon-180x180.png">
-    
-        <!-- ***** All CSS Files ***** --> 
-    
-    
-        <!-- ***** All CSS Files ***** --> 
-    
-        <!-- ***** All CSS Files ***** --> 
-        <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/porto/vendor/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-        
-    
-        <!-- Style CSS -->
-        <link rel="stylesheet" href="{{ url_for('static', path='public/assets/frontend/css/style.css') }}">
-        <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/tab.css">
-        <link rel="stylesheet" href="https://demo8.codesremedy.com.ng/public/assets/frontend/css/miniinvestdash.css">
-        
-    
-    
-    
-    
-    
-    
-        <!-- Web App Manifest-->
-        <link rel="manifest" href="https://demo8.codesremedy.com.ng/public/assets/frontend/manifest.json">
-    </head>
-    
-    <body>
-    
-    
-    
-     <!--====== Preloader Area Start ======-->
-           <div class="preloader" style="display: none;">
-            <div class="preloader-inner">
-                <div class="preloader-icon">
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-        <!--====== Preloader Area End ======-->
-    <div class="main">
-        <div id="header" class="header-area">
-                <div class="container d-flex justify-content-between align-items-center h-100">
-                    <!-- Logo Wrapper -->
-                    <div class="logo-wrapper">
-                        <a href="/dashboard">
-                            <img src="{{ url_for('static', path='images/logonew.png') }}" alt="" style="width: 150px; height: auto;" >
-                        </a>
-                    </div>
-                    <!-- Search Form -->
-                    <div class="search-form">
-                        <form action="#" method="">
-                            <input class="form-control" type="search" placeholder="Enter your keyword">
-                            <button type="submit">
-                                <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg><!-- <i class="fas fa-search"></i> Font Awesome fontawesome.com -->
-                            </button>
-                        </form>
-                    </div>
-                    <!-- Navbar Toggler-->
-                    <div class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#netseaOffcanvas" aria-controls="netseaOffcanvas">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-            
-            
-                    <!--====== Preloader Area End ======-->
-            <div class="offcanvas offcanvas-start netsea-offcanvas-wrap" tabindex="-1" id="netseaOffcanvas" aria-labelledby="netseaOffcanvasLabel">
-                <!-- Close Button -->
-                <button class="btn-close btn-close-white text-reset" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                <!-- Offcanvas Body -->
-                <div class="offcanvas-body">
-                    <!-- Sidenav Profile -->
-                    <div class="sidenav-profile text-center pt-5 px-3">
-                        <!-- Profile Thumb -->
-                        <div class="profile-thumb d-inline-block">
-                                                     
-                            <img class="avatar-lg rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/1741018625.png" alt="1741018625.png">
-                                                                        </div>
-                        <!-- Profile Info -->
-                        <div class="profile-info">
-                            <h5 class="mb-1">{{user.first_name}} {{user.last_name}}</h5>
-                            <p class="mt-1">Balance <span class="counter">{{user.eth_balance}} <i style="font-size:15px;">ETH</i> </span></p>
-                        </div>
-                    </div>
-                    <!-- Sidenav Nav -->
-                    <ul class="sidenav-nav ps-0">
-                        <li class="netsea-dropdown-menu"><a href="#"><i class="icon-user"></i>Profile</a>
-                            <ul>
-                                <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-user"></i>My Profile</a></li>
-                               <!-- <li><a href="https://demo8.codesremedy.com.ng/user/activity"><i class="icon-graph"></i>Activity</a></li> -->
-                               <!-- <li><a href="#"><i class="icon-settings"></i>Settings</a></li>-->
-                            </ul>
-                        <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>                        
-                        <li><a href="/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>
-                        <li class="netsea-dropdown-menu"><a href="#"><i class="icon-grid"></i>Manage NFTs</a>
-                            <ul>
-                                <li><a href="/cre"><i class="icon-plus"></i>Create</a></li>                            
-                                <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-support"></i>My NFTs</a></li>
-                            </ul>
-                        <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>
-                        <li class="netsea-dropdown-menu"><a href="#"><i class="icon-grid"></i>Manage Collections</a>
-                            <ul>
-                                <li><a href="/collection-create"><i class="icon-plus"></i>Create</a></li>
-                                
-                                <li><a href="/profile/{{user.wallet_profile}}" "=""><i class="icon-grid"></i>My Collections</a></li>
-                            </ul>
-                        <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>
-                        
-                        <li><a href="/nft-trade"><i class="icon-support"></i>NFT Trade</a></li>
-                        
-    
-                        <li class="netsea-dropdown-menu"><a href="#"><i class="icon-chart"></i>Deposits/Withdrawals</a>
-                            <ul>
-                                <!-- <li><a href="https://demo8.codesremedy.com.ng/user/invest/dashboard"><i class="icon-grid"></i>Invest Dashboard</a></li> --->
-                                
-                                
-                                <li><a href="/deposit/amount"><i class="icon-wallet"></i>Deposit</a></li>
-                                <li><a href="/withdraw/amount"><i class="icon-wallet"></i>Withdraw</a></li>
-                            </ul>
-                        <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>                    
-    
-                        
-                        <li><a href="/dashboard"><i class="icon-fire"></i>Explore</a></li>
-                        <li><a href="/terms"><i class="icon-support"></i>Terms of Service</a></li>
-                        <!-- <li class="netsea-dropdown-menu"><a href="#"><i class="icon-globe"></i>Community</a>
-                            <ul>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="https://demo8.codesremedy.com.ng/help-center">Help Center</a></li>
-                            </ul>
-                        </li>
-                        
-                        <li><a href="#"><i class="icon-phone"></i>Contact</a></li> -->
-                        <li><form action="/logout" method="POST">
-                            <input type="hidden" name="_token" value="qC09eMtx1KbcdgbVmSvp3Z68nQLWrxEVcVV0aJbk"> <button class="btn btn-bordered w-100" type="submit">Sign Out</button></form></li>                </ul>
-                </div>
-            </div>
-            <!-- ***** Header End ***** -->
-        </div>
-
-        {% block content %}
-
-
-        {% endblock %}
-
-
-
-        <div class="offcanvas offcanvas-start netsea-offcanvas-wrap" tabindex="-1" id="netseaOffcanvas" aria-labelledby="netseaOffcanvasLabel">
-            <!-- Close Button -->
-            <button class="btn-close btn-close-white text-reset" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            <!-- Offcanvas Body -->
-            <div class="offcanvas-body">
-                <!-- Sidenav Profile -->
-                <div class="sidenav-profile text-center pt-5 px-3">
-                    <!-- Profile Thumb -->
-                    <div class="profile-thumb d-inline-block">
-                                                 
-                        <img class="avatar-lg rounded-circle" src="https://demo8.codesremedy.com.ng/public/assets/uploads/photos/1741018625.png" alt="1741018625.png">
-                                                                    </div>
-                    <!-- Profile Info -->
-                    <div class="profile-info">
-                        <h5 class="mb-1">Elint Eerie</h5>
-                        <p class="mt-1">Balance <span class="counter">0.00 <i style="font-size:15px;">ETH</i> </span></p>
-                    </div>
-                </div>
-                <!-- Sidenav Nav -->
-                <ul class="sidenav-nav ps-0">
-                    <li class="netsea-dropdown-menu"><a href="#"><i class="icon-user"></i>Profile</a>
-                        <ul>
-                            <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-user"></i>My Profile</a></li>
-                           <!-- <li><a href="https://demo8.codesremedy.com.ng/user/activity"><i class="icon-graph"></i>Activity</a></li> -->
-                            <li><a href="#"><i class="icon-settings"></i>Settings</a></li>
-                        </ul>
-                    <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>                        
-                    <li><a href="/wallet-connect"><i class="icon-wallet"></i>Wallet Connect</a></li>
-                    <li class="netsea-dropdown-menu"><a href="#"><i class="icon-grid"></i>Manage NFTs</a>
-                        <ul>
-                            <li><a href="/cre"><i class="icon-plus"></i>Create</a></li>                            
-                            <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-support"></i>My NFTs</a></li>
-                        </ul>
-                    <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>
-                    <li class="netsea-dropdown-menu"><a href="#"><i class="icon-grid"></i>Manage Collections</a>
-                        <ul>
-                            <li><a href="/collection-create"><i class="icon-plus"></i>Create</a></li>
-                            
-                            <li><a href="/profile/{{user.wallet_profile}}" "=""><i class="icon-grid"></i>My Collections</a></li>
-                        </ul>
-                    <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>
-                    
-                    <li><a href="#"><i class="icon-support"></i>NFT Trade</a></li>
-                    
-
-                    <li class="netsea-dropdown-menu"><a href="#"><i class="icon-chart"></i>Deposits/Withdrawals</a>
-                        <ul>
-                            <li><a href="#"><i class="icon-grid"></i>Invest Dashboard</a></li>
-                            
-                            
-                            <li><a href="/deposit/amount"><i class="icon-wallet"></i>Deposit</a></li>
-                            <li><a href="#"><i class="icon-wallet"></i>Withdraw</a></li>
-                        </ul>
-                    <div class="dropdown-trigger-btn"><i class="icon-arrow-down"></i></div></li>                    
-
-                    
-                    <li><a href="#"><i class="icon-fire"></i>Explore</a></li>
-                    <li><a href="/terms"><i class="icon-support"></i>Terms of Service</a></li>
-                    <!-- <li class="netsea-dropdown-menu"><a href="#"><i class="icon-globe"></i>Community</a>
-                        <ul>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="https://demo8.codesremedy.com.ng/help-center">Help Center</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li><a href="#"><i class="icon-phone"></i>Contact</a></li> -->
-                    <li><form action="/logout" method="POST">
-                        <input type="hidden" name="_token" value="qC09eMtx1KbcdgbVmSvp3Z68nQLWrxEVcVV0aJbk"> <button class="btn btn-bordered w-100" type="submit">Sign Out</button></form></li>                </ul>
-            </div>
-        </div>
-        <!-- ***** Header End ***** -->
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Funto - HTML NFT Marketplace">
+    <!-- Title-->
+    <title>ArtiflexGateway - Mobile NFT Marketplace</title>
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', path='img/core-img/favicon.ico') }}" type="image/x-icon">
+   
+    <!-- All CSS Stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/all-css-libraries.css') }}">
+    <!-- Core Stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+  </head>
+  <body>
+    <!-- Preloader-->
+    <div class="preloader" id="preloader">
+      <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
     </div>
-
-
-        
-        
-    
-
-
-
-
-
-
-      
-            
-            <!-- ***** Settings Area End ***** -->
-
-
-        <script type="text/javascript">
-            function copyAddress() {
-                /* Get the text field */
-                var copyText = document.getElementById("address");
-        
-                /* Select the text field */
-                copyText.select();
-                copyText.setSelectionRange(0, 99999); /* For mobile devices */
-        
-                /* Copy the text inside the text field */
-                navigator.clipboard.writeText(copyText.value);
-        
-                /* Alert the copied text */
-                alert("Copied address: " + copyText.value);
-        
-            };
-
-            
-        
-        </script>        
- 
- 
-<footer>
-        <!-- ***** Footer Nav Area Start ***** -->
-        <div id="footer" class="footer-nav-area">
-            <div class="container h-100 px-0">
-                <div class="netsea-footer-nav h-100">
-                    <ul class="d-flex justify-content-between align-items-center h-100 ps-0">
-                        <li class="active"><a href="#"><i class="icon-home"></i>Home</a></li>
-                        <li><a href="#"><i class="icon-support"></i>Support</a></li>
-                        <li><a href="/cre"><i class="icon-plus"></i>Create</a></li>
-                        <li><a href="/wallet-connect"><i class="icon-wallet"></i>Wallet</a></li>
-                        <li><a href="/profile/{{user.wallet_profile}}"><i class="icon-settings"></i>Settings</a></li>
+    <!-- Header Area-->
+    <header class="header-area">   
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <!-- Navbar Brand --><a class="navbar-brand" href="index.html"><img class="light-logo" src="img/core-img/logo.png" alt=""><img class="dark-logo" src="img/core-img/logo-white.png" alt=""></a>
+          <!-- Navbar Toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#funtoNav" aria-controls="funtoNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
+          <!-- Navbar -->
+          <div class="collapse navbar-collapse" id="funtoNav">
+            <ul class="navbar-nav navbar-nav-scroll my-2 my-lg-0">
+              <li class="ft-dd"><a href="#">Home</a>
+                <ul class="ft-dd-menu">
+                  <li><a href="home-1.html">Home Variation 1</a></li>
+                  <li><a href="home-2.html">Home Variation 2</a></li>
+                </ul>
+              </li>
+              <li class="ft-dd"><a href="#">Explore</a>
+                <ul class="ft-dd-menu">
+                  <li><a href="explore-1.html">Explore 1</a></li>
+                  <li><a href="explore-2.html">Explore 2</a></li>
+                  <li><a href="featured-items.html">Featured Drops</a></li>
+                  <li><a href="live-bidding.html">Live Auctions</a></li>
+                  <li><a href="collections.html">Collections</a></li>
+                  <li><a href="top-seller.html">Top Seller</a></li>
+                  <li><a href="top-buyer.html">Top Buyer</a></li>
+                  <li><a href="item-details.html">Item Details</a></li>
+                </ul>
+              </li>
+              <li class="ft-dd"><a href="#">Admin</a>
+                <ul class="ft-dd-menu">
+                  <li><a href="dashboard.html">Dashboard</a></li>
+                  <li><a href="live-bids.html">Live Bids</a></li>
+                  <li><a href="my-collection.html">My Collection</a></li>
+                  <li><a href="my-wallet.html">My Wallet</a></li>
+                  <li><a href="notifications.html">Notifications</a></li>
+                  <li><a href="settings.html">Settings</a></li>
+                </ul>
+              </li>
+              <li class="ft-dd"><a href="#">Pages</a>
+                <ul class="ft-dd-menu">
+                  <li><a href="activity.html">Activity</a></li>
+                  <li><a href="ranking.html">Ranking</a></li>
+                  <li><a href="create-new.html">Create New Items</a></li>
+                  <li><a href="connet-wallet.html">Connect Wallet</a></li>
+                  <li><a href="author.html">Author Profile</a></li>
+                  <li class="ft-dd"><a href="#">Authentification</a>
+                    <ul class="ft-dd-menu">
+                      <li><a href="register.html">Register</a></li>
+                      <li><a href="login.html">Login</a></li>
+                      <li><a href="forget-password.html">Forget Password</a></li>
                     </ul>
-                </div>
+                  </li>
+                  <li class="ft-dd"><a href="#">Blog</a>
+                    <ul class="ft-dd-menu">
+                      <li><a href="blog.html">Blog</a></li>
+                      <li><a href="blog-details.html">Blog Details</a></li>
+                    </ul>
+                  </li>
+                  <li class="ft-dd"><a href="#">Others</a>
+                    <ul class="ft-dd-menu">
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="coming-soon.html">Coming Soon</a></li>
+                      <li><a href="newsletter.html">Newsletter</a></li>
+                      <li><a href="privacy.html">Privacy Policy</a></li>
+                      <li><a href="terms.html">Terms</a></li>
+                      <li><a href="404.html">404</a></li>
+                    </ul>
+                  </li>
+                  <li class="ft-dd"><a href="#">Help Center</a>
+                    <ul class="ft-dd-menu">
+                      <li><a href="help-center.html">Help Home</a></li>
+                      <li><a href="help-questions.html">All Questions</a></li>
+                      <li><a href="question-details.html">Question Details</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="help-center.html">Help Center</a></li>
+            </ul>
+            <!-- Header Meta -->
+            <div class="header-meta d-flex align-items-center ms-lg-auto">
+              <!-- Search Form -->
+              <div class="search-form position-relative d-flex align-items-center">
+                <input class="form-control" type="text" placeholder="Search">
+                <button class="position-absolute" type="submit"><i class="bi bi-search"></i></button>
+              </div>
+              <!-- User Dropdown -->
+              <div class="user-dropdown dropdown mx-3">
+                <button class="btn dropdown-toggle user-btn" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
+                <ul class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="dashboard.html"><i class="me-2 bi bi-speedometer2"></i>Dashboard</a></li>
+                  <li><a class="dropdown-item" href="my-collection.html"><i class="me-2 bi bi-collection"></i>Collections</a></li>
+                  <li><a class="dropdown-item" href="notifications.html"><i class="me-2 bi bi-bell"></i>Notifications</a></li>
+                  <li><a class="dropdown-item" href="settings.html"><i class="me-2 bi bi-gear"></i>Settings</a></li>
+                </ul>
+              </div>
+              <!-- Create New Button --><a class="btn btn-warning btn-sm rounded-pill" href="create-new.html">Create</a>
             </div>
+          </div>
         </div>
-        <!-- ***** Footer Nav Area End ***** -->
-</footer>
+      </nav>
+    </header>
+    <!-- Breadcrumb -->
 
-    <!-- ***** All jQuery Plugins ***** -->
 
-    <!-- jQuery(necessary for all JavaScript plugins) -->
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/jquery.min.js"></script>
+{% block content %}
 
-    <!-- Bootstrap js -->
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/popper.min.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/bootstrap.min.js"></script>
+{% endblock %}
 
-    <!-- Plugins js -->
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/all.min.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/slider.min.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/countdown.min.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/count-down.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/vendor/shuffle.min.js"></script>
 
-     <!-- Active js -->
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/main.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/pwa.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/tab.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/yieldmodal.js"></script>
-    <script src="https://demo8.codesremedy.com.ng/public/assets/frontend/js/paycountdown.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js "></script> 
-
-    <script>
-
-        $(document).ready(function(){
-
-            $('img').lazyload();
-
-        });
-
-    </script>
-
-<script>
-    // Set the base href to the current domain
-    document.getElementById("base").setAttribute("href", window.location.origin + "/");
-</script>
-    
-
-</body></html>
+<footer class="footer-area pb-120 pt-120" style="background-image: url('img/bg-img/1.jpg')"><img class="footer-bg-shape" src="img/core-img/shape1.png" alt="" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+    <div class="container">
+      <div class="row">
+        <!-- Footer Widget -->
+        <div class="col-12 col-lg-5">
+          <div class="footer-widget-area mb-70 pe-lg-4 pe-xl-5 me-lg-4 me-xl-5 border-end"><a class="d-block mb-4" href="index.html"><img class="light-logo" src="img/core-img/logo.png" alt=""><img class="dark-logo" src="img/core-img/logo-white.png" alt=""></a>
+            <p>It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
+            <p class="mb-0">Call: +123 456 789 <br> Email: help@example.com</p>
+            <!-- Social Icon -->
+            <h5 class="mt-4 mb-3">Join the community</h5>
+            <div class="footer-social-icon d-flex align-items-center flex-wrap"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Facbook"><img src="img/core-img/icons8-facebook.svg" alt=""></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter"><img src="img/core-img/icons8-twitter.svg" alt=""></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><img src="img/core-img/icons8-instagram.svg" alt=""></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Slack"><img src="img/core-img/icons8-slack.svg" alt=""></a><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><img src="img/core-img/icons8-player.svg" alt=""></a></div>
+            <!-- Newsletter Form -->
+            <div class="newsletter-form mt-5 me-5">
+              <form class="d-flex align-items-stretch" action="#">
+                <input class="form-control" type="email" placeholder="Enter email">
+                <button class="btn btn-warning px-3" type="submit">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Widget -->
+        <div class="col-12 col-lg-7">
+          <div class="row g-4">
+            <div class="col-6 col-sm-4">
+              <div class="footer-widget-area mb-70">
+                <h5 class="mb-4">Explore</h5>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="featured-items.html">Featured Drops</a></li>
+                  <li><a href="live-bidding.html">Live Auctions</a></li>
+                  <li><a href="collections.html">Collections</a></li>
+                  <li><a href="top-seller.html">Top Seller</a></li>
+                  <li><a href="top-buyer.html">Top Buyer</a></li>
+                  <li><a href="item-details.html">Item Details</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4">
+              <div class="footer-widget-area mb-70">
+                <h5 class="mb-4">Marketplace</h5>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#">Art</a></li>
+                  <li><a href="#">Cards</a></li>
+                  <li><a href="#">Collectibles</a></li>
+                  <li><a href="#">Domain</a></li>
+                  <li><a href="#">Photos</a></li>
+                  <li><a href="#">Sports</a></li>
+                  <li><a href="#">Videos</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6 col-sm-4">
+              <div class="footer-widget-area mb-70">
+                <h5 class="mb-4">Company</h5>
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#">Forum</a></li>
+                  <li><a href="#">Licences</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Conditions</a></li>
+                  <li><a href="#">Privacy</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="copywrite-wrapper d-lg-flex align-items-lg-center justify-content-lg-between">
+        <!-- Copywrite Text -->
+        <div class="copywrite-text text-center text-lg-start mb-3 mb-lg-0">
+          <p class="mb-0"><span id="copywriteYear"></span> &copy; All rights reserved by <a href="https://themeforest.net/user/designing-world/portfolio" target="_blank" rel="noreferrer">Designing World</a></p>
+        </div>
+        <!-- Footer Nav -->
+        <div class="footer-nav">
+          <ul class="mb-0 d-flex flex-wrap justify-content-center list-unstyled">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Scroll To Top -->
+  <div id="scrollTopButton"><i class="bi bi-arrow-up-short"></i></div>
+  <!-- All JavaScript Files-->
+  <script src="{{ url_for('static', path='js/all-js-libraries.js') }}"></script>
+  
+  <script src="{{ url_for('static', path='js/active.js') }}"></script>
+  <script src="{{ url_for('static', path='js/charts.js') }}"></script>
+</body>
+</html>

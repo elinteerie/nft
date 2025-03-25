@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Funto - HTML NFT Marketplace">
+    <!-- Title-->
+    <title>Funto - HTML NFT Marketplace</title>
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', path='img/core-img/favicon.ico') }}" type="image/x-icon">
+    <!-- All CSS Stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/all-css-libraries.css') }}">
+    
+    <!-- Core Stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+  </head>
+  <body>
+    
+    <!-- Header Wrapper -->
+    <header class="header-area dashboard-header px-0 px-sm-0">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center">
+            <!-- Brand Logo -->
+            <div class="admin-logo me-1 me-sm-3"><img src="img/core-img/dashboard-logo.png" alt=""></div>
+            <!-- Search Form -->
+            <div class="search-form position-relative d-flex align-items-center">
+              <input class="form-control" type="text" placeholder="Search">
+              <button class="position-absolute" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+          </div>
+          <!-- Header Meta -->
+          <div class="header-meta d-flex align-items-center">
+            <!-- Notification -->
+            <div class="user-dropdown dropdown mx-2 mx-sm-3">
+              <button class="btn dropdown-toggle user-btn" id="dd10" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="img/core-img/notification.png" alt=""></button>
+              <ul class="dropdown-menu noti-dd-menu dropdown-menu-end mt-3" aria-labelledby="dd10">
+                <li><a class="dropdown-item" href="#"><i class="me-2 bi bi-percent"></i>You have an offer!</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bg-info me-2 bi bi-tags"></i>Congratulations! You sale an item.</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bg-danger me-2 bi bi-gift"></i>January freebies have arrived.</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bg-warning me-2 bi bi-star"></i>A new rating has been received.</a></li>
+                <li><a class="dropdown-item justify-content-center" href="notifications.html">View all notifications</a></li>
+              </ul>
+            </div>
+            <!-- User Dropdown -->
+            <div class="user-dropdown dropdown">
+              <button class="btn dropdown-toggle user-btn" id="dd20" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="img/core-img/user.png" alt=""></button>
+              <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dd20">
+                <li><a class="dropdown-item" href="dashboard.html"><i class="me-2 bi bi-person-circle"></i>Dashboard</a></li>
+                <li><a class="dropdown-item" href="live-bids.html"><i class="me-2 bi bi-hammer"></i>My bids</a></li>
+                <li><a class="dropdown-item" href="my-collection.html"><i class="me-2 bi bi-collection"></i>Collection</a></li>
+                <li><a class="dropdown-item" href="settings.html"><i class="me-2 bi bi-gear"></i>Settings</a></li>
+              </ul>
+            </div>
+            <!-- Menu Toggler -->
+            <div class="menu-toggler ms-2 ms-sm-3" id="dashboardMenuTrigger"><i class="bi bi-list"></i></div>
+            <!-- Button --><a class="btn btn-sm btn-danger rounded-pill ms-2 ms-sm-3 d-none d-sm-block" href="home-1.html"><i class="bi bi-eye me-1"></i>Frontend</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
