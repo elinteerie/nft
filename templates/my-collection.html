@@ -1,0 +1,53 @@
+{% extends "base-dash.html" %}
+
+
+{% block content %}
+
+
+    <!-- Create New Button -->
+    <div class="create-new-button"><a class="shadow-lg btn btn-warning" href="/cre" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New NFT"><i class="fz-18 bi bi-plus-lg"></i></a></div>
+    <div class="admin-wrapper">
+      <div class="container">
+        <h5 class="mb-3">Your collections</h5>
+        <div class="row g-3">
+          <!-- Catagory Card -->{% for nft in nfts %}
+          <div class="col-6 col-md-6 col-xxl-4">
+            <div class="catagory-card card shadow-sm">
+              
+              
+              <div class="card-body">
+
+                <div class="row g-">
+                  
+                  <div class="col-6"><img class="rounded" src="{{nft.image}}" alt=""><img class="rounded" src="{{nft.image}}" alt=""></div>
+                  <div class="col-6"><img class="rounded" src="{{nft.image}}" alt=""><img class="rounded" src="{{nft.image}}" alt=""></div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-7">
+                    
+                    <h5 class="mb-0">{{nft.name}}<span class="badge bg-primary ms-2 fz-14">NFT</span></h5>
+                  </div>
+                  <div class="col-5 text-end"><a class="btn btn-minimal hover-primary" href="/view-nft/{{nft.eth_address}}">View <i class="ms-1 fz-14 bi bi-arrow-right"></i></a></div>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+          
+    <!-- All JavaScript Files-->
+    <script src="{{ url_for('static', path='js/all-js-libraries.js') }}"></script>
+    
+    <script src="{{ url_for('static', path='js/active.js') }}"></script>
+   
+    <script src=" {{ url_for('static', path='js/charts.js') }}"></script>
+  </body>
+</html>
+{% endblock %}

@@ -4,7 +4,7 @@ from typing import Annotated, Optional
 from utils import db_dependency
 from fastapi.templating import Jinja2Templates
 from sqlmodel import select
-from models import User, NFT, Bid, Wallet, Collection, Setting, Deposit, Withdraw, Transaction
+from models import User, NFT, Bid, Wallet, Setting, Deposit, Withdraw, Transaction
 from fastapi.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
 from utils import hash_password, verify_password
@@ -23,8 +23,6 @@ templates = Jinja2Templates(directory="templates")
 
 
 
-
-
 @router.get("/cre", response_class=HTMLResponse)
 async def reada_item(request: Request, db: db_dependency, error_message: str = ""):
 
@@ -35,19 +33,25 @@ async def reada_item(request: Request, db: db_dependency, error_message: str = "
     print("user", user)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
+    
 
-    # Fetch collections owned by the user
-    collections = db.exec(select(Collection).where(Collection.owner_id == user_id)).all()
-    print("cool:", collections)
+
+    settings = db.exec(select(Setting).where(Setting.id == 1)).first()
+    gas_fee = settings.gas
+    
+
+
+    
+    
 
     
 
 
-    return templates.TemplateResponse(request=request,  name="create.html", context={"colla": collections, "user": user, "error_message": error_message})
+    return templates.TemplateResponse(request=request,  name="create-new.html", context={"user": user, "error_message": error_message, "gas": gas_fee})
 
 
 @router.post("/addnft", response_class=HTMLResponse)
-async def add_item(request: Request, db: db_dependency, image: UploadFile =File(...), name: str = Form(...), discription: str = Form(...), current_price: str = Form(...),collection_id: str = Form(...), error_message: str = ""):
+async def add_item(request: Request, db: db_dependency, image: UploadFile =File(...), name: str = Form(...), discription: str = Form(...), current_price: str = Form(...),no_of_copies: str = Form(...), error_message: str = ""):
 
 
     user_id = request.session.get("user_id")
@@ -67,19 +71,19 @@ async def add_item(request: Request, db: db_dependency, image: UploadFile =File(
     if user.eth_balance < gas_fee:
         error_message = "Your ETH balance is not enough for the gas fee."
         return templates.TemplateResponse(
-            request=request, name="create.html", context={"user": user, "error_message": error_message}
+            request=request, name="create-new.html", context={"user": user, "error_message": error_message}
         )
 
     # Deduct gas fee
     user.eth_balance -= gas_fee
 
     # Fetch collections owned by the user
-    nft_add = NFT(name=name, discription=discription, current_price=current_price, collection_id=collection_id, image=image)
+    nft_add = NFT(name=name, discription=discription, current_price=current_price, no_of_copies=no_of_copies, image=image, owner_id=user.id)
     db.add(nft_add)
     db.commit()
     db.refresh(nft_add)
 
-    return templates.TemplateResponse(request=request,  name="create.html", context={"user": user, "error_message": error_message})
+    return RedirectResponse(url="/nft-collection", status_code=303)
 
 
 
@@ -135,8 +139,11 @@ async def view_nft_item(request: Request, address:str,  db: db_dependency):
     bid_statement = select(Bid).join(NFT).where(NFT.eth_address==address)
     bids = db.exec(bid_statement).all()
 
+    tran_statement = select(Transaction).join(NFT).where(NFT.eth_address==address)
+    trans = db.exec(tran_statement).all()
+
     return templates.TemplateResponse(
-        request=request, name="view-item.html", context={"nft": nft, "nftlive": nftslive, "bids": bids})
+        request=request, name="item-details.html", context={"nft": nft, "nftlive": nftslive, "bids": bids, "transactions": trans})
 
 
 @router.get("/login", response_class=HTMLResponse)
@@ -251,13 +258,7 @@ def register(
     db.commit()
     db.refresh(new_user)
 
-    new_collection = Collection(
-        name=f"{new_user.username} Collection",
-        owner_id=new_user.id
-    )
-    db.add(new_collection)
-    db.commit()
-
+    
     request.session["user_id"] = new_user.id
     request.session["email"] = new_user.email
 
@@ -267,46 +268,27 @@ def register(
 
 
 
-@router.get("/collection-create", response_class=HTMLResponse)
-def regi(request: Request, db:db_dependency, error_message: str = ""):
-    user_id = request.session.get("user_id")
-    email = request.session.get("email")
-
-    if not user_id or not email:
-        raise HTTPException(status_code=401, detail="User not authenticated")
-    
-    user = db.exec(select(User).where(User.email == email)).first()
-
-    return templates.TemplateResponse(
-        request=request, name="create-collection.html",context= {"request": request, "error_message": error_message, "user": user})
-
-
-
-@router.post("/createcollectionpost")
+@router.get("/nft-collection")
 def register(
     request: Request,
     db: db_dependency,
-    name: str = Form(...),
 ):
     user_id = request.session.get("user_id")
     email = request.session.get("email")
+    base_url = str(request.base_url)  # Get the base URL dynamically
 
 
-    # Fetch user details from the database using session data
-    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+    user = db.exec(select(User).where(User.id == user_id)).first()
+
+    nftstatement = select(NFT).where(NFT.owner_id==user.id)
+
+    nfts = db.exec(nftstatement).all()
+
+    return templates.TemplateResponse(
+        request=request, name="my-collection.html",context= {"request": request, "user": user, "nfts": nfts })
 
 
-    new_collection = Collection(
-        name=name,
-        owner_id=user.id
-    )
-    
-    db.add(new_collection)
-    db.commit()
-    db.refresh(new_collection)
 
-    return RedirectResponse(url="/cre", status_code=303)
-    
 
 
 
@@ -325,7 +307,7 @@ def register(
     # Fetch user details from the database using session data
     user = db.exec(select(User).where(User.wallet_profile == wallet)).first()
 
-    nftstatement = select(NFT).join(Collection).where(Collection.owner_id ==user.id)
+    nftstatement = select(NFT).where(NFT.owner_id==user.id)
 
     nfts = db.exec(nftstatement).all()
     nfts_count = len(nfts)
@@ -336,7 +318,7 @@ def register(
 
 
     return templates.TemplateResponse(
-        request=request, name="profilee.html",context= {"request": request, "user": user, "nfts": nfts, "nfts_count": nfts_count, "total_price": total_price, "base_url": base_url, "transactions": transactions})
+        request=request, name="author.html",context= {"request": request, "user": user, "nfts": nfts, "nfts_count": nfts_count, "total_price": total_price, "base_url": base_url, "transactions": transactions})
 
 
 
@@ -563,7 +545,7 @@ def register(
 
 
 
-@router.post("/buy-nft/{address}", response_class=HTMLResponse)
+@router.get("/buy-nft/{address}", response_class=HTMLResponse)
 async def view_nftj_item(request: Request, address:str,  db: db_dependency, error_message: str = "" ):
 
     statement = select(NFT).where(NFT.eth_address==address)
@@ -584,26 +566,38 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
         return RedirectResponse(url="/login", status_code=303)
     
 
+    if nft.no_of_copies == 0:
+        error_message = "NFT is SOLD OUT"
+        return templates.TemplateResponse(
+        request=request, name="item-details.html",context= {"request": request, "user": user, "error_message": error_message, "nft": nft})
+
+    
+
 
     if  user.eth_balance < nft.current_price:
         error_message = "Insuficient ETH Balance"
         return templates.TemplateResponse(
-        request=request, name="view-item.html",context= {"request": request, "user": user, "error_message": error_message, "nft": nft})
+        request=request, name="item-details.html",context= {"request": request, "user": user, "error_message": error_message, "nft": nft})
 
     user.eth_balance -= nft.current_price
+    nft.no_of_copies -=1
     db.commit()
 
-    owner = nft.collection.owner_id
+    owner = nft.owner_id
 
     userpay = db.exec(select(User).where(User.id == owner)).first()
     userpay.eth_balance += nft.current_price
     db.commit()
 
     #Transfer Ownership
-    new_user_collection = db.exec(select(Collection).where(Collection.owner_id == user.id)).first()
-    nft.collection_id = new_user_collection.id
-    db.commit()
 
+    new_nft_data = nft.__dict__.copy()
+    new_nft_data.pop("_sa_instance_state", None)  # Remove SQLAlchemy instance metadata
+    new_nft_data.pop("id", None)  # Remove primary key safely (avoid KeyError)
+    new_nft_data["owner_id"] = user.id  # Assign to the new user
+
+    new_nft = NFT(**new_nft_data)  # Create new NFT object
+    db.add(new_nft)
     
     new_transbuy = Transaction(amount=nft.current_price, type="Buy", user_id=user.id)
     new_transsell = Transaction(amount=nft.current_price, type="Sell", user_id=userpay.id)
@@ -613,5 +607,4 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
 
 
     
-    return templates.TemplateResponse(
-        request=request, name="view-item.html", context={"request": request,"nft": nft, "user": user})
+    return RedirectResponse(url="/nft-collection", status_code=303)

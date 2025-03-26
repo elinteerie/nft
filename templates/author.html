@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- Share Modal -->
+    <div class="share-modal modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 text-center">
+            <h4 class="mb-4" id="shareModalLabel">Share this author</h4>
+            <div class="d-flex align-items-center justify-content-center"><a class="mx-2" href="#"><img src="img/core-img/icons8-facebook.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-twitter.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-instagram.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-slack.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-player.svg" alt=""></a></div>
+            <button class="btn btn-danger btn-sm rounded-pill mt-4" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copy Link Modal -->
+    <div class="share-modal modal fade" id="copylinkModal" tabindex="-1" aria-labelledby="copylinkLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 text-center">
+            <h4 class="mb-4" id="copylinkLabel">Copy author link</h4>
+            <p class="user-select-all mb-0 border border-2 p-3 rounded">{{base_url}}profile/{{user.wallet_profile}}</p>
+            <button class="btn btn-danger btn-sm rounded-pill mt-4" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Report Modal -->
+    <div class="share-modal modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 text-center">
+            <h4 class="mb-4" id="reportModalLabel">Why are you reporting?</h4>
+            <form action="#">
+              <textarea class="form-control mb-3" id="reportText" name="reportMessage" placeholder="Write your complaint..."></textarea>
+              <div class="d-flex align-items-center justify-content-between">
+                <button class="btn btn-danger btn-sm rounded-pill" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Author Top Content -->
+    <div class="author-top-content bg-img bg-overlay" style="background-image: url('img/bg-img/44.jpg')">
+      <div class="container">
+        <div class="card border-0 bg-transparent">
+          <div class="card-body p-4 p-sm-5">
+            <div class="row g-4 g-lg-5 align-items-center">
+              <div class="col-7 col-sm-4 col-lg-3">
+                <div class="author-thumbnail"><img class="rounded" src="/static/img/bg-img/u1.jpg" alt=""><i class="bi bi-patch-check-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Verified"></i></div>
+              </div>
+              <div class="col-12 col-sm-8 col-lg-9">
+                <div class="author-data">
+                  <h3 class="mb-2 author-name text-white">{{user.first_name}} {{user.last_name}}<a class="btn btn-warning btn-sm rounded-pill align-top ms-2 px-3 py-1" href="#">Author</a></h3>
+                  <div class="btn btn-minimal d-inline-block mb-3 text-white hover-warning">@{{user.username}}</div>
+                  <p class="w-75 mb-0 text-white"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Author Dropdown -->
+          <div class="dropdown author-dd">
+            <button class="dropdown-toggle" id="dd9887" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dd9887">
+              
+              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#copylinkModal"><i class="me-1 bi bi-box-arrow-up-right"></i>Copy Link</a></li>
+   
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="author-content-wrap mt-70">
+      <div class="container">
+        <div class="row g-4 g-xl-5 justify-content-center">
+          <div class="col-12 col-sm-9 col-lg-4">
+            <div class="card author-sidebar-card shadow-sm">
+              <div class="card-body p-4 p-md-5 p-lg-4 p-xl-5">
+                <h5 class="mb-3">About this author</h5>
+                
+                <div class="meta-data d-flex align-items-center mt-4">
+                  <h6 class="mb-0 border-end text-center pe-3 me-3"><span class="counter">{{nfts_count}} </span><br> Items</h6>
+                  <h6 class="mb-0 border-end text-center pe-3 me-3"><span class="counter">{{total_price}} ETH </span><br> Worth</h6>
+                  <h6 class="mb-0 text-center"><span class="counter">{{user.referral_count}} </span><br> Followers</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-8">
+           
+            <div class="mb-4 d-block"> </div>
+            <div class="row g-4">
+              {% for nft in nfts %}
+              <div class="col-12 col-sm-6 col-lg-6">
+                <!-- Featured Card -->
+                <div class="nft-card card shadow-sm">
+                  <div class="card-body">
+                    <div class="img-wrap"><img src="/{{nft.image}}" alt="">
+                      <!-- Badge -->
+                      <div class="badge bg-primary position-absolute"><img src="img/core-img/fire.png" alt="">Featured</div>
+                      <!-- Dropdown -->
+                      <div class="dropdown">
+                        <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dd98sd7" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dd98sd7">
+                          <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- Others Info -->
+                    
+                    <!-- Meta Info -->
+                    <div class="row gx-2 align-items-center mt-2">
+                      <div class="col-8">
+                        <div class="name-info d-flex align-items-center">
+                          <div class="author-img position-relative"><img class="shadow" src="/{{nft.image}}" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                          <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Monkey Arts #114">{{nft.name}}</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@{{user.username}}</a></div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                          <h6 class="mb-0">{{nft.current_price}} ETH</h6>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="row gx-2 align-items-center mt-3">
+                      <div class="col-6"><a class="btn btn-primary btn-sm rounded-pill" href="#">Place bid</a></div>
+                      
+                    </div>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              {% endfor %}
+              </div>
+              </div>
+   
+              
+    <div class="divider"></div>
+    <!-- Dark Light Wrapper -->
+    <div class="dark-light-wrapper" data-aos="zoom-in" data-aos-duration="750" data-aos-delay="200">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <h5 class="mb-0 text-white" data-aos="fade-up" data-aos-duration="750" data-aos-delay="500">Light mode is available!</h5>
+          <!-- Switch -->
+          <div class="dark-light-mode" data-aos="fade-up" data-aos-duration="750" data-aos-delay="800">
+            <input id="darkLightSwitch" type="checkbox">
+            <label class="shadow" for="darkLightSwitch">Toggle</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}

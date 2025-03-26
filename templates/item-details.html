@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="divider"></div>
+    <!-- Share Modal -->
+    <div class="share-modal modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 text-center">
+            <h4 class="mb-4" id="shareModalLabel">Share this item</h4>
+            <div class="d-flex align-items-center justify-content-center"><a class="mx-2" href="#"><img src="img/core-img/icons8-facebook.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-twitter.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-instagram.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-slack.svg" alt=""></a><a class="mx-2" href="#"><img src="img/core-img/icons8-player.svg" alt=""></a></div>
+            <button class="btn btn-danger btn-sm rounded-pill mt-4" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copy Link Modal -->
+    <div class="share-modal modal fade" id="copylinkModal" tabindex="-1" aria-labelledby="copylinkLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 text-center">
+            <h4 class="mb-4" id="copylinkLabel">Copy item link</h4>
+            <p class="user-select-all mb-0 border border-2 p-3 rounded">https://themeforest.net/item/affan-pwa-mobile-html-template/29715548</p>
+            <button class="btn btn-danger btn-sm rounded-pill mt-4" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Report Modal -->
+    <div class="share-modal modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-4 text-center">
+            <h4 class="mb-4" id="reportModalLabel">Why are you reporting?</h4>
+            <form action="#">
+              <textarea class="form-control mb-3" id="reportText" name="reportMessage" placeholder="Write your complaint..."></textarea>
+              <div class="d-flex align-items-center justify-content-between">
+                <button class="btn btn-danger btn-sm rounded-pill" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
+                <button class="btn btn-primary btn-sm rounded-pill" type="submit">Report</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Item Details -->
+    <div class="item-details-wrap">
+      <div class="container">
+        <div class="row g-4 g-lg-5 justify-content-center">
+          <div class="col-12 col-md-12 col-lg-6">
+            <div class="item-big-thumb"><img src="/{{nft.image}}" alt="" data-action="zoom"></div>
+          </div>
+          <!-- Item Details Content -->
+          <div class="col-12 col-md-9 col-lg-6">
+            <div class="item-details-content mt-5 mt-lg-0">
+              <div class="dropdown item-details-dd">
+                <button class="dropdown-toggle" id="dwd987" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dwd987">
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#shareModal"><i class="me-1 bi bi-share"></i>Share</a></li>
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#copylinkModal"><i class="me-1 bi bi-box-arrow-up-right"></i>Copy Link</a></li>
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#reportModal"><i class="me-1 bi bi-flag"></i>Report</a></li>
+                </ul>
+              </div>
+              
+              <h2 class="my-3">{{nft.name}} #{{nft.p_number}}</h2>
+              <div class="d-flex align-items-center mb-4">
+                <div class="author-img position-relative me-3"><img class="shadow" src="/static/img/bg-img/u3.jpg" alt=""><i class="bi bi-check position-absolute bg-primary"></i></div>
+                <div class="name-author"><span class="d-block fz-14">Created by</span><a class="author d-block fz-16 hover-primary text-truncate" href="#">@{{nft.user.username}}</a></div>
+              </div>
+              <div class="border-top w-75 mb-4"></div>
+              <!-- Bid End -->
+              
+              <div class="row align-items-end">
+                <div class="col-6 col-sm-4">
+                  <p class="mb-2">Floor price</p>
+                  <h5 class="text-center mb-0 border border-2 px-3 py-2 border-primary d-inline-block rounded text-primary w-100">{{nft.current_price}} ETH </h5>
+                </div>
+                <div class="col-6 col-sm-4 col-lg-5"><a class="btn btn-primary rounded-pill w-100" href="#"><img class="me-1" src="/static/img/core-img/fire.png" alt="">Place a bid</a></div>
+                
+              </div>
+              <div class="divider"></div>
+              
+              <div class="row align-items-end">
+                <p style="color: red;">{{error_message}}</p>
+                <div class="col-6 col-sm-4 col-lg-5"><a class="btn btn-primary rounded-pill w-100" href="/buy-nft/{{nft.eth_address}}"><img class="me-1" src="" alt="">Buy</a></div>
+              </div>
+              <div class="border-top w-75 my-4"></div>
+              <div class="short-description">
+                <h5>Short Description</h5>
+                <p class="mb-0">{{nft.discription}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-block w-100 mb-70"></div>
+    <div class="funto-tab-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="tab--area bg-gray p-4 p-lg-5">
+              <ul class="nav nav-tabs" id="funtoTab" role="tablist">
+                <li class="nav-item"><a class="nav-link rounded-pill bg-gradient active" id="tab--1" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Details</a></li>
+                <li class="nav-item"><a class="nav-link rounded-pill bg-gradient" id="tab--2" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Activity</a></li>
+              </ul>
+              <div class="tab-content">
+                <!-- Tab Pane-->
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                  <div class="card border-0">
+                    <div class="card-body p-4">
+                      <h4>{{nft.name}}</h4>
+                      <p>{{nft.discription}}</p>
+                      <p></p>
+                      
+                     
+                    </div>
+                  </div>
+                </div>
+                <!-- Tab Pane-->
+                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                  <div class="card">
+                    <div class="card-body table-responsive border shadow-sm activity-table">
+                      
+                      <table class="table mb-0">
+                        
+                        <tbody>
+                          <tr>
+                            {% for bid in bids %}
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="item-details.html"> <img class="rounded me-1" src="/{{bid.nft.image}}" alt="">{{bid.nft.name}}</a></th>
+                            
+                            <td> <span class="d-inline-block fw-bold fz-14">{{bid.amount}} ETH</span></td>
+                            <td><a class="btn btn-minimal text-dark hover-primary" href="/profile/{{bid.user.wallet_profile}}"><img class="rounded-pill me-1" src="img/bg-img/u1.jpg" alt="">@{{bid.user.username}}</a></td>
+                            <td><i class="bi bi-cart"></i>Bid</td>
+                            <td><i class="bi bi-clock"></i>{{bid.timestamp}}</td>
+                            
+                          </tr>
+                          {% endfor %}
+                          
+                          
+                          <tr>
+                            {% for trans in transactions %}
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="item-details.html"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">{{trans.nft.name}}</a></th>
+                            <td> <span class="d-inline-block fw-bold fz-14">{{trans.amount}} ETH</span></td>
+                            <td><a class="btn btn-minimal text-dark hover-primary" href="/profile/{{trans.user.wallet_profile}}"><img class="rounded-pill me-1" src="img/bg-img/u2.jpg" alt="">@{{trans.user.username}}</a></td>
+                            <td><i class="bi bi-percent"></i>{{trans.type}}</td>
+                            
+                          </tr>
+                          {% endfor %}
+                          
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    
+  
+    <!-- Dark Light Wrapper -->
+    <div class="dark-light-wrapper" data-aos="zoom-in" data-aos-duration="750" data-aos-delay="200">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <h5 class="mb-0 text-white" data-aos="fade-up" data-aos-duration="750" data-aos-delay="500">Light mode is available!</h5>
+          <!-- Switch -->
+          <div class="dark-light-mode" data-aos="fade-up" data-aos-duration="750" data-aos-delay="800">
+            <input id="darkLightSwitch" type="checkbox">
+            <label class="shadow" for="darkLightSwitch">Toggle</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}

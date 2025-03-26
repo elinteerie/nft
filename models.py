@@ -45,7 +45,7 @@ class User(SQLModel, table=True):
     hashed_password: str
     twofa: bool = Field(default=False)
 
-    collection: List["Collection"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
+    nft: List["NFT"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     bids: List["Bid"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     deposits: List["Deposit"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     withdraws: List["Withdraw"] = Relationship(back_populates="user", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
@@ -53,13 +53,6 @@ class User(SQLModel, table=True):
     
     model_config = ConfigDict(arbitrary_types_allowed=True)
     
-class Collection(SQLModel, table=True):
-    id: int = Field(index=True, primary_key=True)
-    name: str
-    owner_id: int = Field(default=None, foreign_key="user.id")
-
-    user: User = Relationship(back_populates="collection")
-    nfts: List["NFT"] = Relationship(back_populates="collection", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
 
    
 
@@ -73,11 +66,13 @@ class NFT(SQLModel, table=True):
     p_number:str = Field(default_factory=generate_random_hex_secret, unique=True)
     current_price: float = Field(default=0.1)
     availability: str = Field(default="Instant Purchase")
-    collection_id: int = Field(foreign_key="collection.id")
     image: FileType = Field(sa_column=Column(FileType(storage=storage)))
     is_auction: bool = Field(default=False)
+    owner_id: int = Field(default=None, foreign_key="user.id")
+    no_of_copies: int = Field(default=1)
+    user: User = Relationship(back_populates="nft")
     
-    collection: Collection = Relationship(back_populates="nfts")
+    transactions: List["Transaction"] = Relationship(back_populates="nft", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
     bids: List["Bid"] = Relationship(back_populates="nft", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
 
 
@@ -143,9 +138,12 @@ class Transaction(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     amount: float 
     type: str
+    nft_id: int = Field(foreign_key="nft.id")
+
     user_id: int = Field(foreign_key="user.id")
 
     user: User = Relationship(back_populates="transactions")
+    nft: NFT = Relationship(back_populates="transactions")
 
     
 

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <!-- Breadcrumb -->
+  
+    <div class="divider"></div>
+    <div class="create-new-wrapper">
+      <div class="container">
+        <div class="row g-5 justify-content-center">
+          <div class="col-12 col-lg-8">
+            <!-- Create New Form -->
+            <div class="create-new-form border shadow-sm p-4 p-sm-5">
+              <h2 class="mb-4">Create new NFT</h2>
+              <p style="color: red;">{{error_message}}</p>
+              <form action="/addnft" enctype="multipart/form-data" method="post">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <div class="form-group mb-4">
+                      <label class="mb-2 fz-16" for="formFileMultiple">Upload Files</label>
+                      <input class="form-control bg-transparent" id="formFileMultiple" type="file" name="image" multiple>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group mb-4">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="inlineRadio1" type="radio" name="inlineRadioOptions" value="option1" checked>
+                        <label class="form-check-label" for="inlineRadio1">Fixed price</label>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group mb-4">
+                      <label class="mb-2 fz-16" for="title">Title</label>
+                      <input class="form-control" id="title" type="text" name="name" placeholder="Macaw Bird">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group mb-4">
+                      <label class="mb-2 fz-16" for="description">Description</label>
+                      <input class="form-control" id="description" type="text" name="discription" placeholder="Write short description">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="form-group mb-4">
+                      <label class="mb-2 fz-16" for="price">Price</label>
+                      <input class="form-control" id="price" name="current_price" type="text" placeholder="0.324 ETH">
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="form-group mb-4">
+                      <label class="mb-2 fz-16" for="noOfcopies">No of copies</label>
+                      <input class="form-control" id="noOfcopies" name="no_of_copies" type="text" placeholder="13">
+                    </div>
+                  </div>
+                  
+                  <div class="col-12 col-md-8">
+                    <div class="form-check mb-4 mb-md-0">
+                      
+                      <h4>GAS FEE: {{gas}} ETH</h4>
+                      <p>You must have funded your account to settle the Gas Fee</p>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12 col-md-4">
+                    <button class="btn btn-primary rounded-pill w-100" type="submit">Create</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-12 col-sm-8 col-lg-4">
+            <!-- Preview Card -->
+           
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <!-- Dark Light Wrapper -->
+    <div class="dark-light-wrapper" data-aos="zoom-in" data-aos-duration="750" data-aos-delay="200">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <h5 class="mb-0 text-white" data-aos="fade-up" data-aos-duration="750" data-aos-delay="500">Light mode is available!</h5>
+          <!-- Switch -->
+          <div class="dark-light-mode" data-aos="fade-up" data-aos-duration="750" data-aos-delay="800">
+            <input id="darkLightSwitch" type="checkbox">
+            <label class="shadow" for="darkLightSwitch">Toggle</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %}
