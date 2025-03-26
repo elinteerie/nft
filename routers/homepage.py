@@ -8,6 +8,10 @@ from models import User, NFT, Bid, Wallet, Setting, Deposit, Withdraw, Transacti
 from fastapi.exceptions import HTTPException
 from fastapi.responses import RedirectResponse
 from utils import hash_password, verify_password
+import os
+from starlette.datastructures import Headers
+import io
+
 
 
 
@@ -66,6 +70,8 @@ async def add_item(request: Request, db: db_dependency, image: UploadFile =File(
 
     settings = db.exec(select(Setting).where(Setting.id == 1)).first()
     gas_fee = settings.gas
+
+    
 
     # Check if user has enough ETH balance
     if user.eth_balance < gas_fee:
@@ -589,18 +595,34 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
     userpay.eth_balance += nft.current_price
     db.commit()
 
-    #Transfer Ownership
+    image_path = nft.image  # Assuming this is a valid file path
+    with open(image_path, "rb") as image_file:
+        file_content = image_file.read()  # Read the binary conten
 
-    new_nft_data = nft.__dict__.copy()
-    new_nft_data.pop("_sa_instance_state", None)  # Remove SQLAlchemy instance metadata
-    new_nft_data.pop("id", None)  # Remove primary key safely (avoid KeyError)
-    new_nft_data["owner_id"] = user.id  # Assign to the new user
+    upload_file = UploadFile(
+    filename=os.path.basename(image_path),
+    file=io.BytesIO(file_content),  # Use BytesIO to keep it open
+    headers=Headers({"content-disposition": f'form-data; name="image"; filename="{os.path.basename(image_path)}"'})
+)
 
-    new_nft = NFT(**new_nft_data)  # Create new NFT object
+
+    # Open the existing image as a file object
+    with open(nft.image, "rb") as image_file:
+        new_nft = NFT(
+        name=nft.name,
+        discription=nft.discription,
+        current_price=nft.current_price,
+        owner_id=user.id,  # Assign to the new user
+        image=upload_file    # Pass the file object
+    )
+
     db.add(new_nft)
+    db.commit()
+
+
     
-    new_transbuy = Transaction(amount=nft.current_price, type="Buy", user_id=user.id)
-    new_transsell = Transaction(amount=nft.current_price, type="Sell", user_id=userpay.id)
+    new_transbuy = Transaction(amount=nft.current_price, type="Buy", user_id=user.id, nft_id=nft.id)
+    new_transsell = Transaction(amount=nft.current_price, type="Sell", user_id=userpay.id, nft_id=nft.id)
     db.add(new_transbuy)
     db.add(new_transsell)
     db.commit()
