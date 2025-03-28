@@ -37,7 +37,7 @@ async def reada_item(request: Request, db: db_dependency, error_message: str = "
     user = db.exec(select(User).where(User.id == user_id)).first()
     print("user", user)
     if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+        return RedirectResponse(url="/login", status_code=303)
     
 
 
@@ -96,7 +96,7 @@ async def add_item(request: Request, db: db_dependency, image: UploadFile =File(
 
 
 
-@router.get("/home", response_class=HTMLResponse)
+@router.get("/", response_class=HTMLResponse)
 async def read_item(request: Request, db: db_dependency):
 
     statement = select(NFT)
@@ -113,6 +113,9 @@ async def read_item(request: Request, db: db_dependency):
     user_id = request.session.get("user_id")
     email = request.session.get("email")
 
+    if not user_id:
+        return RedirectResponse(url="/login", status_code=303)
+
     
     statement = select(NFT)
     nftslive = db.exec(statement).all()
@@ -124,12 +127,25 @@ async def read_item(request: Request, db: db_dependency):
     # Fetch user details from the database using session data
     user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
 
+    bid_stat = select(Bid).where(Bid.user_id==user.id)
+    user_bids = db.exec(bid_stat).all()
 
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+
+    dp_stat = select(Deposit).where(Deposit.user_id==user.id)
+    user_dp = db.exec(dp_stat).all()
+
+
+    tran_stat = select(Transaction).where(Transaction.user_id==user.id)
+    user_trans = db.exec(tran_stat).all()
+
+
+    withdrawsta =select(Withdraw).where(Withdraw.user_id==user.id)
+    usr_with = db.exec(withdrawsta).all()
+        
+
 
     return templates.TemplateResponse(
-        request=request, name="dashboard.html", context={"nftlive": nftslive, "user": user})
+        request=request, name="dashboard.html", context={"nftlive": nftslive, "user": user, "bids": user_bids, "deposit": user_dp, "transaction": user_trans, "withdraw": usr_with})
 
 
 
@@ -689,7 +705,8 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
         discription=nft.discription,
         current_price=nft.current_price,
         owner_id=user.id,  # Assign to the new user
-        image=image_path    # Pass the file object
+        image=image_path,    # Pass the file object
+        no_of_copies=1
     )
 
     db.add(new_nft)

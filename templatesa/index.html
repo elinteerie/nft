@@ -10,7 +10,7 @@
           <div class="col-12 col-md-10 col-xl-8">
             <div class="welcome-content text-center">
               <h2 data-aos="fade-up" data-aos-duration="750" data-aos-delay="300">Digital arts are trends now. Welcome to the world of NFTs.</h2>
-              <p class="mb-4" data-aos="fade-up" data-aos-duration="750" data-aos-delay="500">It's crafted with the latest trend of design &amp; coded with all modern approaches. It's a robust &amp; multi-dimensional usable template.</p><a class="btn btn-primary rounded-pill" href="collections.html" data-aos="fade-up" data-aos-duration="750" data-aos-delay="800"><i class="me-2 bi bi-grid-3x3-gap"></i>View All Collections</a>
+              <p class="mb-4" data-aos="fade-up" data-aos-duration="750" data-aos-delay="500">It's crafted with the latest trend of design &amp; coded with all modern approaches. It's a robust &amp; multi-dimensional usable template.</p><a class="btn btn-primary rounded-pill" href="/nft-collection" data-aos="fade-up" data-aos-duration="750" data-aos-delay="800"><i class="me-2 bi bi-grid-3x3-gap"></i>View All Collections</a>
             </div>
           </div>
         </div>
@@ -26,39 +26,34 @@
               <h2 class="mb-0 ms-3">Live Bid</h2>
             </div>
           </div>
-          <div class="col-5 text-end"><a class="btn rounded-pill btn-outline-primary btn-sm border-2 mb-5" href="live-bidding.html">View All Bids</a></div>
+          <div class="col-5 text-end"><a class="btn rounded-pill btn-outline-primary btn-sm border-2 mb-5" href="/nft-collection">View All Bids</a></div>
         </div>
       </div>
       <div class="container">
         <div class="row g-4 justify-content-center">
+          {% for nft in nftlive%}
           <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
             <!-- Featured Card -->
+             
             <div class="nft-card card shadow-sm">
+              
               <div class="card-body">
-                <div class="img-wrap"><img src="img/bg-img/9.jpg" alt="">
+                <div class="img-wrap"><img src="/media/default/{{nft.image.file_id}}" alt="">
                   <!-- Badge -->
-                  <div class="badge bg-dark position-absolute"><img src="img/core-img/fire.png" alt="">New Bid</div>
+                  <div class="badge bg-dark position-absolute"><img src="/media/default/{{nft.image.file_id}}" alt="">New Bid</div>
                   <!-- Dropdown -->
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownqwa22" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
-                    <!-- Dropdown Menu -->
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownqwa22">
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
-                    </ul>
-                  </div>
+                  
                   <!-- Bid End -->
-                  <div class="bid-ends" data-date="March 31, 2025 14:19:54">
+                  <!-- <div class="bid-ends" data-date="March 31, 2025 14:19:54">
                     <div><span class="days"></span><span>Days</span></div>
                     <div><span class="hours"></span><span>Hours</span></div>
                     <div><span class="minutes"></span><span>Min</span></div>
                     <div><span class="seconds"></span><span>Sec</span></div>
-                  </div>
+                  </div>-->
                 </div>
                 <!-- Others Info -->
                 <div class="row gx-2 align-items-center mt-3">
-                  <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>3 stock available</span></div>
+                  <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>{{nft.no_of_copies}} stock available</span></div>
                   <div class="col-4 text-end">
                     <button class="wishlist-btn" type="button"><i class="bi"></i></button>
                   </div>
@@ -67,173 +62,27 @@
                 <div class="row gx-2 align-items-center mt-2">
                   <div class="col-8">
                     <div class="name-info d-flex align-items-center">
-                      <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u4.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
-                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Fancy Car">Fancy Car</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@fancy_car</a></div>
+                      <div class="author-img position-relative"><img class="shadow" src="/media/default/{{nft.image.file_id}}" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Fancy Car">{{nft.name}}</a><a class="author d-block fz-12 hover-primary text-truncate" href="/profile/{{nft.user.wallet_profile}}">@{{nft.user.username}}</a></div>
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
-                      <h6 class="mb-0">0.784 ETH</h6>
+                      <h6 class="mb-0">{{nft.current_price}} ETH</h6>
                     </div>
                   </div>
-                  <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100" href="#">Place Bid</a></div>
+                  <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100" href="/view-nft/{{nft.eth_address}}">Place Bid</a></div>
                 </div>
               </div>
+              
+              
             </div>
+            
+           
           </div>
-          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <!-- Featured Card -->
-            <div class="nft-card card shadow-sm">
-              <div class="card-body">
-                <div class="img-wrap"><img src="img/bg-img/10.jpg" alt="">
-                  <!-- Badge -->
-                  <div class="badge bg-dark position-absolute"><img src="img/core-img/fire.png" alt="">New Bid</div>
-                  <!-- Dropdown -->
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownpwa22" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
-                    <!-- Dropdown Menu -->
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownpwa22">
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
-                    </ul>
-                  </div>
-                  <!-- Bid End -->
-                  <div class="bid-ends" data-date="March 31, 2025 14:19:54">
-                    <div><span class="days"></span><span>Days</span></div>
-                    <div><span class="hours"></span><span>Hours</span></div>
-                    <div><span class="minutes"></span><span>Min</span></div>
-                    <div><span class="seconds"></span><span>Sec</span></div>
-                  </div>
-                </div>
-                <!-- Others Info -->
-                <div class="row gx-2 align-items-center mt-3">
-                  <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>11 stock available</span></div>
-                  <div class="col-4 text-end">
-                    <button class="wishlist-btn" type="button"><i class="bi"></i></button>
-                  </div>
-                </div>
-                <!-- Meta Info -->
-                <div class="row gx-2 align-items-center mt-2">
-                  <div class="col-8">
-                    <div class="name-info d-flex align-items-center">
-                      <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u1.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
-                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Animal Playing with Guiter">Animal Playing with Guiter</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@creative_world</a></div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
-                      <h6 class="mb-0">0.784 ETH</h6>
-                    </div>
-                  </div>
-                  <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100" href="#">Place Bid</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <!-- Featured Card -->
-            <div class="nft-card card shadow-sm">
-              <div class="card-body">
-                <div class="img-wrap"><img src="img/bg-img/11.jpg" alt="">
-                  <!-- Badge -->
-                  <div class="badge bg-danger position-absolute"><img src="img/core-img/fire.png" alt="">Bid Done</div>
-                  <!-- Dropdown -->
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdownsd722" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
-                    <!-- Dropdown Menu -->
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownsd722">
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
-                    </ul>
-                  </div>
-                  <!-- Bid End -->
-                  <div class="bid-ends" data-date="March 31, 2025 14:19:54">
-                    <div><span class="days"></span><span>Days</span></div>
-                    <div><span class="hours"></span><span>Hours</span></div>
-                    <div><span class="minutes"></span><span>Min</span></div>
-                    <div><span class="seconds"></span><span>Sec</span></div>
-                  </div>
-                </div>
-                <!-- Others Info -->
-                <div class="row gx-2 align-items-center mt-3">
-                  <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>Not available</span></div>
-                  <div class="col-4 text-end">
-                    <button class="wishlist-btn" type="button"><i class="bi"></i></button>
-                  </div>
-                </div>
-                <!-- Meta Info -->
-                <div class="row gx-2 align-items-center mt-2">
-                  <div class="col-8">
-                    <div class="name-info d-flex align-items-center">
-                      <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u2.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
-                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Halloween #471">Halloween #471</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@fancy_car</a></div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
-                      <h6 class="mb-0">0.784 ETH</h6>
-                    </div>
-                  </div>
-                  <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100 disabled" href="#">Place Bid</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <!-- Featured Card -->
-            <div class="nft-card card shadow-sm">
-              <div class="card-body">
-                <div class="img-wrap"><img src="img/bg-img/12.jpg" alt="">
-                  <!-- Badge -->
-                  <div class="badge bg-danger position-absolute"><img src="img/core-img/fire.png" alt="">Hot Bid</div>
-                  <!-- Dropdown -->
-                  <div class="dropdown">
-                    <button class="btn dropdown-toggle rounded-pill shadow-sm" id="dropdo22" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
-                    <!-- Dropdown Menu -->
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdo22">
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-share"></i>Share</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-flag"></i>Report</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="me-1 bi bi-bookmark"></i>Bookmark</a></li>
-                    </ul>
-                  </div>
-                  <!-- Bid End -->
-                  <div class="bid-ends" data-date="March 31, 2025 14:19:54">
-                    <div><span class="days"></span><span>Days</span></div>
-                    <div><span class="hours"></span><span>Hours</span></div>
-                    <div><span class="minutes"></span><span>Min</span></div>
-                    <div><span class="seconds"></span><span>Sec</span></div>
-                  </div>
-                </div>
-                <!-- Others Info -->
-                <div class="row gx-2 align-items-center mt-3">
-                  <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>29 stock available</span></div>
-                  <div class="col-4 text-end">
-                    <button class="wishlist-btn active" type="button"><i class="bi"></i></button>
-                  </div>
-                </div>
-                <!-- Meta Info -->
-                <div class="row gx-2 align-items-center mt-2">
-                  <div class="col-8">
-                    <div class="name-info d-flex align-items-center">
-                      <div class="author-img position-relative"><img class="shadow" src="img/bg-img/u3.jpg" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
-                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Vigor Dance">Vigor Dance</a><a class="author d-block fz-12 hover-primary text-truncate" href="author.html">@fancy_nft</a></div>
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
-                      <h6 class="mb-0">0.784 ETH</h6>
-                    </div>
-                  </div>
-                  <div class="col-12"><a class="btn btn-warning rounded-pill btn-sm mt-3 w-100" href="#">Place Bid</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          {% endfor %}
+          
+          
     <div class="divider"></div>
     <div class="process-wrapper" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="200">
       <div class="container">
@@ -241,9 +90,9 @@
           <div class="col-12 col-sm-6 col-xl-3">
             <!-- Single Card-->
             <div class="single-process-card card bg-gray border-0" data-aos="fade-up" data-aos-duration="750" data-aos-delay="400">
-              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="img/illustrator/4.png" alt="">
-                <h5 class="mb-3">Create your account &amp; add wallet</h5>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="/static/img/illustrator/2.png" alt="">
+                <h5 class="mb-3">Create your account, Fund and &amp; add wallet</h5>
+                <p class="mb-0">Create Account and Add ETH to Balance</p>
               </div>
               <!-- Step -->
               <div class="step-number">1</div>
@@ -252,9 +101,9 @@
           <div class="col-12 col-sm-6 col-xl-3">
             <!-- Single Card-->
             <div class="single-process-card card bg-gray border-0" data-aos="fade-up" data-aos-duration="750" data-aos-delay="600">
-              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="img/illustrator/2.png" alt="">
+              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="/static/img/illustrator/2.png" alt="">
                 <h5 class="mb-3">Get approval from our review team</h5>
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p class="mb-0">Get Apporobal</p>
               </div>
               <!-- Step -->
               <div class="step-number">2</div>
@@ -263,7 +112,7 @@
           <div class="col-12 col-sm-6 col-xl-3">
             <!-- Single Card-->
             <div class="single-process-card card bg-gray border-0" data-aos="fade-up" data-aos-duration="750" data-aos-delay="800">
-              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="img/illustrator/3.png" alt="">
+              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="/static/img/illustrator/3.png" alt="">
                 <h5 class="mb-3">Create your NFT's &amp; list them for sale</h5>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
               </div>
@@ -274,7 +123,7 @@
           <div class="col-12 col-sm-6 col-xl-3">
             <!-- Single Card-->
             <div class="single-process-card card bg-gray border-0" data-aos="fade-up" data-aos-duration="750" data-aos-delay="1000">
-              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="img/illustrator/1.png" alt="">
+              <div class="card-body p-4 text-center"><img class="mb-3 mx-auto" src="/static/img/illustrator/1.png" alt="">
                 <h5 class="mb-3">Now sale your items &amp; earn rewards</h5>
                 <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
               </div>
