@@ -11,6 +11,7 @@ from utils import hash_password, verify_password
 import os
 from starlette.datastructures import Headers
 import io
+#from sqlalchemy_file import File
 
 
 
@@ -18,7 +19,7 @@ import io
 
 router = APIRouter(prefix='',tags=['Home'])
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="templatesa")
 
 
 
@@ -95,7 +96,7 @@ async def add_item(request: Request, db: db_dependency, image: UploadFile =File(
 
 
 
-@router.get("/", response_class=HTMLResponse)
+@router.get("/home", response_class=HTMLResponse)
 async def read_item(request: Request, db: db_dependency):
 
     statement = select(NFT)
@@ -293,6 +294,25 @@ def register(
     return templates.TemplateResponse(
         request=request, name="my-collection.html",context= {"request": request, "user": user, "nfts": nfts })
 
+@router.get("/live-bids")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+    base_url = str(request.base_url)  # Get the base URL dynamically
+
+
+    user = db.exec(select(User).where(User.id == user_id)).first()
+
+
+
+    return templates.TemplateResponse(
+        request=request, name="live-bids.html",context= {"request": request, "user": user })
+
+
+
 
 
 
@@ -346,6 +366,24 @@ def register(
 
 
 
+@router.get("/withdraw/amount")
+def register(
+    request: Request,
+    db: db_dependency,
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+
+    return templates.TemplateResponse(
+        request=request, name="withdraw-amount.html",context= {"request": request, "user": user})
+
+
+
 
 @router.post("/deposit/amount/confirm")
 def register(
@@ -368,6 +406,52 @@ def register(
 
     return templates.TemplateResponse(
         request=request, name="deposit-amount-confirm.html",context= {"request": request, "user": user, "wallet": wallet, "amount": amount})
+
+
+@router.post("/withdraw-amount-confirm")
+def register(
+    request: Request,
+    db: db_dependency,
+    amount: str = Form(...),
+    wallet: str = Form(...),
+    error_message = ""
+):
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+    
+    
+    
+    error_message = ""
+
+
+
+
+    # Fetch user details from the database using session data
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+    if user.eth_balance < 5.0:
+        error_message = "Your Balance is not Up to 5 ETH"
+        return templates.TemplateResponse(
+        request=request, name="withdraw-amount.html",context= {"request": request, "user": user, "error": error_message})
+    
+    if float(amount) > user.eth_balance:
+        error_message = f"Your Balance is not Up to {amount}"
+        return templates.TemplateResponse(
+        request=request, name="withdraw-amount.html",context= {"request": request, "user": user, "error": error_message})
+
+
+    user.eth_balance -= float(amount)
+    db.commit()
+
+    new_withdraw = Withdraw(amount=amount, user_id=user.id, wallet=wallet)
+    db.add(new_withdraw)
+    db.commit()
+
+
+    return templates.TemplateResponse(
+        request=request, name="withdraw-confirm.html",context= {"request": request, "user": user, "amount": amount})
+
 
 
 
@@ -551,6 +635,8 @@ def register(
 
 
 
+
+
 @router.get("/buy-nft/{address}", response_class=HTMLResponse)
 async def view_nftj_item(request: Request, address:str,  db: db_dependency, error_message: str = "" ):
 
@@ -596,24 +682,14 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
     db.commit()
 
     image_path = nft.image  # Assuming this is a valid file path
-    with open(image_path, "rb") as image_file:
-        file_content = image_file.read()  # Read the binary conten
-
-    upload_file = UploadFile(
-    filename=os.path.basename(image_path),
-    file=io.BytesIO(file_content),  # Use BytesIO to keep it open
-    headers=Headers({"content-disposition": f'form-data; name="image"; filename="{os.path.basename(image_path)}"'})
-)
 
 
-    # Open the existing image as a file object
-    with open(nft.image, "rb") as image_file:
-        new_nft = NFT(
+    new_nft = NFT(
         name=nft.name,
         discription=nft.discription,
         current_price=nft.current_price,
         owner_id=user.id,  # Assign to the new user
-        image=upload_file    # Pass the file object
+        image=image_path    # Pass the file object
     )
 
     db.add(new_nft)
@@ -630,3 +706,48 @@ async def view_nftj_item(request: Request, address:str,  db: db_dependency, erro
 
     
     return RedirectResponse(url="/nft-collection", status_code=303)
+
+
+
+
+
+
+@router.get("/bid-nft/{address}", response_class=HTMLResponse)
+async def view_nftj_item(request: Request, address:str,   db: db_dependency, error_message: str = "" , amount: float = Form):
+
+    statement = select(NFT).where(NFT.eth_address==address)
+    nft = db.exec(statement).first()
+
+    error_message = ""
+
+
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+
+    print("user:", user)
+
+
+    if not user_id:
+        return RedirectResponse(url="/login", status_code=303)
+    
+
+    if  user.eth_balance < nft.current_price:
+        error_message = "Insuficient ETH Balance"
+        return templates.TemplateResponse(
+        request=request, name="item-details.html",context= {"request": request, "user": user, "error_message": error_message, "nft": nft})
+
+    
+    
+
+    new_bid = Bid(amount=amount,user_id=user.id,nft_id=nft.id)
+    
+
+    db.add(new_bid)
+    db.commit()
+
+    nft.current_price =amount
+    db.commit()
+    
+    return RedirectResponse(url=f"/view-nft/{nft.eth_address}", status_code=303)

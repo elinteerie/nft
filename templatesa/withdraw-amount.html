@@ -1,0 +1,41 @@
+{% extends "base-dash.html" %}
+
+{% block content %}
+
+<style>
+    .center-container { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .notice {
+        color: red;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+</style>
+    
+<div class="center-container">
+    <h2>Withdraw Funds</h2>
+
+
+    <h5 style="color: red;" class="noitce">{{error}}</h5>
+    
+    <p class="notice">Minimum withdrawal amount is 5 ETH</p>
+
+    <form action="/withdraw-amount-confirm" method="POST">
+        <div class="form-group mb-4">
+            <input class="form-control" type="text" name="amount" placeholder="Amount in ETH" required>
+            
+        </div>
+        <div class="form-group mb-4">
+        <input class="form-control" type="text" name="wallet" placeholder="Wallet Address" required>
+    </div>
+        <button class="btn btn-danger w-100" type="submit">Withdraw</button>
+    </form>
+</div>
+
+{% endblock %}

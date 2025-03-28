@@ -17,6 +17,23 @@ from fastapi_storages.integrations.sqlalchemy import FileType
 
 storage = FileSystemStorage(path="static/uploads/")
 
+#new
+from libcloud.storage.drivers.local import LocalStorageDriver
+from sqlalchemy_file import FileField, ImageField
+from sqlalchemy_file.storage import StorageManager
+#from utils.omo import StorageManager
+import os
+
+
+
+STATIC_PATH = os.path.abspath("static")
+os.makedirs(STATIC_PATH, mode=0o777, exist_ok=True)
+storage_driver = LocalStorageDriver(STATIC_PATH)
+container = storage_driver.get_container("uploads")
+StorageManager.add_storage("default", container)
+
+
+
 def generate_random_hex_secret(length=6):
     """
     Generate a random hexadecimal string of the specified length.
@@ -66,7 +83,8 @@ class NFT(SQLModel, table=True):
     p_number:str = Field(default_factory=generate_random_hex_secret, unique=True)
     current_price: float = Field(default=0.1)
     availability: str = Field(default="Instant Purchase")
-    image: FileType = Field(sa_column=Column(FileType(storage=storage)))
+    image: ImageField = Field(sa_column=Column(ImageField))
+    #image: FileType = Field(sa_column=Column(FileType(storage=storage)))
     is_auction: bool = Field(default=False)
     owner_id: int = Field(default=None, foreign_key="user.id")
     no_of_copies: int = Field(default=1)

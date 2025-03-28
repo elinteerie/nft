@@ -49,7 +49,7 @@
       <div class="container">
         <div class="row g-4 g-lg-5 justify-content-center">
           <div class="col-12 col-md-12 col-lg-6">
-            <div class="item-big-thumb"><img src="/{{nft.image}}" alt="" data-action="zoom"></div>
+            <div class="item-big-thumb"><img src="/media/default/{{nft.image.file_id}}" alt="" data-action="zoom"></div>
           </div>
           <!-- Item Details Content -->
           <div class="col-12 col-md-9 col-lg-6">
@@ -77,9 +77,15 @@
                   <p class="mb-2">Floor price</p>
                   <h5 class="text-center mb-0 border border-2 px-3 py-2 border-primary d-inline-block rounded text-primary w-100">{{nft.current_price}} ETH </h5>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-5"><a class="btn btn-primary rounded-pill w-100" href="#"><img class="me-1" src="/static/img/core-img/fire.png" alt="">Place a bid</a></div>
-                
-              </div>
+                <div class="divider"></div>
+                <div >
+                <form class="form-group d-flex" action="/bid-nft/{{nft.eth_address}}">
+                  <div class="form-group mb-4" style="width: 200px;"> 
+                      <input class="form-control text-center border-2 px-3 py-2" type="number" name="amount" placeholder="Amount in ETH" required>
+                      <button class="btn btn-primary rounded-pill w-100" type="submit">Place Bid</button>
+              </form>
+            </div>
+            
               <div class="divider"></div>
               
               <div class="row align-items-end">
@@ -129,7 +135,7 @@
                         <tbody>
                           <tr>
                             {% for bid in bids %}
-                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="item-details.html"> <img class="rounded me-1" src="/{{bid.nft.image}}" alt="">{{bid.nft.name}}</a></th>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="item-details.html"> <img class="rounded me-1" src="/media/default/{{bid.nft.image}}" alt="">{{bid.nft.name}}</a></th>
                             
                             <td> <span class="d-inline-block fw-bold fz-14">{{bid.amount}} ETH</span></td>
                             <td><a class="btn btn-minimal text-dark hover-primary" href="/profile/{{bid.user.wallet_profile}}"><img class="rounded-pill me-1" src="img/bg-img/u1.jpg" alt="">@{{bid.user.username}}</a></td>

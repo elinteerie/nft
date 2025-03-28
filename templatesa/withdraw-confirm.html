@@ -1,0 +1,31 @@
+{% extends "base-dash.html" %}
+
+{% block content %}
+
+<style>
+    .center-container { 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .message {
+        font-size: 18px;
+        color: green;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="center-container">
+    <h2>Withdrawal Request Submitted</h2>
+    
+    <p class="message">Your withdrawal request has been submitted successfully.</p>
+    <p>Please wait while we process your request.</p>
+
+    <a href="/dashboard" class="btn btn-primary mt-3">Return to Dashboard</a>
+</div>
+
+{% endblock %}
