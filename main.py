@@ -18,7 +18,6 @@ from utils import get_current_user, db_dependency
 from starlette_admin.contrib.sqla import Admin, ModelView
 from starlette_admin.auth import AdminConfig, AdminUser, AuthProvider
 from starlette_admin.exceptions import FormValidationError, LoginFailed
-from email_temp import send_custom_email
 from starlette.exceptions import HTTPException
 from starlette.status import HTTP_404_NOT_FOUND
 

@@ -12,6 +12,10 @@ import os
 from starlette.datastructures import Headers
 import io
 #from sqlalchemy_file import File
+from fastapi import FastAPI, BackgroundTasks
+
+from email_temp import send_welcome_email
+
 
 
 
@@ -243,12 +247,14 @@ def regi(request: Request, error_message: str = ""):
 def register(
     request: Request,
     db: db_dependency,
+    background_tasks: BackgroundTasks,
     first_name: str = Form(...),
     username: str = Form(...),
     last_name: str = Form(...),
     email: str = Form(...),
     password: str = Form(...),
     confirm_password: str = Form(...),
+    
 
 ):
     error_message = ""
@@ -280,7 +286,8 @@ def register(
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
-    send_custom_email(email, "ArtiflexGateway", "Account Created on ArtiflexGateway", "You have successfully Created an account on ArtiflexGateway")
+    full_name = f"{first_name} {last_name}"
+    background_tasks.add_task(send_welcome_email, email, full_name)
 
     
     request.session["user_id"] = new_user.id
