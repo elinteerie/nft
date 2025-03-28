@@ -12,6 +12,7 @@ import os
 from starlette.datastructures import Headers
 import io
 #from sqlalchemy_file import File
+from email_temp import send_custom_email
 
 
 
@@ -280,6 +281,7 @@ def register(
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+    send_custom_email(email, "ArtiflexGateway", "Account Created on ArtiflexGateway", "You have successfully Created an account on ArtiflexGateway")
 
     
     request.session["user_id"] = new_user.id
