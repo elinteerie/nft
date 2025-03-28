@@ -1,5 +1,5 @@
 from fastapi.responses import HTMLResponse
-from fastapi import APIRouter, Request, status, Form, UploadFile, File, Depends
+from fastapi import APIRouter, Request, status, Form, UploadFile, File, Depends, Response
 from typing import Annotated, Optional
 from utils import db_dependency
 from fastapi.templating import Jinja2Templates
@@ -322,10 +322,15 @@ def register(
 
     user = db.exec(select(User).where(User.id == user_id)).first()
 
+    
+
+    astatement = select(NFT)
+    nftslive = db.exec(astatement).all()
+
 
 
     return templates.TemplateResponse(
-        request=request, name="live-bids.html",context= {"request": request, "user": user })
+        request=request, name="live-bids.html",context= {"request": request, "user": user, "nfts": nftslive })
 
 
 
@@ -768,3 +773,16 @@ async def view_nftj_item(request: Request, address:str,   db: db_dependency, err
     db.commit()
     
     return RedirectResponse(url=f"/view-nft/{nft.eth_address}", status_code=303)
+
+
+
+@router.get("/logout")
+def logout(request: Request, response: Response):
+    # Check if user is logged in
+    user_id = request.session.get("user_id")
+    if user_id:
+        # Clear session data
+        request.session.clear()
+    
+    # Redirect to login or homepage
+    return RedirectResponse(url="/login", status_code=303)
