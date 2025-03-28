@@ -12,7 +12,6 @@ import os
 from starlette.datastructures import Headers
 import io
 #from sqlalchemy_file import File
-from email_temp import send_custom_email
 
 
 
@@ -788,3 +787,5 @@ def logout(request: Request, response: Response):
     
     # Redirect to login or homepage
     return RedirectResponse(url="/login", status_code=303)
+
+

@@ -18,6 +18,10 @@ from utils import get_current_user, db_dependency
 from starlette_admin.contrib.sqla import Admin, ModelView
 from starlette_admin.auth import AdminConfig, AdminUser, AuthProvider
 from starlette_admin.exceptions import FormValidationError, LoginFailed
+from email_temp import send_custom_email
+from starlette.exceptions import HTTPException
+from starlette.status import HTTP_404_NOT_FOUND
+
 
 users = {
     "admin": {
@@ -187,5 +191,56 @@ admin.add_view(ModelView(Setting))
 # Mount admin to your app
 admin.mount_to(app)
 
+
+
+
+@app.exception_handler(HTTPException)
+async def not_found_handler(request: Request, exc: HTTPException):
+    if exc.status_code == HTTP_404_NOT_FOUND:
+        return HTMLResponse(content=not_found_html, status_code=404)
+    return HTMLResponse(content="Something went wrong", status_code=exc.status_code)
+
+# Sample Not Found HTML Page
+not_found_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #dc3545;
+            font-size: 48px;
+        }
+        p {
+            font-size: 20px;
+            color: #6c757d;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>Oops! The page you are looking for does not exist.</p>
+    <a href="/dashboard">Go to Dashboard</a>
+</body>
+</html>
+"""
 
 
