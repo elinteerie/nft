@@ -48,8 +48,8 @@
                     <input class="form-control" id="registerPassword" name="password" type="password" placeholder="Password" required>
                   </div>
                   <div class="form-group mb-4">
-                    <label class="label-psswd" for="registerPassword">Show</label>
-                    <input class="form-control" id="registerPassword" name="confirm_password" type="password" placeholder="Password" required>
+                    <label class="label-psswd" for="confirmPassword" onclick="togglePassword('confirmPassword')">Show</label>
+                    <input class="form-control" id="confirmPassword" name="confirm_password" type="password" placeholder="Confirm Password" required>
                   </div>
                   <div class="form-check mb-4">
                     <input class="form-check-input" id="rememberMe" type="checkbox" value="" checked>
@@ -81,6 +81,14 @@
         </div>
       </div>
     </div>
+
+
+    <script>
+      function togglePassword(fieldId) {
+          var field = document.getElementById(fieldId);
+          field.type = field.type === "password" ? "text" : "password";
+      }
+      </script>
   
 
     {% endblock %}

@@ -308,6 +308,9 @@ def register(
     email = request.session.get("email")
     base_url = str(request.base_url)  # Get the base URL dynamically
 
+    if not user_id:
+        return RedirectResponse(url="/login", status_code=303)
+
 
     user = db.exec(select(User).where(User.id == user_id)).first()
 
@@ -330,10 +333,16 @@ def register(
 
     user = db.exec(select(User).where(User.id == user_id)).first()
 
+    if not user:
+        return RedirectResponse(url="/login", status_code=303)
+
     
 
     astatement = select(NFT)
     nftslive = db.exec(astatement).all()
+
+    if not user:
+        return RedirectResponse(url="/login", status_code=303)
 
 
 
