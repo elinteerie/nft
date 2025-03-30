@@ -114,6 +114,14 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+
+
+from a2wsgi import ASGIMiddleware
+
+wsgi_app = ASGIMiddleware(app)
+
+
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templatesa")
 
@@ -243,3 +251,8 @@ not_found_html = """
 """
 
 
+
+
+if __name__ == "__main__":
+    from waitress import serve
+    serve(wsgi_app, host="0.0.0.0", port=8000)
