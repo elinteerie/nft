@@ -20,6 +20,8 @@ from starlette_admin.auth import AdminConfig, AdminUser, AuthProvider
 from starlette_admin.exceptions import FormValidationError, LoginFailed
 from starlette.exceptions import HTTPException
 from starlette.status import HTTP_404_NOT_FOUND
+from starlette.middleware.wsgi import WSGIMiddleware
+
 
 
 users = {
@@ -118,7 +120,8 @@ app = FastAPI(lifespan=lifespan)
 
 from a2wsgi import ASGIMiddleware
 
-wsgi_app = ASGIMiddleware(app)
+
+
 
 
 
@@ -250,6 +253,11 @@ not_found_html = """
 </html>
 """
 
+
+def create_wsgi_app():
+    return WSGIMiddleware(app)
+
+wsgi_app = create_wsgi_app()
 
 
 

@@ -73,12 +73,13 @@ def send_welcome_email(recipient_email, user_name):
     </head>
     <body>
         <div class="container">
-            <h1>Welcome to ArtiflexGateway - Mobile NFT Marketplace</h1>
+            <h1>Welcome to ArtifexGateway - Mobile NFT Marketplace</h1>
             <p>Hi <strong>{user_name}</strong>,</p>
             <p>We're excited to have you on board. Get ready to explore all the amazing features we have to offer.</p>
             <a href="https://artifexgateway.com/login" class="button">Get Started</a>
+            <p>Where Innovation Meet Art. Connect, Create, Collect: Join The Movement</p>
             <p class="footer">If you have any questions, feel free to contact our support team.</p>
-            <p class="footer">&copy; 2025 ArtifexGateway. All rights reserved.</p>
+            <p class="footer">&copy; 2023 ArtifexGateway. All rights reserved.</p>
         </div>
     </body>
     </html>
@@ -88,7 +89,7 @@ def send_welcome_email(recipient_email, user_name):
     msg = MIMEMultipart()
     msg['From'] = SENDER_EMAIL
     msg['To'] = recipient_email
-    msg['Subject'] = "Welcome to ArtiflexGateway!"
+    msg['Subject'] = "Welcome to ArtifexGateway!"
 
     # Attach the HTML content
     msg.attach(MIMEText(html_template, 'html'))

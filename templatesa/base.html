@@ -7,12 +7,12 @@
     <!-- Title-->
     <title>ArtiflexGateway - Mobile NFT Marketplace</title>
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ url_for('static', path='img/faaavicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/img/faaavicon.ico" type="image/x-icon">
    
     <!-- All CSS Stylesheet-->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/all-css-libraries.css') }}">
+    <link rel="stylesheet" href="/static/css/all-css-libraries.css">
     <!-- Core Stylesheet-->
-    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
   </head>
   <body>
     <!-- Preloader-->
@@ -20,7 +20,7 @@
     <header class="header-area">   
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <!-- Navbar Brand --><a class="navbar-brand" href="#"><img class="light-logo" src="/static/img/logo.png" alt=""><img class="dark-logo" src="/static/img/logo.png" alt=""></a>
+          <!-- Navbar Brand --><a class="navbar-brand" href="/"><img class="light-logo" src="/static/img/logo.png" alt=""><img class="dark-logo" src="/static/img/logo.png" alt=""></a>
           <!-- Navbar Toggler -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#funtoNav" aria-controls="funtoNav" aria-expanded="false" aria-label="Toggle navigation"><i class="bi bi-grid"></i></button>
           <!-- Navbar -->
@@ -42,10 +42,10 @@
             <!-- Header Meta -->
             <div class="header-meta d-flex align-items-center ms-lg-auto">
               <!-- Search Form -->
-              <div class="search-form position-relative d-flex align-items-center">
-                <input class="form-control" type="text" placeholder="Search">
+              <form method="get" action="/search" class="search-form position-relative d-flex align-items-center">
+                <input class="form-control" type="text" name="q" placeholder="Search NFT...">
                 <button class="position-absolute" type="submit"><i class="bi bi-search"></i></button>
-              </div>
+              </form>
               <!-- User Dropdown -->
               <div class="user-dropdown dropdown mx-3">
                 <button class="btn dropdown-toggle user-btn" id="dropdownMenuButton1" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-three-dots"></i></button>
@@ -142,9 +142,24 @@
   <!-- Scroll To Top -->
   <div id="scrollTopButton"><i class="bi bi-arrow-up-short"></i></div>
   <!-- All JavaScript Files-->
-  <script src="{{ url_for('static', path='js/all-js-libraries.js') }}"></script>
+ <!-- All JavaScript Files-->
+ <script src="/static/js/all-js-libraries.js"></script>
   
-  <script src="{{ url_for('static', path='js/active.js') }}"></script>
-  <script src="{{ url_for('static', path='js/charts.js') }}"></script>
+ <script src="/static/js/active.js"></script>
+ <script src="/static/js/charts.js"></script>
+
+ <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/67ea7becbb54ef1910f8d298/1inlv85bj';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>

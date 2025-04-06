@@ -12,7 +12,9 @@
 <div class="center-container">
     <h4>Confirm Deposit of {{amount}} ETH</h4>
 
-<img src="{{ url_for('static', path='img/qr_code.png') }}" alt="QR Code for Deposit">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{wallet}}" alt="QR Code for Deposit">
+
+
 
 <div class="wallet-container">
     

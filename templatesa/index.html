@@ -55,7 +55,7 @@
                 <div class="row gx-2 align-items-center mt-3">
                   <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>{{nft.no_of_copies}} stock available</span></div>
                   <div class="col-4 text-end">
-                    <button class="wishlist-btn" type="button"><i class="bi"></i></button>
+                   <!-- <button class="wishlist-btn" type="button"><i class="bi"></i></button>-->
                   </div>
                 </div>
                 <!-- Meta Info -->
@@ -63,7 +63,7 @@
                   <div class="col-8">
                     <div class="name-info d-flex align-items-center">
                       <div class="author-img position-relative"><img class="shadow" src="/media/default/{{nft.image.file_id}}" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
-                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="item-details.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Fancy Car">{{nft.name}}</a><a class="author d-block fz-12 hover-primary text-truncate" href="/profile/{{nft.user.wallet_profile}}">@{{nft.user.username}}</a></div>
+                      <div class="name-author"><a class="name d-block hover-primary fw-bold text-truncate" href="/view-nft/{{nft.eth_address}}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{nft.name}}">{{nft.name}}</a><a class="author d-block fz-12 hover-primary text-truncate" href="/profile/{{nft.user.wallet_profile}}">@{{nft.user.username}}</a></div>
                     </div>
                   </div>
                   <div class="col-4">

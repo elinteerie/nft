@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Search Hero Section -->
+<div class="welcome-area pt-120">
+  <div class="container">
+   
+</div>
+
+<div class="divider"></div>
+
+<!-- Live Bidding Section -->
+<div class="live-bidding-wrapper">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-7">
+        <div class="section-heading d-flex align-items-center">
+          <div class="spinner-grow text-danger" role="status"><span class="visually-hidden">Loading...</span></div>
+          <h2 class="mb-0 ms-3" id="clickme">Live Bid</h2>
+        </div>
+      </div>
+      <div class="col-5 text-end"><a class="btn rounded-pill btn-outline-primary btn-sm border-2 mb-5" href="/nft-collection">View All Bids</a></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+      {% if results %}
+        {% for nft in results %}
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="nft-card card shadow-sm">
+            <div class="card-body">
+              <div class="img-wrap"><img src="/media/default/{{ nft.image.file_id }}" alt="">
+                <div class="badge bg-dark position-absolute">New Bid</div>
+              </div>
+              <div class="row gx-2 align-items-center mt-3">
+                <div class="col-8"><span class="d-block fz-12"><i class="bi bi-bag me-1"></i>{{ nft.no_of_copies }} stock available</span></div>
+              </div>
+              <div class="row gx-2 align-items-center mt-2">
+                <div class="col-8">
+                  <div class="name-info d-flex align-items-center">
+                    <div class="author-img position-relative"><img class="shadow" src="/media/default/{{ nft.image.file_id }}" alt=""><i class="bi bi-check position-absolute bg-success"></i></div>
+                    <div class="name-author">
+                      <a class="name d-block hover-primary fw-bold text-truncate" href="/view-nft/{{ nft.eth_address }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ nft.name }}">{{ nft.name }}</a>
+                      <a class="author d-block fz-12 hover-primary text-truncate" href="/profile/{{ nft.user.wallet_profile }}">@{{ nft.user.username }}</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="price text-end"><span class="fz-12 d-block">Current Bid</span>
+                    <h6 class="mb-0">{{ nft.current_price }} ETH</h6>
+                  </div>
+                </div>
+                <div class="col-12"><a class="btn btn-primary rounded-pill btn-sm mt-3 w-100" href="/view-nft/{{ nft.eth_address }}">Place Bid</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="col-12 text-center">
+          <p  style="color:white;">No NFTs found for your search.</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+{% endblock %}

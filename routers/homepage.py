@@ -1,5 +1,5 @@
 from fastapi.responses import HTMLResponse
-from fastapi import APIRouter, Request, status, Form, UploadFile, File, Depends, Response
+from fastapi import APIRouter, Request, status, Form, UploadFile, File, Depends, Response, Query
 from typing import Annotated, Optional
 from utils import db_dependency
 from fastapi.templating import Jinja2Templates
@@ -13,6 +13,7 @@ from starlette.datastructures import Headers
 import io
 #from sqlalchemy_file import File
 from fastapi import FastAPI, BackgroundTasks
+from typing import List, Optional
 
 from email_temp import send_welcome_email
 
@@ -805,3 +806,13 @@ def logout(request: Request, response: Response):
     return RedirectResponse(url="/login", status_code=303)
 
 
+
+
+
+@router.get("/search", response_class=HTMLResponse)
+def search_nfts(db:db_dependency, request: Request, q: Optional[str] = None):
+    results = []
+    if q:
+        statement = select(NFT).where(NFT.name.ilike(f"%{q}%"))
+        results = db.exec(statement).all()
+    return templates.TemplateResponse("search.html", {"request": request, "results": results, "query": q})
