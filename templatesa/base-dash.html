@@ -58,10 +58,10 @@
             <!-- Brand Logo -->
             <div class="admin-logo me-1 me-sm-3"><img src="/static/img/logoo.png" alt=""></div>
             <!-- Search Form -->
-            <div class="search-form position-relative d-flex align-items-center">
-              <input class="form-control" type="text" placeholder="Search">
+            <form method="get" action="/search" class="search-form position-relative d-flex align-items-center">
+              <input class="form-control" type="text" name="q" placeholder="Search NFT...">
               <button class="position-absolute" type="submit"><i class="bi bi-search"></i></button>
-            </div>
+            </form>
           </div>
           <!-- Header Meta -->
           <div class="header-meta d-flex align-items-center">

