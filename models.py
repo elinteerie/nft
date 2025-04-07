@@ -88,6 +88,7 @@ class NFT(SQLModel, table=True):
     is_auction: bool = Field(default=False)
     owner_id: int = Field(default=None, foreign_key="user.id")
     no_of_copies: int = Field(default=1)
+    timestamp: datetime = Field(default_factory=lambda: datetime(2025, 6, 30, 14, 19, 54))  
     user: User = Relationship(back_populates="nft")
     
     transactions: List["Transaction"] = Relationship(back_populates="nft", sa_relationship_kwargs={"cascade": "all, delete-orphan"})
