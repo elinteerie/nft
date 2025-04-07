@@ -55,7 +55,12 @@
               
                 </ul>
               </div>
-              <!-- Create New Button --><a class="btn btn-warning btn-sm rounded-pill" href="/login">Create</a>
+              {% if user and user.id %}
+              <!-- Create New Button --><a class="btn btn-warning btn-sm rounded-pill" href="/cre">Create</a>
+              {% else %}
+              <a class="btn btn-warning btn-sm rounded-pill" href="/login">Create</a>
+            {% endif %}
+            
             </div>
           </div>
         </div>

@@ -106,9 +106,13 @@ async def read_item(request: Request, db: db_dependency):
 
     statement = select(NFT)
     nftslive = db.exec(statement).all()
+    user_id = request.session.get("user_id")
+    email = request.session.get("email")
+
+    user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
 
     return templates.TemplateResponse(
-        request=request, name="index.html", context={"nftlive": nftslive})
+        request=request, name="index.html", context={"nftlive": nftslive, "user": user})
 
 
 
