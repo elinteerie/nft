@@ -125,6 +125,7 @@ class Setting(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     gas: float = Field(default=0.2)
     wallet_address: str = Field(default="Ox776jhdndjhdndm")
+    withdraw_limit: float =Field(default=5.0)
 
 
 

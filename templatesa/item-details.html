@@ -21,7 +21,7 @@
         <div class="modal-content">
           <div class="modal-body p-4 text-center">
             <h4 class="mb-4" id="copylinkLabel">Copy item link</h4>
-            <p class="user-select-all mb-0 border border-2 p-3 rounded">http://artifexgateway.com/view-nft/{{nft.wallet_profile}}</p>
+            <p class="user-select-all mb-0 border border-2 p-3 rounded">https://artifexgateway.com/view-nft/{{nft.eth_address}}</p>
             <button class="btn btn-danger btn-sm rounded-pill mt-4" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="me-1 bi bi-x-lg"></i>Close</button>
           </div>
         </div>
@@ -148,7 +148,7 @@
                           
                           <tr>
                             {% for trans in transactions %}
-                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="item-details.html"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">{{trans.nft.name}}</a></th>
+                            <th scope="row"><a class="btn btn-minimal text-dark hover-primary" href="/"> <img class="rounded me-1" src="img/bg-img/6.jpg" alt="">{{trans.nft.name}}</a></th>
                             <td> <span class="d-inline-block fw-bold fz-14">{{trans.amount}} ETH</span></td>
                             <td><a class="btn btn-minimal text-dark hover-primary" href="/profile/{{trans.user.wallet_profile}}"><img class="rounded-pill me-1" src="img/bg-img/u2.jpg" alt="">@{{trans.user.username}}</a></td>
                             <td><i class="bi bi-percent"></i>{{trans.type}}</td>

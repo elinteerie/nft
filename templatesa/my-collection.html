@@ -3,6 +3,16 @@
 
 {% block content %}
 
+<style>
+  .create-new-button {
+    position: fixed;
+    bottom: 20px;
+    left: 65%;
+    transform: translateX(-50%);
+    z-index: 1000; /* to keep it above other content */
+  }
+</style>
+
 
     <!-- Create New Button -->
     <div class="create-new-button"><a class="shadow-lg btn btn-warning" href="/cre" data-bs-toggle="tooltip" data-bs-placement="left" title="Create New NFT"><i class="fz-18 bi bi-plus-lg"></i></a></div>

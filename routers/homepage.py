@@ -429,10 +429,13 @@ def register(
 
     # Fetch user details from the database using session data
     user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+    setting = db.exec(select(Setting).where(Setting.id==1)).first()
+    limit = setting.withdraw_limit
+    print("limit:", limit)
 
 
     return templates.TemplateResponse(
-        request=request, name="withdraw-amount.html",context= {"request": request, "user": user})
+        request=request, name="withdraw-amount.html",context= {"request": request, "user": user, "limit": limit})
 
 
 
@@ -562,7 +565,7 @@ def register(
 
 
 
-@router.get("/withdraw/amount")
+@router.get("/withdraw/amounta")
 def register(
     request: Request,
     db: db_dependency,
@@ -573,10 +576,13 @@ def register(
 
     # Fetch user details from the database using session data
     user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+    setting = db.exec(select(Setting).where(Setting.id==1)).first()
+    limit = setting.withdraw_limit
+    print("limit:", limit)
 
 
     return templates.TemplateResponse(
-        request=request, name="withdraw-amount-view.html",context= {"request": request, "user": user})
+        request=request, name="withdraw-amount.html",context= {"request": request, "user": user, "limit": limit})
 
 
 
@@ -601,9 +607,12 @@ def register(
     
     # Fetch user details from the database using session data
     user = db.exec(select(User).where(User.id == user_id, User.email == email)).first()
+    setting = db.exec(select(Setting).where(Setting.id==1)).first()
+    limit = setting.withdraw_limit
+    print("limit:", limit)
 
-    if amount < 3.0:
-        error_message = "The Minimal Withdraw is 3 ETH"
+    if amount < limit:
+        error_message = f"The Minimal Withdraw is {limit} ETH"
         return templates.TemplateResponse(
         request=request, name="withdraw-amount-view.html",context= {"request": request, "user": user, "error_message": error_message})
 
